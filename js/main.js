@@ -7,6 +7,8 @@ togglePasswordVisibility();
 closeRecoveryForm();
 showResendBtn();
 sendEmailAgain();
+signUpForm();
+enableBtns();
 
 function togglePasswordVisibility() {
   const toggleBtns = document.querySelectorAll('.toggle-password__btn');
@@ -77,16 +79,6 @@ function closeRecoveryForm(id) {
   });
 }
 
-function escapeCloseLogInModal() {
-  const logInModal = document.getElementById('logInModal');
-  const recoveryModal = document.getElementById('recoveryModal');
-
-  recoveryModal.addEventListener('shown.bs.modal', function () {
-    logInModal.modal({backdrop: 'static', keyboard: false});
-  });
-}
-
-
 function signUpForm() {
   const form = document.querySelector('.sign-up__form');
   const formBtn = document.querySelector('.sign-up__btn');
@@ -101,6 +93,7 @@ function signUpForm() {
     stepsItemFirst.classList.add('success-step');
     stepsItemSecond.classList.add('active-step');
     formBtn.textContent = 'Sign Up';
+    formBtn.setAttribute("disabled", null);
   });
 
 }
@@ -119,4 +112,31 @@ function signUpFormData(form) {
   });
 }
 
-signUpForm();
+function enableBtn(form) {
+  const inputs = form.querySelectorAll('input');
+  const formBtn = form.querySelector('button');
+
+  inputs.forEach(input => {
+   input.addEventListener('keyup', () => {
+    const inputValue = input.value;
+
+    if(inputValue != '') {
+      formBtn.removeAttribute('disabled');
+    } else {
+      formBtn.setAttribute('disabled', null);
+    }
+   });
+  });
+}
+
+function enableBtns() {
+  const logInForm = document.querySelector('.login');
+  const signUpForm = document.querySelector('.sign-up');
+  const recoveryModalForm = document.querySelector('.recovery-modal__form');
+  const passwRecoveryForm = document.querySelector('.passw-recovery__form');
+  
+  enableBtn(logInForm);
+  enableBtn(signUpForm);
+  enableBtn(recoveryModalForm);
+  enableBtn(passwRecoveryForm);
+}

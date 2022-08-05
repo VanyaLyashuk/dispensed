@@ -7582,7 +7582,7 @@ body {
 
 .main-btn {
   font: 16px/1.5 "Strawford", sans-serif !important;
-  background: rgba(6, 10, 32, 0.15) !important;
+  background: rgb(6, 10, 32) !important;
   width: 100%;
   display: block;
   color: #fff !important;
@@ -7591,10 +7591,8 @@ body {
   border-radius: 16px;
 }
 
-.main-btn:hover,
-.main-btn:active {
-  background: rgb(6, 10, 32) !important;
-  color: #fff !important;
+.main-btn:disabled {
+  background: rgba(6, 10, 32, 0.15) !important;
 }
 
 .main-btn--white {
