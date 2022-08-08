@@ -7562,6 +7562,16 @@ body {
   color: #B4BAC2;
 }
 
+.auth-modal .toggle-password .auth-modal__input:invalid+.toggle-password__btn {
+  right: 35px;
+  top: 50%;
+}
+
+.auth-modal .toggle-password .auth-modal__input.auth-modal__input--message:invalid+.toggle-password__btn {
+  right: 35px;
+  top: calc(50% - 17px);
+}
+
 .auth-modal__inner-row {
   margin-bottom: 8px;
 }
@@ -7662,6 +7672,14 @@ body {
   position: relative;
 }
 
+.password-rools__item.error {
+  color: red;
+}
+
+.password-rools__item.error:before {
+  background: red;
+}
+
 .password-rools__item:before {
   background: #0E7058;
   content: "";
@@ -7675,6 +7693,12 @@ body {
 
 .password-rools__item:not(:last-of-type) {
   margin-bottom: 8px;
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  background: #fff !important;
+  border-color: #060A20;
 }
 
 /* Main Styles */
@@ -8063,6 +8087,14 @@ body {
   .sign-up__agree input:checked~.sign-up__checkbox {
     background: #4FCFB0 url(../img/sign-up-check-icon.svg) center center no-repeat;
   }
+}
+
+@media screen and (min-width: 357px) {
+  .auth-modal .toggle-password .auth-modal__input.auth-modal__input--message:invalid+.toggle-password__btn {
+    top: calc(50% - 9px);
+  }
+
+  @supports (-webkit-appearance:none) {}
 }
 
 @media screen and (min-width: 360px) {
@@ -10522,7 +10554,7 @@ body {
 
   .no-webp .auth-modal__modal-header {
     background-image: url(../img/popup-bg.jpg);
-    background-size: auto 610px;
+    background-size: cover;
     background-position: -3px top;
   }
 
@@ -11782,11 +11814,11 @@ body {
   }
 
   .webp .auth-modal__modal-header {
-    background-size: auto 625px;
+    background-size: cover;
   }
 
   .no-webp .auth-modal__modal-header {
-    background-size: auto 625px;
+    background-size: cover;
   }
 
   .passw-recovery__modal-content {

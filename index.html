@@ -175,20 +175,22 @@
             <use xlink:href="#home-icon"></use>
           </svg>
           <h3 class="auth-modal__title login__title text-bold">Log In Account</h3>
-          <form class="auth-modal__form login__form form" method="POST" action="#">
+          <form class="auth-modal__form login__form form needs-validation" novalidate>
             <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium" for="logInEmail">Your
                 Email<span class="main-accent">*</span></label> <input
                 class="form-control auth-modal__input login__input--email" id="logInEmail" type="email"
-                placeholder="Enter your email" required> </div>
+                placeholder="Enter your email" required>
+              <div class="invalid-feedback">Please provide a valid Email</div>
+            </div>
             <div class="auth-modal__row">
               <div class="auth-modal__inner-row d-flex justify-content-between"> <label
                   class="form-label auth-modal__label text-medium" for="logInPassword"> Your Password<span
                     class="main-accent">*</span></label><a class="auth-modal__link auth-modal__link--forgot-pass"
                   href="" data-bs-toggle="modal" data-bs-target="#recoveryModal">Forgot Password?</a> </div>
-              <div class="auth-modal__toggle-password toggle-password">
-                <div class="toggle-password__btn"></div> <input
+              <div class="auth-modal__toggle-password toggle-password"> <input
                   class="form-control auth-modal__input login__input--password" type="password"
                   placeholder="Enter your password" required>
+                <div class="toggle-password__btn"></div>
               </div>
             </div> <button class="btn main-btn login__btn" disabled>Log in</button>
           </form>
@@ -207,17 +209,19 @@
             password.</p>
         </div>
         <div class="modal-body auth-modal__modal-body recovery-modal__modal-body">
-          <form class="auth-modal__form recovery-modal__form form">
+          <form class="auth-modal__form recovery-modal__form form needs-validation" novalidate>
             <div class="auth-modal__row recovery-modal__row"> <label class="form-label auth-modal__label text-medium"
                 for="recoveryEmail">Your Email<span class="main-accent">*</span></label> <input
                 class="form-control auth-modal__input recovery-modal__input--email" id="recoveryEmail" type="email"
                 placeholder="Enter your email" required>
+              <div class="invalid-feedback">Please provide a valid Email</div>
               <p class="resend-email recovery-modal__resend-email"> <span class="first">Letter sent!</span><a
                   class="resend-email__link text-medium isDisabled" href="#">Send again?</a><span
                   class="resend-email__timer"><span class="resend-email__sec">30&nbsp;</span>sec.</span></p>
-            </div> <button class="btn main-btn recovery-modal__btn" disabled>Forgot Password</button>
-          </form> <button class="btn main-btn main-btn--white recovery-modal__btn recovery-modal__btn--cancel"
-            data-bs-dismiss="modal">Cancel</button>
+            </div> <button class="btn main-btn recovery-modal__btn recovery-modal__btn--passw-forgot" disabled>Forgot
+              Password</button>
+          </form><a class="btn main-btn main-btn--white recovery-modal__btn recovery-modal__btn--cancel"
+            data-bs-dismiss="modal">Cancel</a>
         </div>
       </div>
     </div>
@@ -239,29 +243,35 @@
             <li class="sign-up-steps__item sign-up-steps__item--first active-step text-medium">Information</li>
             <li class="sign-up-steps__item sign-up-steps__item--second text-medium">Password</li>
           </ul>
-          <form class="auth-modal__form sign-up__form form" method="POST" action="#">
+          <form class="auth-modal__form sign-up__form form form needs-validation" novalidate>
             <div class="sign-up__first-step">
-              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium">Your Email<span
-                    class="main-accent">*</span></label> <input
-                  class="form-control auth-modal__input sign-up__input--email" type="email" name="email"
-                  placeholder="Enter your email" required> </div>
+              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium"
+                  for="signUpEmail">Your Email<span class="main-accent">*</span></label> <input
+                  class="form-control auth-modal__input sign-up__input--email" id="signUpEmail" type="email"
+                  name="email" placeholder="Enter your email" required>
+                <div class="invalid-feedback">Please provide a valid Email</div>
+              </div>
               <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium">First Name<span
                     class="main-accent">*</span></label> <input
                   class="form-control auth-modal__input sign-up__input--first-name" type="text" name="first_name"
-                  placeholder="Enter first name" required> </div>
+                  placeholder="Enter first name" required>
+                <div class="invalid-feedback">Please enter your First name</div>
+              </div>
               <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium">Last Name<span
                     class="main-accent">*</span></label> <input
                   class="form-control auth-modal__input sign-up__input--last-name" type="text" name="last_name"
-                  placeholder="Enter last name" required> </div>
+                  placeholder="Enter last name" required>
+                <div class="invalid-feedback">Please enter your Last name</div>
+              </div>
             </div>
             <div class="sign-up__second-step">
               <div class="auth-modal__row">
                 <div class="auth-modal__inner-row d-flex justify-content-between"> <label
                     class="form-label auth-modal__label text-medium"> New Password<span
                       class="main-accent">*</span></label> </div>
-                <div class="auth-modal__toggle-password toggle-password">
-                  <div class="toggle-password__btn"></div> <input class="form-control auth-modal__input"
-                    id="newPassword" type="password" name="new-password" placeholder="Enter new password" required>
+                <div class="auth-modal__toggle-password toggle-password"> <input class="form-control auth-modal__input"
+                    id="newPassword" type="password" name="password" placeholder="Enter new password">
+                  <div class="toggle-password__btn"></div>
                 </div>
               </div>
               <div class="alert alert-success password-rools">
@@ -271,30 +281,37 @@
                   <h3 class="auth-modal__title password-rools__title text-bold">New Password</h3>
                 </div>
                 <ul class="password-rools__list">
-                  <li class="password-rools__item">Your password can't be too similar to your other personal information
+                  <li class="password-rools__item password-rools__item--similar">Your password can't be too similar to
+                    your other personal information </li>
+                  <li class="password-rools__item password-rools__item--length">Your password must contain at least 8
+                    characters. </li>
+                  <li class="password-rools__item password-rools__item--used">Your password can't be a commonly used
+                    password. </li>
+                  <li class="password-rools__item password-rools__item--numeric">Your password can't be entirely numeric
                   </li>
-                  <li class="password-rools__item">Your password must contain at least 8 characters. </li>
-                  <li class="password-rools__item">Your password can't be a commonly used password. </li>
-                  <li class="password-rools__item">Your password can't be entirely numeric </li>
                 </ul>
               </div>
               <div class="auth-modal__row">
                 <div class="auth-modal__inner-row d-flex justify-content-between"> <label
                     class="form-label auth-modal__label text-medium"> Confirm Password<span
                       class="main-accent">*</span></label> </div>
-                <div class="auth-modal__toggle-password toggle-password">
-                  <div class="toggle-password__btn"></div> <input class="form-control auth-modal__input"
-                    id="confirmPassword" type="password" name="confirm-password" placeholder="Enter confirm password"
-                    required>
+                <div class="auth-modal__toggle-password toggle-password"> <input
+                    class="form-control auth-modal__input auth-modal__input--message" id="confirmPassword"
+                    type="password" name="confirm_password" placeholder="Enter confirm password">
+                  <div class="toggle-password__btn"></div>
+                  <div class="invalid-feedback">Your password and confirmation password do not match.</div>
                 </div>
               </div>
               <div class="auth-modal__row sign-up__agree"> <label for="signUpCheckbox"><span
                     class="sign-up__agree-text">I agree to the <a href="#">Terms of Use</a></span> <input
-                    id="signUpCheckbox" type="checkbox" required><span class="sign-up__checkbox"></span> </label> </div>
-            </div> <button class="btn main-btn sign-up__btn" type="button" disabled>Next Step</button>
+                    class="form-check-input" id="signUpCheckbox" type="checkbox" required>
+                  <div class="invalid-feedback">You must agree before submitting.</div><span
+                    class="sign-up__checkbox"></span>
+                </label> </div>
+            </div> <button class="btn main-btn sign-up__btn" disabled>Next Step</button>
           </form>
           <p class="auth-modal__footer">Already registered? <a class="auth-modal__link sign-up__link--sign-up" href=""
-              data-bs-toggle="modal" data-bs-target="#logInModal">Log In Now</a></p>
+              data-bs-toggle="modal" data-bs-target="#logInModal">Log In Now.</a></p>
         </div>
       </div>
     </div>
@@ -312,15 +329,15 @@
             <use xlink:href="#lock-icon"></use>
           </svg>
           <h3 class="auth-modal__title passw-recovery__title text-bold">New pasword</h3>
-          <form class="auth-modal__form passw-recovery__form form" method="POST" action="#">
+          <form class="auth-modal__form passw-recovery__form form needs-validation" novalidate>
             <div class="auth-modal__row">
               <div class="auth-modal__inner-row d-flex justify-content-between"> <label
                   class="form-label auth-modal__label text-medium"> New Password<span
                     class="main-accent">*</span></label> </div>
-              <div class="auth-modal__toggle-password toggle-password">
-                <div class="toggle-password__btn"></div> <input
-                  class="form-control auth-modal__input passw-recovery__input--first-pass" type="password"
-                  placeholder="Enter new password" required>
+              <div class="auth-modal__toggle-password toggle-password"> <input
+                  class="form-control auth-modal__input passw-recovery__input--new-pass" type="password"
+                  name="new_password" placeholder="Enter new password" required>
+                <div class="toggle-password__btn"></div>
               </div>
             </div>
             <div class="alert alert-success password-rools">
@@ -330,21 +347,27 @@
                 <h3 class="auth-modal__title password-rools__title text-bold">New Password</h3>
               </div>
               <ul class="password-rools__list">
-                <li class="password-rools__item">Your password can't be too similar to your other personal information
-                </li>
-                <li class="password-rools__item">Your password must contain at least 8 characters. </li>
-                <li class="password-rools__item">Your password can't be a commonly used password. </li>
-                <li class="password-rools__item">Your password can't be entirely numeric </li>
+                <ul class="password-rools__list">
+                  <li class="password-rools__item password-rools__item--similar">Your password can't be too similar to
+                    your other personal information </li>
+                  <li class="password-rools__item password-rools__item--length">Your password must contain at least 8
+                    characters. </li>
+                  <li class="password-rools__item password-rools__item--used">Your password can't be a commonly used
+                    password. </li>
+                  <li class="password-rools__item password-rools__item--numeric">Your password can't be entirely numeric
+                  </li>
+                </ul>
               </ul>
             </div>
             <div class="auth-modal__row">
               <div class="auth-modal__inner-row d-flex justify-content-between"> <label
                   class="form-label auth-modal__label text-medium"> Confirm Password<span
                     class="main-accent">*</span></label> </div>
-              <div class="auth-modal__toggle-password toggle-password">
-                <div class="toggle-password__btn"></div> <input
-                  class="form-control auth-modal__input passw-recovery__input--second-pass" type="password"
-                  placeholder="Enter confirm password" required>
+              <div class="auth-modal__toggle-password toggle-password"> <input
+                  class="form-control auth-modal__input passw-recovery__input--conf-pass auth-modal__input--message"
+                  type="password" name="confirm_new_password" placeholder="Enter confirm password" required>
+                <div class="toggle-password__btn"></div>
+                <div class="invalid-feedback">Your password and confirmation password do not match.</div>
               </div>
             </div> <button class="btn main-btn passw-recovery__btn" disabled>Restore Access</button>
           </form>
@@ -405,6 +428,7 @@
         fill="white"></path>
     </symbol>
   </svg>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
 </body>
