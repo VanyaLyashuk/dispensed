@@ -7349,7 +7349,7 @@ select:-moz-focusring {
 }
 
 body {
-  font: 14px "Ubuntu", sans-serif;
+  font: 14px "Strawford", sans-serif;
 }
 
 html {
@@ -7702,6 +7702,236 @@ body {
 }
 
 /* Main Styles */
+
+.navbar {
+  background: #060A20;
+  margin-top: 8px;
+  width: 100%;
+  max-width: calc(100% - 16px);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 24px;
+  padding: 18px 0;
+  overflow: hidden;
+}
+
+.navbar-collapse {
+  width: 100% !important;
+}
+
+.navbar-brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.navbar-nav {
+  margin-top: 32px;
+  margin-bottom: 0 !important;
+}
+
+.navbar__logo {
+  width: 118px;
+  height: 14px;
+}
+
+.navbar .nav-item {
+  font-family: "Strawford", sans-serif;
+  font-weight: 600;
+  padding-left: 40px;
+  position: relative;
+}
+
+.navbar .nav-item:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background-size: contain;
+}
+
+.navbar .nav-item--home:before {
+  width: 19px;
+  height: 20px;
+  background: url(../img/home-icon.svg) 50% 50% no-repeat;
+}
+
+.navbar .nav-item--profile:before {
+  width: 16.34px;
+  height: 20px;
+  left: 2px;
+  background: url(../img/profile-icon.svg) 50% 50% no-repeat;
+}
+
+.navbar .nav-item--consultation:before {
+  width: 24px;
+  height: 24px;
+  background: url(../img/speech-balloon-icon.svg) 50% 50% no-repeat;
+}
+
+.navbar .nav-item--documents:before {
+  width: 16px;
+  height: 20px;
+  left: 4px;
+  background: url(../img/doc-icon.svg) 50% 50% no-repeat;
+}
+
+.navbar .nav-item--plan:before {
+  width: 19px;
+  height: 19px;
+  left: 2px;
+  background: url(../img/cart-icon.svg) 50% 50% no-repeat;
+}
+
+.navbar .nav-item--log-out:before {
+  width: 20px;
+  height: 20px;
+  left: 4px;
+  background: url(../img/log-out-icon.svg) 50% 50% no-repeat;
+}
+
+.navbar .nav-item--passw-recovery {
+  margin-bottom: 64px;
+}
+
+.navbar .nav-item a {
+  color: #fff;
+  font-size: 16px;
+}
+
+.navbar .nav-link {
+  padding: 10px 0 !important;
+  position: relative;
+}
+
+.navbar .nav-link:after {
+  background: #fff;
+  content: "";
+  width: 8px;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: -16px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.4s linear;
+  -o-transition: opacity 0.4s linear;
+  transition: opacity 0.4s linear;
+}
+
+.navbar .nav-link:hover:after,
+.navbar .nav-link:focus:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar .container-fluid {
+  padding: 0 16px;
+}
+
+.navbar .navbar-toggler {
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+.navbar .navbar-toggler:focus {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.navbar .navbar-toggler-icon {
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff !important;
+  position: relative;
+  bottom: 2px;
+  -webkit-transition: background 0s linear 0.3s;
+  -o-transition: background 0s linear 0.3s;
+  transition: background 0s linear 0.3s;
+}
+
+.navbar .navbar-toggler-icon:before,
+.navbar .navbar-toggler-icon:after {
+  background: #fff;
+  content: "";
+  height: 2px;
+  border-radius: 2px;
+  position: absolute;
+  right: 0;
+}
+
+.navbar .navbar-toggler-icon:before {
+  width: 9px;
+  top: -8px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: top 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
+  transition: top 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
+  -o-transition: transform 0.3s linear, top 0.3s linear 0.3s, width 0s linear 0.3s;
+  transition: transform 0.3s linear, top 0.3s linear 0.3s, width 0s linear 0.3s;
+  transition: transform 0.3s linear, top 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
+}
+
+.navbar .navbar-toggler-icon:after {
+  width: 15px;
+  bottom: -8px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: bottom 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
+  transition: bottom 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
+  -o-transition: transform 0.3s linear, bottom 0.3s linear 0.3s, width 0s linear 0.3s;
+  transition: transform 0.3s linear, bottom 0.3s linear 0.3s, width 0s linear 0.3s;
+  transition: transform 0.3s linear, bottom 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
+}
+
+.navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon {
+  background: #060A20 !important;
+}
+
+.navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:before,
+.navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:after {
+  width: 21px;
+}
+
+.navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:before {
+  top: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: top 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
+  transition: top 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
+  -o-transition: transform 0.3s linear 0.3s, top 0.3s linear, width 0s linear 0.3s;
+  transition: transform 0.3s linear 0.3s, top 0.3s linear, width 0s linear 0.3s;
+  transition: transform 0.3s linear 0.3s, top 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
+}
+
+.navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:after {
+  bottom: 0;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition: bottom 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
+  transition: bottom 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
+  -o-transition: transform 0.3s linear 0.3s, bottom 0.3s linear, width 0s linear 0.3s;
+  transition: transform 0.3s linear 0.3s, bottom 0.3s linear, width 0s linear 0.3s;
+  transition: transform 0.3s linear 0.3s, bottom 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
+}
 
 .news {
   list-style: none;
@@ -8080,6 +8310,30 @@ body {
     background: url(../img/popup-bg--mob.webp) 20% 10% no-repeat;
   }
 
+  .navbar .nav-item--home:before {
+    background: url(../img/home-icon.svg) 50% 50% no-repeat;
+  }
+
+  .navbar .nav-item--profile:before {
+    background: url(../img/profile-icon.svg) 50% 50% no-repeat;
+  }
+
+  .navbar .nav-item--consultation:before {
+    background: url(../img/speech-balloon-icon.svg) 50% 50% no-repeat;
+  }
+
+  .navbar .nav-item--documents:before {
+    background: url(../img/doc-icon.svg) 50% 50% no-repeat;
+  }
+
+  .navbar .nav-item--plan:before {
+    background: url(../img/cart-icon.svg) 50% 50% no-repeat;
+  }
+
+  .navbar .nav-item--log-out:before {
+    background: url(../img/log-out-icon.svg) 50% 50% no-repeat;
+  }
+
   .recovery-modal__title:before {
     background: url(../img/lock-icon.svg) 50% 50% no-repeat;
   }
@@ -8122,6 +8376,10 @@ body {
 
   .title {
     font-size: 30px;
+  }
+
+  .navbar {
+    max-width: calc(100% - 32px);
   }
 
   @supports (-webkit-appearance:none) {}
@@ -11793,8 +12051,66 @@ body {
     margin-bottom: 24px;
   }
 
-  .header .nav-item:not(:last-of-type) .btn.btn-primary {
-    margin-right: 5px;
+  html,
+  body {
+    overflow: hidden !important;
+  }
+
+  .navbar {
+    height: 100vh;
+    max-width: 224px;
+    margin: 0 !important;
+    border-radius: 0;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding-top: 42.66px !important;
+  }
+
+  .navbar-brand {
+    margin-right: auto;
+    margin-bottom: 92px;
+  }
+
+  .navbar-nav {
+    height: 100%;
+    margin-top: 0 !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+  }
+
+  .navbar .nav-item:not(:last-of-type) {
+    margin-bottom: 24px;
+  }
+
+  .navbar .nav-item:last-of-type {
+    margin-top: auto;
+  }
+
+  .navbar .nav-item--login,
+  .navbar .nav-item--sign-up {
+    padding-left: 0;
+  }
+
+  .navbar .nav-item--passw-recovery {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  .navbar .nav-link:after {
+    right: -30px;
+  }
+
+  .navbar .container-fluid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: calc(100vh - 83px);
+    padding-left: 42px;
+    padding-right: 30px;
   }
 
   .login__btn {

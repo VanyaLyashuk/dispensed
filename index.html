@@ -143,25 +143,32 @@
 </head>
 
 <body>
-  <header class="header">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid"><a class="navbar-brand" href="#">Dispensed</a> <button class="navbar-toggler"
-          type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-            class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"> <button class="btn" data-bs-toggle="modal" data-bs-target="#logInModal">Log
-                in</button> </li>
-            <li class="nav-item"> <button class="btn" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign
-                up</button> </li>
-            <li class="nav-item"> <button class="btn" data-bs-toggle="modal"
-                data-bs-target="#passwordRecoveryModal">Password Recovery</button> </li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-lg col-lg-3">
+    <div class="container-fluid"><a class="navbar-brand" href="#"> <svg class="navbar__logo">
+          <use xlink:href="#logo"></use>
+        </svg></a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item nav-item--home"><a class="nav-link" aria-current="page" href="#">Home</a></li>
+          <li class="nav-item nav-item--profile"><a class="nav-link" aria-current="page" href="#">Profile</a></li>
+          <li class="nav-item nav-item--consultation"><a class="nav-link" aria-current="page" href="#">Consultation</a>
+          </li>
+          <li class="nav-item nav-item--documents"><a class="nav-link" aria-current="page" href="#">Documents</a></li>
+          <li class="nav-item nav-item--plan"><a class="nav-link" aria-current="page" href="#">Treatment Plan</a></li>
+          <li class="nav-item nav-item--login"><a class="nav-link" data-bs-toggle="modal" href="#logInModal"
+              role="button">Log in</a></li>
+          <li class="nav-item nav-item--sign-up"><a class="nav-link" data-bs-toggle="modal" href="#signUpModal"
+              role="button">Sign up</a></li>
+          <li class="nav-item nav-item--passw-recovery"><a class="nav-link" data-bs-toggle="modal"
+              href="#passwordRecoveryModal" role="button">Password Recovery</a></li>
+          <li class="nav-item nav-item--log-out"><a class="nav-link" data-bs-toggle="modal" href="#logOutModal"
+              role="button">Log Out</a></li>
+        </ul>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
   <div class="modal auth-modal login fade" id="logInModal">
     <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog login__modal-dialog">
       <div class="modal-content auth-modal__modal-content login__modal-content">
@@ -200,7 +207,7 @@
       </div>
     </div>
   </div>
-  <div class="modal auth-modal recovery-modal" id="recoveryModal">
+  <div class="modal auth-modal recovery-modal fade" id="recoveryModal">
     <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog recovery-modal__modal-dialog">
       <div class="modal-content auth-modal__modal-content recovery-modal__modal-content">
         <div class="modal-header auth-modal__modal-header recovery-modal__modal-header">
