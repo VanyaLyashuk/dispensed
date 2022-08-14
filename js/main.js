@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   sendEmailAgain();
   enableBtns();
   togglePasswordVisibility();
-  
-  
+
+
   function signUpForm() {
     const form = document.querySelector('.sign-up__form');
     const formEmail = form.querySelector('.sign-up__input--email');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const formBtn = document.querySelector('.sign-up__btn');
     const stepsItemFirst = document.querySelector('.sign-up-steps__item--first');
     const stepsItemSecond = document.querySelector('.sign-up-steps__item--second');
-    
+
     formBtn.addEventListener('click', e => {
       if (!formEmail.checkValidity() || !firstName.checkValidity() || !lastName.checkValidity()) {
         e.preventDefault();
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
           e.preventDefault();
           formBtn.removeAttribute('disabled');
           form.classList.add('was-validated');
-          
+
           if (!validatePassword(form, newPassw, confPassw)) {
             e.preventDefault();
             e.stopPropagation();
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }
-      
+
     });
   }
 

@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dispensed </title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <script data-polyfil="webp">
     ! function (e, n, A) {
@@ -143,32 +144,125 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg col-lg-3">
-    <div class="container-fluid"><a class="navbar-brand" href="#"> <svg class="navbar__logo">
-          <use xlink:href="#logo"></use>
-        </svg></a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item nav-item--home"><a class="nav-link" aria-current="page" href="#">Home</a></li>
-          <li class="nav-item nav-item--profile"><a class="nav-link" aria-current="page" href="#">Profile</a></li>
-          <li class="nav-item nav-item--consultation"><a class="nav-link" aria-current="page" href="#">Consultation</a>
-          </li>
-          <li class="nav-item nav-item--documents"><a class="nav-link" aria-current="page" href="#">Documents</a></li>
-          <li class="nav-item nav-item--plan"><a class="nav-link" aria-current="page" href="#">Treatment Plan</a></li>
-          <li class="nav-item nav-item--login"><a class="nav-link" data-bs-toggle="modal" href="#logInModal"
-              role="button">Log in</a></li>
-          <li class="nav-item nav-item--sign-up"><a class="nav-link" data-bs-toggle="modal" href="#signUpModal"
-              role="button">Sign up</a></li>
-          <li class="nav-item nav-item--passw-recovery"><a class="nav-link" data-bs-toggle="modal"
-              href="#passwordRecoveryModal" role="button">Password Recovery</a></li>
-          <li class="nav-item nav-item--log-out"><a class="nav-link" data-bs-toggle="modal" href="#logOutModal"
-              role="button">Log Out</a></li>
-        </ul>
+  <div class="page-wrapper row">
+    <nav class="navbar navbar-expand-lg col-lg-3">
+      <div class="container-fluid"><a class="navbar-brand" href="#"> <svg class="navbar__logo">
+            <use xlink:href="#logo"></use>
+          </svg></a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item nav-item--home"><a class="nav-link" aria-current="page" href="#">Home</a></li>
+            <li class="nav-item nav-item--profile"><a class="nav-link" aria-current="page" href="#">Profile</a></li>
+            <li class="nav-item nav-item--consultation"><a class="nav-link" aria-current="page"
+                href="#">Consultation</a></li>
+            <li class="nav-item nav-item--documents"><a class="nav-link" aria-current="page" href="#">Documents</a></li>
+            <li class="nav-item nav-item--plan"><a class="nav-link" aria-current="page" href="#">Treatment Plan</a></li>
+            <li class="nav-item nav-item--login"><a class="nav-link" data-bs-toggle="modal" href="#logInModal"
+                role="button">Log in</a></li>
+            <li class="nav-item nav-item--sign-up"><a class="nav-link" data-bs-toggle="modal" href="#signUpModal"
+                role="button">Sign up</a></li>
+            <li class="nav-item nav-item--passw-recovery"><a class="nav-link" data-bs-toggle="modal"
+                href="#passwordRecoveryModal" role="button">Password Recovery</a></li>
+            <li class="nav-item nav-item--log-out"><a class="nav-link" data-bs-toggle="modal" href="#logOutModal"
+                role="button">Log Out</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+    <main class="main col-lg-9">
+      <nav class="breadcrumb-nav" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Data</li>
+        </ol>
+      </nav>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation"> <button class="nav-link active" id="profile-tab" data-bs-toggle="tab"
+            data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
+            aria-selected="true">Profile</button> </li>
+        <li class="nav-item" role="presentation"> <button class="nav-link" id="address-tab" data-bs-toggle="tab"
+            data-bs-target="#address" type="button" role="tab" aria-controls="address"
+            aria-selected="false">Address</button> </li>
+        <li class="nav-item" role="presentation"> <button class="nav-link" id="password-tab" data-bs-toggle="tab"
+            data-bs-target="#password" type="button" role="tab" aria-controls="password"
+            aria-selected="false">Password</button> </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <form class="form profile-form auth-modal__form needs-validation" novalidate>
+            <div class="profile-form__wrapper">
+              <h3 class="auth-modal__title profile-form__title text-bold">User Information</h3>
+              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium">First Name<span
+                    class="main-accent">*</span></label> <input
+                  class="form-control auth-modal__input profile-form__input--first-name" type="text" name="first_name"
+                  placeholder="Enter first name" required>
+                <div class="invalid-feedback">Please enter your First name</div>
+              </div>
+              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium">Last Name<span
+                    class="main-accent">*</span></label> <input
+                  class="form-control auth-modal__input profile-form__input--last-name" type="text" name="last_name"
+                  placeholder="Enter last name" required>
+                <div class="invalid-feedback">Please enter your Last name</div>
+              </div>
+              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium"
+                  for="profileEmail">Your Email<span class="main-accent">*</span></label> <input
+                  class="form-control auth-modal__input profile-form__input--email" id="profileEmail" type="email"
+                  name="email" placeholder="Enter your email" required>
+                <div class="invalid-feedback">Please provide a valid Email</div>
+              </div>
+              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium"
+                  for="profileAge">Date of Birth<span class="main-accent">*</span></label> <input
+                  class="form-control auth-modal__input profile-form__input--email" id="profileAge" type="text"
+                  name="age" placeholder="dd/mm/yyyy" data-inputmask-alias="datetime"
+                  data-inputmask-inputformat="dd/mm/yyyy" required>
+                <div class="invalid-feedback">Please provide a valid Age</div>
+              </div>
+              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium"
+                  for="profilePhone">Phone<span class="main-accent">*</span></label> <input
+                  class="form-control auth-modal__input profile-form__input--email" id="profilePhone" type="number"
+                  name="phone" placeholder="+6 000 000 000" required>
+                <div class="invalid-feedback">Please provide a phone number</div>
+              </div>
+              <div class="auth-modal__row profile-form__row--gender"> <label
+                  class="form-label auth-modal__label text-medium" for="profilePhone">Gender<span
+                    class="main-accent">*</span></label>
+                <div class="row profile-form__radio-wrapper">
+                  <div class="form-check"> <input class="form-check-input" id="validationFormCheck2" type="radio"
+                      checked name="radio-stacked" required=""> <label class="form-check-label"
+                      for="validationFormCheck2">Male</label> </div>
+                  <div class="form-check"> <input class="form-check-input" id="validationFormCheck3" type="radio"
+                      name="radio-stacked" required=""> <label class="form-check-label"
+                      for="validationFormCheck3">Female</label>
+                    <div class="invalid-feedback">Please provide a valid gender</div>
+                  </div>
+                </div>
+              </div>
+              <div class="profile-form__delete-account profile-form-delete-account">
+                <div class="profile-form-delete-account__header profile-form__header">
+                  <h3 class="auth-modal__title profile-form__title--delete text-bold">Delete account</h3>
+                  <p class="profile-form__subtitle">Deleting an account is an irreversible process. All&nbsp;information
+                    will be <br>completely deleted!</p>
+                </div><a class="btn profile-form__delete-btn" href="#deleteAccountModal" data-bs-toggle="modal"
+                  role="button">Delete Account</a>
+              </div>
+              <div class="auth-modal__bar profile-form__bar"></div>
+              <div class="profile-form__logout profile-form-logout">
+                <div class="profile-form-logout__header profile-form__header">
+                  <h3 class="auth-modal__title profile-form__title--logout text-bold">Log Out Account</h3>
+                  <p class="profile-form__subtitle">To re-login, you will need to enter your username and password.</p>
+                </div><a class="btn main-btn profile-form__logout-btn" href="#logOutModal" data-bs-toggle="modal"
+                  role="button">Log Out</a>
+              </div>
+            </div> <button class="btn main-btn profile-form__submit" disabled>Save changes</button>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">...</div>
+        <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">...</div>
+      </div>
+    </main>
+  </div>
   <div class="modal auth-modal login fade" id="logInModal">
     <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog login__modal-dialog">
       <div class="modal-content auth-modal__modal-content login__modal-content">
@@ -323,6 +417,42 @@
       </div>
     </div>
   </div>
+  <div class="modal auth-modal logout-modal fade" id="logOutModal">
+    <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog logout-modal__modal-dialog">
+      <div class="modal-content auth-modal__modal-content logout-modal__modal-content">
+        <div class="modal-body auth-modal__modal-body logout-modal__modal-body"> <svg class="logout-modal__out-icon">
+            <use xlink:href="#logout-icon"></use>
+          </svg>
+          <h3 class="logout-modal__title text-bold">Log Out Account</h3>
+          <p class="logout-modal__subtitle">Are you sure you want to Log Out?</p>
+          <form class="auth-modal__form logout-modal__form form needs-validation" novalidate>
+            <div class="logout-modal__row"><a class="btn main-btn logout-modal__btn--upprove"
+                data-answer="yes">Yes</a><a class="btn main-btn logout-modal__btn--decline" data-answer="no">No</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal auth-modal del-account-modal fade" id="deleteAccountModal">
+    <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog del-account-modal__modal-dialog">
+      <div class="modal-content auth-modal__modal-content del-account-modal__modal-content">
+        <div class="modal-body auth-modal__modal-body del-account-modal__modal-body"> <svg
+            class="del-account-modal__out-icon">
+            <use xlink:href="#round-user-icon"></use>
+          </svg>
+          <h3 class="del-account-modal__title text-bold">Delete Account </h3>
+          <p class="del-account-modal__subtitle">Are you sure you want to delete account? In this case all personal data
+            will remove</p>
+          <form class="auth-modal__form del-account-modal__form form needs-validation" novalidate>
+            <div class="del-account-modal__row"><a class="btn main-btn del-account-modal__btn--upprove"
+                data-answer="Yes, delete">Yes, delete</a><a class="btn main-btn del-account-modal__btn--decline"
+                data-answer="No, cancel">No, cancel</a></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="modal auth-modal passw-recovery fade" id="passwordRecoveryModal">
     <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog passw-recovery__modal-dialog">
       <div class="modal-content auth-modal__modal-content passw-recovery__modal-content">
@@ -432,6 +562,12 @@
       <circle cx="16" cy="16" r="16" fill="#060A20"></circle>
       <path fill-rule="evenodd" clip-rule="evenodd"
         d="M20.4116 12.0758C20.4116 14.5234 18.4492 16.4859 15.9999 16.4859C13.5515 16.4859 11.5883 14.5234 11.5883 12.0758C11.5883 9.62831 13.5515 7.66663 15.9999 7.66663C18.4492 7.66663 20.4116 9.62831 20.4116 12.0758ZM15.9999 24.3333C12.3852 24.3333 9.33325 23.7458 9.33325 21.4791C9.33325 19.2116 12.4044 18.6449 15.9999 18.6449C19.6154 18.6449 22.6666 19.2324 22.6666 21.4991C22.6666 23.7666 19.5954 24.3333 15.9999 24.3333Z"
+        fill="white"></path>
+    </symbol>
+    <symbol id="logout-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 33 32">
+      <circle cx="16.5" cy="16" r="16" fill="#060A20"></circle>
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M14.7462 15.3582C14.3816 15.3582 14.0933 15.6415 14.0933 15.9998C14.0933 16.3498 14.3816 16.6415 14.7462 16.6415H19.8334V20.6248C19.8334 22.6665 18.1462 24.3332 16.0604 24.3332H11.9313C9.85401 24.3332 8.16675 22.6748 8.16675 20.6332V11.3748C8.16675 9.32484 9.86248 7.6665 11.9398 7.6665H16.0774C18.1462 7.6665 19.8334 9.32484 19.8334 11.3665V15.3582H14.7462ZM22.8586 13.1167L25.2919 15.5417C25.4169 15.6667 25.4836 15.825 25.4836 16C25.4836 16.1667 25.4169 16.3333 25.2919 16.45L22.8586 18.875C22.7336 19 22.5669 19.0667 22.4086 19.0667C22.2419 19.0667 22.0752 19 21.9502 18.875C21.7002 18.625 21.7002 18.2167 21.9502 17.9667L23.2836 16.6417H19.8336V15.3583H23.2836L21.9502 14.0333C21.7002 13.7833 21.7002 13.375 21.9502 13.125C22.2002 12.8667 22.6086 12.8667 22.8586 13.1167Z"
         fill="white"></path>
     </symbol>
   </svg>
