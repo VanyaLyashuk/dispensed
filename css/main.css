@@ -682,7 +682,8 @@ body {
 }
 
 #profile,
-#address {
+#address,
+#password {
   width: 100%;
   max-width: 1120px;
 }
@@ -726,37 +727,117 @@ body {
 
 .form-wrapper {
   background: #F8FBFF;
-  margin-right: -16px !important;
+  width: calc(100% + 32px);
   margin-left: -16px !important;
   padding: 32px 16px !important;
   border-radius: 24px;
   margin-bottom: 32px;
 }
 
-.form-wrapper .form-select {
-  font: 500 16px/1.5 "Strawford", sans-serif !important;
-  background: #eff3f9 url("../img/dropdown-arrow.svg") calc(100% - 20px) 50% no-repeat;
-  background-size: 8px 7px;
-  padding: 14px 16px;
+.password-rools {
   border-radius: 16px;
+}
+
+/* The container must be positioned relative: */
+
+.custom-select {
+  position: relative;
+  font-family: "Strawford", sans-serif;
+}
+
+/*hide original SELECT element: */
+
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+  background: #eff3f9;
+  font: 500 16px/1.5 "Strawford", sans-serif !important;
+  padding: 16px !important;
+  border-radius: 16px !important;
   color: #060a20;
   letter-spacing: 0.7px;
-  border: 2px solid #eff3f9;
+  border: 2px solid #eff3f9 !important;
   cursor: pointer;
   font-weight: 500;
+  color: #060A20 !important;
 }
 
-.form-wrapper .form-select option:checked {
-  color: #060A20;
-}
-
-.form-wrapper .form-select:focus {
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background: #fff url("../img/dropdown-arrow-top.svg") calc(100% - 20px) 50% no-repeat !important;
-  background-size: 8px 7px;
+.select-selected.select-arrow-active {
+  background: #fff;
   outline: 2px solid !important;
+}
+
+/* Style the arrow inside the select element: */
+
+.select-selected:after {
+  position: absolute;
+  content: url("../img/dropdown-arrow.svg");
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 20px;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+
+.select-selected.select-arrow-active:after {
+  content: url("../img/dropdown-arrow-top.svg");
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 20px;
+}
+
+/* style the items (options), including the selected item: */
+
+.select-items div,
+.select-selected {
+  color: #060A20;
+  font-weight: 500;
+  padding: 9px 16px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none !important;
+}
+
+/* Style items (options): */
+
+.select-items {
+  position: absolute;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 8px 64px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 64px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  top: calc(100% + 8px);
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 16px;
+}
+
+.select-items div:not(:last-of-type) {
+  margin-bottom: 4px;
+}
+
+/* Hide the items when the select box is closed: */
+
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover {
+  background: #F8FBFF;
+}
+
+.same-as-selected {
+  background: #EFF3F9 url(../img/option-checkmark.png) calc(100% - 18px) 50% no-repeat !important;
 }
 
 /* Main Styles */
@@ -1097,7 +1178,8 @@ body {
 }
 
 .form-btn.profile-form__submit,
-.form-btn.address-form__submit {
+.form-btn.address-form__submit,
+.form-btn.password-form__submit {
   margin: 0 auto !important;
 }
 
@@ -1151,6 +1233,18 @@ body {
 }
 
 .address-form__wrapper .auth-modal__row:last-of-type {
+  margin-bottom: 0 !important;
+}
+
+.password-form {
+  position: relative;
+}
+
+.password-form .password-rools {
+  margin-bottom: 32px;
+}
+
+.password-form__row--last {
   margin-bottom: 0 !important;
 }
 
@@ -1561,12 +1655,8 @@ body {
     background: url(../img/popup-bg--mob.webp) 20% 10% no-repeat;
   }
 
-  .form-wrapper .form-select {
-    background: #eff3f9 url("../img/dropdown-arrow.svg") calc(100% - 20px) 50% no-repeat;
-  }
-
-  .form-wrapper .form-select:focus {
-    background: #fff url("../img/dropdown-arrow-top.svg") calc(100% - 20px) 50% no-repeat !important;
+  .same-as-selected {
+    background: #EFF3F9 url(../img/option-checkmark.png) calc(100% - 18px) 50% no-repeat !important;
   }
 
   .navbar .nav-item--home:before {
@@ -1638,6 +1728,7 @@ body {
   }
 
   .form-wrapper {
+    width: 100%;
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding: 32px !important;
@@ -1724,7 +1815,8 @@ body {
   }
 
   .form-btn.profile-form__submit,
-  .form-btn.address-form__submit {
+  .form-btn.address-form__submit,
+  .form-btn.password-form__submit {
     margin-bottom: 24px !important;
     position: absolute;
     right: 0;
@@ -1761,7 +1853,8 @@ body {
 @media screen and (min-width: 640px) and (min-width: 992px) {
 
   .form-btn.profile-form__submit,
-  .form-btn.address-form__submit {
+  .form-btn.address-form__submit,
+  .form-btn.password-form__submit {
     top: 0;
   }
 
@@ -1835,6 +1928,36 @@ body {
 
   .profile-form .auth-modal__row:nth-of-type(odd) {
     margin-right: 15px;
+  }
+
+  .password-form__title {
+    margin-bottom: 32px !important;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .password-form .password-rools {
+    margin-bottom: 0;
+    grid-template-rows: auto;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-left: 25px;
+  }
+
+  .password-form .password-rools .password-rools__header {
+    margin-bottom: 48px;
+  }
+
+  .password-form .form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .password-form .form-wrapper .auth-modal__row {
+    grid-column-start: 1;
+    grid-template-columns: 1fr;
   }
 
   .news {
@@ -1940,6 +2063,16 @@ body {
 
   .profile-form .auth-modal__row {
     max-width: 330px;
+  }
+
+  @supports (-webkit-appearance:none) {}
+}
+
+@media screen and (min-width: 768px) and (min-width: 1024px) {
+  .password-form .password-rools {
+    margin-left: 32px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   @supports (-webkit-appearance:none) {}
@@ -2074,11 +2207,16 @@ body {
   }
 
   #profile,
-  #address {
+  #address,
+  #password {
     margin-top: -79px;
   }
 
   .address-form {
+    padding-top: 80px;
+  }
+
+  .password-form {
     padding-top: 80px;
   }
 
@@ -2104,6 +2242,11 @@ body {
 
   .no-webp .auth-modal__modal-header {
     background-size: cover;
+  }
+
+  .select-items div,
+  .select-selected {
+    font-size: 16px;
   }
 
   .profile-form__subtitle br {
@@ -2171,8 +2314,14 @@ body {
 }
 
 @media (max-width: 991px) {
+  html {
+    width: 100% !important;
+  }
+
   html,
   body {
     overflow-x: hidden;
   }
+
+  @supports (-webkit-appearance:none) {}
 }

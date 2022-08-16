@@ -263,40 +263,51 @@
             <div class="address-form__wrapper form-wrapper">
               <h3 class="auth-modal__title profile-form__title text-bold">Mailing Address</h3>
               <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Country<span
-                    class="main-accent">*</span></label><select
-                  class="form-select address-form__form-select address-form__form-select--country"
-                  arial-label="Default select example">
-                  <option selected>Australia</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select></div>
+                    class="main-accent">*</span></label>
+                <div class="custom-select"><select
+                    class="form-select address-form__form-select address-form__form-select--country"
+                    arial-label="Default select example">
+                    <option value="0">Australia</option>
+                    <option value="1">Australia</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select></div>
+              </div>
               <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">State<span
-                    class="main-accent">*</span></label><select
-                  class="form-select address-form__form-select address-form__form-select--state"
-                  arial-label="Default select example">
-                  <option selected>Victoria</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select></div>
+                    class="main-accent">*</span></label>
+                <div class="custom-select"><select
+                    class="form-select address-form__form-select address-form__form-select--state"
+                    arial-label="Default select example">
+                    <option value="0">Victoria</option>
+                    <option value="1">Victoria</option>
+                    <option value="2">One</option>
+                    <option value="3">Two</option>
+                    <option value="4">Three</option>
+                  </select></div>
+              </div>
               <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">City<span
-                    class="main-accent">*</span></label><select
-                  class="form-select address-form__form-select address-form__form-select--city"
-                  arial-label="Default select example">
-                  <option selected>Melbourne</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select></div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Suburb</label><select
-                  class="form-select address-form__form-select address-form__form-select--country"
-                  arial-label="Default select example">
-                  <option selected>Toorak</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select></div>
+                    class="main-accent">*</span></label>
+                <div class="custom-select"><select
+                    class="form-select address-form__form-select address-form__form-select--city"
+                    arial-label="Default select example">
+                    <option value="0">Melbourne</option>
+                    <option value="1">Melbourne</option>
+                    <option value="2">One</option>
+                    <option value="3">Two</option>
+                    <option value="4">Three</option>
+                  </select></div>
+              </div>
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Suburb</label>
+                <div class="custom-select"><select
+                    class="form-select address-form__form-select address-form__form-select--country"
+                    arial-label="Default select example">
+                    <option value="0">Toorak</option>
+                    <option value="1">Toorak</option>
+                    <option value="2">One</option>
+                    <option value="3">Two</option>
+                    <option value="4">Three</option>
+                  </select></div>
+              </div>
               <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Postcodes<span
                     class="main-accent">*</span></label><input
                   class="form-control auth-modal__input address-form__input--postcodes" type="text" name="postcodes"
@@ -312,7 +323,64 @@
             </div><button class="btn main-btn form-btn address-form__submit" disabled>Save changes</button>
           </form>
         </div>
-        <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">...</div>
+        <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+          <form class="form password-form auth-modal__form needs-validation" novalidate>
+            <div class="password-form__wrapper form-wrapper">
+              <h3 class="auth-modal__title password-form__title text-bold">Change Password</h3>
+              <div class="auth-modal__row password-form__row--first">
+                <div class="auth-modal__inner-row d-flex justify-content-between"><label
+                    class="form-label auth-modal__label text-medium">Old Password<span
+                      class="main-accent">*</span></label><a class="auth-modal__link auth-modal__link--forgot-pass"
+                    href="" data-bs-toggle="modal" data-bs-target="#recoveryModal">Forgot Password?</a></div>
+                <div class="auth-modal__toggle-password toggle-password"><input
+                    class="form-control auth-modal__input login__input--password" type="password"
+                    placeholder="Enter your password" required>
+                  <div class="toggle-password__btn"></div>
+                </div>
+              </div>
+              <div class="auth-modal__row">
+                <div class="auth-modal__inner-row d-flex justify-content-between"><label
+                    class="form-label auth-modal__label text-medium"> New Password<span
+                      class="main-accent">*</span></label></div>
+                <div class="auth-modal__toggle-password toggle-password"><input
+                    class="form-control auth-modal__input password-form__input--new-pass" type="password"
+                    name="new_password" placeholder="Enter new password" required>
+                  <div class="toggle-password__btn"></div>
+                </div>
+              </div>
+              <div class="alert alert-success password-rools">
+                <div class="password-rools__header"><svg class="auth-modal__lock-icon password-rools__lock-icon">
+                    <use xlink:href="#lock-icon-green"></use>
+                  </svg>
+                  <h3 class="auth-modal__title password-rools__title text-bold">New Password</h3>
+                </div>
+                <ul class="password-rools__list">
+                  <ul class="password-rools__list">
+                    <li class="password-rools__item password-rools__item--similar">Your password can't be too similar to
+                      your other personal information </li>
+                    <li class="password-rools__item password-rools__item--length">Your password must contain at least 8
+                      characters. </li>
+                    <li class="password-rools__item password-rools__item--used">Your password can't be a commonly used
+                      password. </li>
+                    <li class="password-rools__item password-rools__item--numeric">Your password can't be entirely
+                      numeric </li>
+                  </ul>
+                </ul>
+              </div>
+              <div class="auth-modal__row password-form__row--last">
+                <div class="auth-modal__inner-row d-flex justify-content-between"><label
+                    class="form-label auth-modal__label text-medium"> Confirm Password<span
+                      class="main-accent">*</span></label></div>
+                <div class="auth-modal__toggle-password toggle-password"><input
+                    class="form-control auth-modal__input password-form__input--conf-pass auth-modal__input--message"
+                    type="password" name="confirm_new_password" placeholder="Enter confirm password" required>
+                  <div class="toggle-password__btn"></div>
+                  <div class="invalid-feedback">Your password and confirmation password do not match.</div>
+                </div>
+              </div>
+            </div><button class="btn main-btn form-btn password-form__submit" disabled>Change Password</button>
+          </form>
+        </div>
       </div>
     </main>
   </div>
@@ -624,7 +692,7 @@
         fill="white"></path>
     </symbol>
   </svg>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
 </body>
