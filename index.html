@@ -146,9 +146,9 @@
 <body>
   <div class="page-wrapper row">
     <nav class="navbar navbar-expand-lg col-lg-3">
-      <div class="container-fluid"><a class="navbar-brand" href="#"> <svg class="navbar__logo">
+      <div class="container-fluid"><a class="navbar-brand" href="#"><svg class="navbar__logo">
             <use xlink:href="#logo"></use>
-          </svg></a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          </svg></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
           aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -179,61 +179,61 @@
         </ol>
       </nav>
       <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation"> <button class="nav-link active" id="profile-tab" data-bs-toggle="tab"
+        <li class="nav-item" role="presentation"><button class="nav-link active" id="profile-tab" data-bs-toggle="tab"
             data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
-            aria-selected="true">Profile</button> </li>
-        <li class="nav-item" role="presentation"> <button class="nav-link" id="address-tab" data-bs-toggle="tab"
+            aria-selected="true">Profile</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" id="address-tab" data-bs-toggle="tab"
             data-bs-target="#address" type="button" role="tab" aria-controls="address"
-            aria-selected="false">Address</button> </li>
-        <li class="nav-item" role="presentation"> <button class="nav-link" id="password-tab" data-bs-toggle="tab"
+            aria-selected="false">Address</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" id="password-tab" data-bs-toggle="tab"
             data-bs-target="#password" type="button" role="tab" aria-controls="password"
-            aria-selected="false">Password</button> </li>
+            aria-selected="false">Password</button></li>
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <form class="form profile-form auth-modal__form needs-validation" novalidate>
-            <div class="profile-form__wrapper">
+            <div class="profile-form__wrapper form-wrapper">
               <h3 class="auth-modal__title profile-form__title text-bold">User Information</h3>
-              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium">First Name<span
-                    class="main-accent">*</span></label> <input
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">First Name<span
+                    class="main-accent">*</span></label><input
                   class="form-control auth-modal__input profile-form__input--first-name" type="text" name="first_name"
                   placeholder="Enter first name" required>
                 <div class="invalid-feedback">Please enter your First name</div>
               </div>
-              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium">Last Name<span
-                    class="main-accent">*</span></label> <input
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Last Name<span
+                    class="main-accent">*</span></label><input
                   class="form-control auth-modal__input profile-form__input--last-name" type="text" name="last_name"
                   placeholder="Enter last name" required>
                 <div class="invalid-feedback">Please enter your Last name</div>
               </div>
-              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium"
-                  for="profileEmail">Your Email<span class="main-accent">*</span></label> <input
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium"
+                  for="profileEmail">Your Email<span class="main-accent">*</span></label><input
                   class="form-control auth-modal__input profile-form__input--email" id="profileEmail" type="email"
                   name="email" placeholder="Enter your email" required>
                 <div class="invalid-feedback">Please provide a valid Email</div>
               </div>
-              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium"
-                  for="profileAge">Date of Birth<span class="main-accent">*</span></label> <input
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium" for="profileAge">Date
+                  of Birth<span class="main-accent">*</span></label><input
                   class="form-control auth-modal__input profile-form__input--email" id="profileAge" type="text"
                   name="age" placeholder="dd/mm/yyyy" data-inputmask-alias="datetime"
                   data-inputmask-inputformat="dd/mm/yyyy" required>
                 <div class="invalid-feedback">Please provide a valid Age</div>
               </div>
-              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium"
-                  for="profilePhone">Phone<span class="main-accent">*</span></label> <input
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium"
+                  for="profilePhone">Phone<span class="main-accent">*</span></label><input
                   class="form-control auth-modal__input profile-form__input--email" id="profilePhone" type="number"
                   name="phone" placeholder="+6 000 000 000" required>
                 <div class="invalid-feedback">Please provide a phone number</div>
               </div>
-              <div class="auth-modal__row profile-form__row--gender"> <label
+              <div class="auth-modal__row profile-form__row--gender"><label
                   class="form-label auth-modal__label text-medium" for="profilePhone">Gender<span
                     class="main-accent">*</span></label>
                 <div class="row profile-form__radio-wrapper">
-                  <div class="form-check"> <input class="form-check-input" id="validationFormCheck2" type="radio"
-                      checked name="radio-stacked" required=""> <label class="form-check-label"
-                      for="validationFormCheck2">Male</label> </div>
-                  <div class="form-check"> <input class="form-check-input" id="validationFormCheck3" type="radio"
-                      name="radio-stacked" required=""> <label class="form-check-label"
+                  <div class="form-check"><input class="form-check-input" id="validationFormCheck2" type="radio" checked
+                      name="radio-stacked" required=""><label class="form-check-label"
+                      for="validationFormCheck2">Male</label></div>
+                  <div class="form-check"><input class="form-check-input" id="validationFormCheck3" type="radio"
+                      name="radio-stacked" required=""><label class="form-check-label"
                       for="validationFormCheck3">Female</label>
                     <div class="invalid-feedback">Please provide a valid gender</div>
                   </div>
@@ -255,10 +255,63 @@
                 </div><a class="btn main-btn profile-form__logout-btn" href="#logOutModal" data-bs-toggle="modal"
                   role="button">Log Out</a>
               </div>
-            </div> <button class="btn main-btn profile-form__submit" disabled>Save changes</button>
+            </div><button class="btn main-btn form-btn profile-form__submit" disabled>Save changes</button>
           </form>
         </div>
-        <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">...</div>
+        <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
+          <form class="form address-form auth-modal__form needs-validation" novalidate>
+            <div class="address-form__wrapper form-wrapper">
+              <h3 class="auth-modal__title profile-form__title text-bold">Mailing Address</h3>
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Country<span
+                    class="main-accent">*</span></label><select
+                  class="form-select address-form__form-select address-form__form-select--country"
+                  arial-label="Default select example">
+                  <option selected>Australia</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select></div>
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">State<span
+                    class="main-accent">*</span></label><select
+                  class="form-select address-form__form-select address-form__form-select--state"
+                  arial-label="Default select example">
+                  <option selected>Victoria</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select></div>
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">City<span
+                    class="main-accent">*</span></label><select
+                  class="form-select address-form__form-select address-form__form-select--city"
+                  arial-label="Default select example">
+                  <option selected>Melbourne</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select></div>
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Suburb</label><select
+                  class="form-select address-form__form-select address-form__form-select--country"
+                  arial-label="Default select example">
+                  <option selected>Toorak</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select></div>
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Postcodes<span
+                    class="main-accent">*</span></label><input
+                  class="form-control auth-modal__input address-form__input--postcodes" type="text" name="postcodes"
+                  placeholder="Enter your Postcodes" required>
+                <div class="invalid-feedback">Please enter your Postcodes</div>
+              </div>
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Address<span
+                    class="main-accent">*</span></label><input
+                  class="form-control auth-modal__input address-form__input--address" type="text" name="address"
+                  placeholder="Enter your address" required>
+                <div class="invalid-feedback">Please enter your Address</div>
+              </div>
+            </div><button class="btn main-btn form-btn address-form__submit" disabled>Save changes</button>
+          </form>
+        </div>
         <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">...</div>
       </div>
     </main>
@@ -266,34 +319,34 @@
   <div class="modal auth-modal login fade" id="logInModal">
     <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog login__modal-dialog">
       <div class="modal-content auth-modal__modal-content login__modal-content">
-        <div class="modal-header auth-modal__modal-header login__modal-header"> <svg class="auth-modal__logo">
+        <div class="modal-header auth-modal__modal-header login__modal-header"><svg class="auth-modal__logo">
             <use xlink:href="#logo"></use>
           </svg>
           <p class="auth-modal__text login__text text-bold"><span>Hello! Welcome back </span><span>to the Dispensed
             </span><span>control panel!</span></p>
         </div>
-        <div class="modal-body auth-modal__modal-body login__modal-body"> <svg class="auth-modal__home-icon">
+        <div class="modal-body auth-modal__modal-body login__modal-body"><svg class="auth-modal__home-icon">
             <use xlink:href="#home-icon"></use>
           </svg>
           <h3 class="auth-modal__title login__title text-bold">Log In Account</h3>
           <form class="auth-modal__form login__form form needs-validation" novalidate>
-            <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium" for="logInEmail">Your
-                Email<span class="main-accent">*</span></label> <input
+            <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium" for="logInEmail">Your
+                Email<span class="main-accent">*</span></label><input
                 class="form-control auth-modal__input login__input--email" id="logInEmail" type="email"
                 placeholder="Enter your email" required>
               <div class="invalid-feedback">Please provide a valid Email</div>
             </div>
             <div class="auth-modal__row">
-              <div class="auth-modal__inner-row d-flex justify-content-between"> <label
+              <div class="auth-modal__inner-row d-flex justify-content-between"><label
                   class="form-label auth-modal__label text-medium" for="logInPassword"> Your Password<span
                     class="main-accent">*</span></label><a class="auth-modal__link auth-modal__link--forgot-pass"
-                  href="" data-bs-toggle="modal" data-bs-target="#recoveryModal">Forgot Password?</a> </div>
-              <div class="auth-modal__toggle-password toggle-password"> <input
+                  href="" data-bs-toggle="modal" data-bs-target="#recoveryModal">Forgot Password?</a></div>
+              <div class="auth-modal__toggle-password toggle-password"><input
                   class="form-control auth-modal__input login__input--password" type="password"
                   placeholder="Enter your password" required>
                 <div class="toggle-password__btn"></div>
               </div>
-            </div> <button class="btn main-btn login__btn" disabled>Log in</button>
+            </div><button class="btn main-btn login__btn" disabled>Log in</button>
           </form>
           <p class="auth-modal__footer">Not a member? <a class="auth-modal__link login__link--sign-up" href=""
               data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up Now</a></p>
@@ -311,15 +364,15 @@
         </div>
         <div class="modal-body auth-modal__modal-body recovery-modal__modal-body">
           <form class="auth-modal__form recovery-modal__form form needs-validation" novalidate>
-            <div class="auth-modal__row recovery-modal__row"> <label class="form-label auth-modal__label text-medium"
-                for="recoveryEmail">Your Email<span class="main-accent">*</span></label> <input
+            <div class="auth-modal__row recovery-modal__row"><label class="form-label auth-modal__label text-medium"
+                for="recoveryEmail">Your Email<span class="main-accent">*</span></label><input
                 class="form-control auth-modal__input recovery-modal__input--email" id="recoveryEmail" type="email"
                 placeholder="Enter your email" required>
               <div class="invalid-feedback">Please provide a valid Email</div>
               <p class="resend-email recovery-modal__resend-email"> <span class="first">Letter sent!</span><a
                   class="resend-email__link text-medium isDisabled" href="#">Send again?</a><span
                   class="resend-email__timer"><span class="resend-email__sec">30&nbsp;</span>sec.</span></p>
-            </div> <button class="btn main-btn recovery-modal__btn recovery-modal__btn--passw-forgot" disabled>Forgot
+            </div><button class="btn main-btn recovery-modal__btn recovery-modal__btn--passw-forgot" disabled>Forgot
               Password</button>
           </form><a class="btn main-btn main-btn--white recovery-modal__btn recovery-modal__btn--cancel"
             data-bs-dismiss="modal">Cancel</a>
@@ -330,13 +383,13 @@
   <div class="modal auth-modal sign-up fade" id="signUpModal">
     <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog sign-up__modal-dialog">
       <div class="modal-content auth-modal__modal-content sign-up__modal-content">
-        <div class="modal-header auth-modal__modal-header sign-up__modal-header"> <svg class="auth-modal__logo">
+        <div class="modal-header auth-modal__modal-header sign-up__modal-header"><svg class="auth-modal__logo">
             <use xlink:href="#logo"></use>
           </svg>
           <p class="auth-modal__text sign-up__text text-bold"><span>Hello! Welcome back </span><span>to the Dispensed
             </span><span>control panel!</span></p>
         </div>
-        <div class="modal-body auth-modal__modal-body sign-up__modal-body"> <svg class="auth-modal__user-icon">
+        <div class="modal-body auth-modal__modal-body sign-up__modal-body"><svg class="auth-modal__user-icon">
             <use xlink:href="#round-user-icon"></use>
           </svg>
           <h3 class="auth-modal__title sign-up__title text-bold">Create New Account</h3>
@@ -346,20 +399,20 @@
           </ul>
           <form class="auth-modal__form sign-up__form form form needs-validation" novalidate>
             <div class="sign-up__first-step">
-              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium"
-                  for="signUpEmail">Your Email<span class="main-accent">*</span></label> <input
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium"
+                  for="signUpEmail">Your Email<span class="main-accent">*</span></label><input
                   class="form-control auth-modal__input sign-up__input--email" id="signUpEmail" type="email"
                   name="email" placeholder="Enter your email" required>
                 <div class="invalid-feedback">Please provide a valid Email</div>
               </div>
-              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium">First Name<span
-                    class="main-accent">*</span></label> <input
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">First Name<span
+                    class="main-accent">*</span></label><input
                   class="form-control auth-modal__input sign-up__input--first-name" type="text" name="first_name"
                   placeholder="Enter first name" required>
                 <div class="invalid-feedback">Please enter your First name</div>
               </div>
-              <div class="auth-modal__row"> <label class="form-label auth-modal__label text-medium">Last Name<span
-                    class="main-accent">*</span></label> <input
+              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Last Name<span
+                    class="main-accent">*</span></label><input
                   class="form-control auth-modal__input sign-up__input--last-name" type="text" name="last_name"
                   placeholder="Enter last name" required>
                 <div class="invalid-feedback">Please enter your Last name</div>
@@ -367,16 +420,16 @@
             </div>
             <div class="sign-up__second-step">
               <div class="auth-modal__row">
-                <div class="auth-modal__inner-row d-flex justify-content-between"> <label
+                <div class="auth-modal__inner-row d-flex justify-content-between"><label
                     class="form-label auth-modal__label text-medium"> New Password<span
-                      class="main-accent">*</span></label> </div>
-                <div class="auth-modal__toggle-password toggle-password"> <input class="form-control auth-modal__input"
+                      class="main-accent">*</span></label></div>
+                <div class="auth-modal__toggle-password toggle-password"><input class="form-control auth-modal__input"
                     id="newPassword" type="password" name="password" placeholder="Enter new password">
                   <div class="toggle-password__btn"></div>
                 </div>
               </div>
               <div class="alert alert-success password-rools">
-                <div class="password-rools__header"> <svg class="auth-modal__lock-icon password-rools__lock-icon">
+                <div class="password-rools__header"><svg class="auth-modal__lock-icon password-rools__lock-icon">
                     <use xlink:href="#lock-icon-green"></use>
                   </svg>
                   <h3 class="auth-modal__title password-rools__title text-bold">New Password</h3>
@@ -393,23 +446,23 @@
                 </ul>
               </div>
               <div class="auth-modal__row">
-                <div class="auth-modal__inner-row d-flex justify-content-between"> <label
+                <div class="auth-modal__inner-row d-flex justify-content-between"><label
                     class="form-label auth-modal__label text-medium"> Confirm Password<span
-                      class="main-accent">*</span></label> </div>
-                <div class="auth-modal__toggle-password toggle-password"> <input
+                      class="main-accent">*</span></label></div>
+                <div class="auth-modal__toggle-password toggle-password"><input
                     class="form-control auth-modal__input auth-modal__input--message" id="confirmPassword"
                     type="password" name="confirm_password" placeholder="Enter confirm password">
                   <div class="toggle-password__btn"></div>
                   <div class="invalid-feedback">Your password and confirmation password do not match.</div>
                 </div>
               </div>
-              <div class="auth-modal__row sign-up__agree"> <label for="signUpCheckbox"><span
-                    class="sign-up__agree-text">I agree to the <a href="#">Terms of Use</a></span> <input
+              <div class="auth-modal__row sign-up__agree"><label for="signUpCheckbox"><span
+                    class="sign-up__agree-text">I agree to the <a href="#">Terms of Use</a></span><input
                     class="form-check-input" id="signUpCheckbox" type="checkbox" required>
                   <div class="invalid-feedback">You must agree before submitting.</div><span
                     class="sign-up__checkbox"></span>
-                </label> </div>
-            </div> <button class="btn main-btn sign-up__btn" disabled>Next Step</button>
+                </label></div>
+            </div><button class="btn main-btn sign-up__btn" disabled>Next Step</button>
           </form>
           <p class="auth-modal__footer">Already registered? <a class="auth-modal__link sign-up__link--sign-up" href=""
               data-bs-toggle="modal" data-bs-target="#logInModal">Log In Now.</a></p>
@@ -420,7 +473,7 @@
   <div class="modal auth-modal logout-modal fade" id="logOutModal">
     <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog logout-modal__modal-dialog">
       <div class="modal-content auth-modal__modal-content logout-modal__modal-content">
-        <div class="modal-body auth-modal__modal-body logout-modal__modal-body"> <svg class="logout-modal__out-icon">
+        <div class="modal-body auth-modal__modal-body logout-modal__modal-body"><svg class="logout-modal__out-icon">
             <use xlink:href="#logout-icon"></use>
           </svg>
           <h3 class="logout-modal__title text-bold">Log Out Account</h3>
@@ -437,7 +490,7 @@
   <div class="modal auth-modal del-account-modal fade" id="deleteAccountModal">
     <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog del-account-modal__modal-dialog">
       <div class="modal-content auth-modal__modal-content del-account-modal__modal-content">
-        <div class="modal-body auth-modal__modal-body del-account-modal__modal-body"> <svg
+        <div class="modal-body auth-modal__modal-body del-account-modal__modal-body"><svg
             class="del-account-modal__out-icon">
             <use xlink:href="#round-user-icon"></use>
           </svg>
@@ -456,29 +509,29 @@
   <div class="modal auth-modal passw-recovery fade" id="passwordRecoveryModal">
     <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog passw-recovery__modal-dialog">
       <div class="modal-content auth-modal__modal-content passw-recovery__modal-content">
-        <div class="modal-header auth-modal__modal-header passw-recovery__modal-header"> <svg class="auth-modal__logo">
+        <div class="modal-header auth-modal__modal-header passw-recovery__modal-header"><svg class="auth-modal__logo">
             <use xlink:href="#logo"></use>
           </svg>
           <p class="auth-modal__text passw-recovery__text text-bold"><span>Hello! Welcome back </span><span>to the
               Dispensed </span><span>control panel!</span></p>
         </div>
-        <div class="modal-body auth-modal__modal-body passw-recovery__modal-body"> <svg class="auth-modal__lock-icon">
+        <div class="modal-body auth-modal__modal-body passw-recovery__modal-body"><svg class="auth-modal__lock-icon">
             <use xlink:href="#lock-icon"></use>
           </svg>
           <h3 class="auth-modal__title passw-recovery__title text-bold">New pasword</h3>
           <form class="auth-modal__form passw-recovery__form form needs-validation" novalidate>
             <div class="auth-modal__row">
-              <div class="auth-modal__inner-row d-flex justify-content-between"> <label
+              <div class="auth-modal__inner-row d-flex justify-content-between"><label
                   class="form-label auth-modal__label text-medium"> New Password<span
-                    class="main-accent">*</span></label> </div>
-              <div class="auth-modal__toggle-password toggle-password"> <input
+                    class="main-accent">*</span></label></div>
+              <div class="auth-modal__toggle-password toggle-password"><input
                   class="form-control auth-modal__input passw-recovery__input--new-pass" type="password"
                   name="new_password" placeholder="Enter new password" required>
                 <div class="toggle-password__btn"></div>
               </div>
             </div>
             <div class="alert alert-success password-rools">
-              <div class="password-rools__header"> <svg class="auth-modal__lock-icon password-rools__lock-icon">
+              <div class="password-rools__header"><svg class="auth-modal__lock-icon password-rools__lock-icon">
                   <use xlink:href="#lock-icon-green"></use>
                 </svg>
                 <h3 class="auth-modal__title password-rools__title text-bold">New Password</h3>
@@ -497,21 +550,21 @@
               </ul>
             </div>
             <div class="auth-modal__row">
-              <div class="auth-modal__inner-row d-flex justify-content-between"> <label
+              <div class="auth-modal__inner-row d-flex justify-content-between"><label
                   class="form-label auth-modal__label text-medium"> Confirm Password<span
-                    class="main-accent">*</span></label> </div>
-              <div class="auth-modal__toggle-password toggle-password"> <input
+                    class="main-accent">*</span></label></div>
+              <div class="auth-modal__toggle-password toggle-password"><input
                   class="form-control auth-modal__input passw-recovery__input--conf-pass auth-modal__input--message"
                   type="password" name="confirm_new_password" placeholder="Enter confirm password" required>
                 <div class="toggle-password__btn"></div>
                 <div class="invalid-feedback">Your password and confirmation password do not match.</div>
               </div>
-            </div> <button class="btn main-btn passw-recovery__btn" disabled>Restore Access</button>
+            </div><button class="btn main-btn passw-recovery__btn" disabled>Restore Access</button>
           </form>
         </div>
       </div>
     </div>
-  </div> <svg class="hidden" width="0" height="0">
+  </div><svg class="hidden" width="0" height="0">
     <symbol id="home-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32">
       <circle cx="16" cy="16" r="16" fill="#060A20"></circle>
       <path
@@ -571,7 +624,7 @@
         fill="white"></path>
     </symbol>
   </svg>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
 </body>

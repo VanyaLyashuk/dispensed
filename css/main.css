@@ -1,3 +1,7 @@
+/* Libs */
+
+/* Settings */
+
 a,
 abbr,
 acronym,
@@ -9,6 +13,7 @@ audio,
 b,
 big,
 blockquote,
+body,
 canvas,
 caption,
 center,
@@ -81,24 +86,9 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
+  font-size: 100%;
   font: inherit;
-  vertical-align: baseline
-}
-
-body,
-br {
-  line-height: 1
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  border: 0;
   vertical-align: baseline;
-  font: 14px "Strawford", sans-serif;
-  background: #fff !important;
-  background: #f8fbff;
-  min-height: 100vh
 }
 
 article,
@@ -112,228 +102,297 @@ hgroup,
 menu,
 nav,
 section {
-  display: block
+  display: block;
+}
+
+body {
+  line-height: 1;
 }
 
 ol,
 ul {
-  list-style: none
+  list-style: none;
 }
 
 blockquote,
 q {
-  quotes: none
+  quotes: none;
 }
 
 blockquote:after,
 blockquote:before,
 q:after,
 q:before {
-  content: none
+  content: "";
+  content: none;
 }
 
 table {
   border-collapse: collapse;
-  border-spacing: 0
+  border-spacing: 0;
 }
 
 br {
-  font-size: 0
+  font-size: 0;
 }
 
 *,
-:after,
-:before {
+*:after,
+*:before {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
+a,
+a:focus,
 button,
 button:focus,
 input,
 input:focus {
-  outline: 0
+  outline: none;
 }
 
 a {
-  text-decoration: none
+  text-decoration: none;
 }
 
 button {
-  border: 0;
-  display: block;
-  padding: 0
+  border: none;
 }
 
 ::-moz-focus-inner,
 ::-moz-focus-outer {
   border: 0;
-  padding: 0
+  padding: 0;
 }
 
-:active,
-:focus,
-:hover,
-:visited {
-  outline: 0 !important
+/**
+ * Remove outlines in Firefox.
+ */
+
+select:-moz-focusring,
+a:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+*:focus,
+*:visited,
+*:active,
+*:hover {
+  outline: 0 !important;
+}
+
+a,
+a:focus,
+a:visited,
+a:active,
+a:hover {
+  outline: 0 !important;
+}
+
+*::-moz-focus-inner {
+  border: 0;
+  outline: none;
 }
 
 ::-ms-clear {
-  display: none
+  display: none;
 }
 
 * {
-  -webkit-tap-highlight-color: transparent
+  -webkit-tap-highlight-color: transparent;
 }
 
 #comebacker_main_div {
   display: none !important;
-  height: 0 !important
+  height: 0px !important;
 }
 
 html {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden
 }
 
+select:-moz-focusring,
 a:-moz-focusring {
   color: transparent;
-  text-shadow: 0 0 0 #000
+  text-shadow: 0 0 0 #000;
+}
+
+*:focus,
+*:visited,
+*:active,
+*:hover {
+  outline: 0 !important;
 }
 
 a,
-a:active,
 a:focus,
-a:hover,
-a:visited {
-  outline: 0 !important
+a:visited,
+a:active,
+a:hover {
+  outline: 0 !important;
 }
 
-::-moz-focus-inner {
+*::-moz-focus-inner {
   border: 0;
-  outline: 0
+  outline: none;
 }
 
 select:focus {
-  outline: 0 !important
+  outline: 0 transparent;
+  outline: none !important;
 }
 
 select::-ms-expand {
   display: none !important;
-  background: 0 0 !important;
+  background: none !important;
   position: fixed;
-  border: 0 !important;
-  outline: 0 !important
+  border: none !important;
+  outline: none !important;
 }
 
 button::-moz-focus-inner,
-input[type=button]::-moz-focus-inner,
-input[type=file]>input[type=button]::-moz-focus-inner,
 input[type=reset]::-moz-focus-inner,
-input[type=submit]::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+select::-moz-focus-inner,
 option::-moz-focus-inner,
-select::-moz-focus-inner {
-  border: 0
+input[type=submit]::-moz-focus-inner,
+input[type=file]>input[type=button]::-moz-focus-inner {
+  border: none;
 }
 
-:not(#fake) {
-  outline: 0
+*:not(#fake) {
+  outline: none;
 }
 
 select:-moz-focusring {
   color: transparent;
-  text-shadow: 0 0 0 #000
+  text-shadow: 0 0 0 #000;
 }
+
+/* Strawford-regular - latin-ext */
 
 @font-face {
   font-family: "Strawford";
   font-style: normal;
   font-weight: 400;
-  src: local(""), url(../fonts/strawford-regular-webfont.woff2) format("woff2"), url(../fonts/strawford-regular-webfont.woff) format("woff");
-  font-display: swap
+  src: local(""), url("../fonts/strawford-regular-webfont.woff2") format("woff2"), url("../fonts/strawford-regular-webfont.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-display: swap;
 }
+
+/* Strawford-500 - latin-ext */
 
 @font-face {
   font-family: "Strawford";
   font-style: normal;
   font-weight: 500;
-  src: local(""), url(../fonts/strawford-medium-webfont.woff2) format("woff2"), url(../fonts/strawford-medium-webfont.woff) format("woff");
-  font-display: swap
+  src: local(""), url("../fonts/strawford-medium-webfont.woff2") format("woff2"), url("../fonts/strawford-medium-webfont.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-display: swap;
 }
+
+/* Strawford-700 - latin-ext */
 
 @font-face {
   font-family: "Strawford";
   font-style: normal;
   font-weight: 700;
-  src: local(""), url(../fonts/strawford-bold-webfont.woff2) format("woff2"), url(../fonts/strawford-bold-webfont.woff) format("woff");
-  font-display: swap
+  src: local(""), url("../fonts/strawford-bold-webfont.woff2") format("woff2"), url("../fonts/strawford-bold-webfont.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-display: swap;
+}
+
+body {
+  font: 14px "Strawford", sans-serif;
+  background: #fff !important;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 img {
   display: block;
-  max-width: 100%
+  max-width: 100%;
 }
 
 svg {
-  overflow: hidden
+  overflow: hidden;
+}
+
+button {
+  display: block;
+  padding: 0;
 }
 
 .container {
   margin: 0 auto;
   width: 100%;
   padding-left: 10px;
-  padding-right: 10px
+  padding-right: 10px;
 }
 
 .title {
   font-size: 28px;
-  color: #202020;
-  font-weight: 700;
+  color: rgb(32, 32, 32);
+  font-weight: bold;
   line-height: 1;
-  text-align: center
+  text-align: center;
 }
 
 .text-medium {
-  font-weight: 500
+  font-weight: 500;
 }
 
 .text-bold {
-  font-weight: 700
+  font-weight: 700;
 }
 
 .text-black {
-  font-weight: 900
+  font-weight: 900;
 }
 
 .text-nowrap {
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 .main-accent {
-  color: #060a20
+  color: #060A20;
+}
+
+br {
+  line-height: 1;
+  font-size: 0;
+}
+
+body {
+  background: #F8FBFF;
+  min-height: 100vh;
 }
 
 .auth-modal.modal {
-  background: #060a20 !important
+  background: rgb(6, 10, 32) !important;
 }
 
-.auth-modal.modal.del-account-modal,
-.auth-modal.modal.logout-modal {
-  background: rgba(6, 10, 32, .5) !important
+.auth-modal.modal.logout-modal,
+.auth-modal.modal.del-account-modal {
+  background: rgba(6, 10, 32, 0.5) !important;
 }
 
 .auth-modal__bar {
   width: 100%;
   height: 1px;
-  background: rgba(6, 10, 32, .05)
+  background: rgba(6, 10, 32, 0.05);
 }
 
 .auth-modal__modal-dialog {
   position: relative;
   overflow: hidden;
-  font-family: "Strawford", sans-serif !important
+  font-family: "Strawford", sans-serif !important;
 }
 
 .auth-modal__modal-header {
@@ -352,11 +411,11 @@ svg {
   border-top-right-radius: 24px;
   border-bottom: none;
   position: relative;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .auth-modal__modal-header:before {
-  background: rgba(0, 0, 0, .15);
+  background: rgba(0, 0, 0, 0.15);
   content: "";
   width: 100%;
   height: 100%;
@@ -365,31 +424,31 @@ svg {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2
+  z-index: 2;
 }
 
 .auth-modal__logo {
   width: 120px;
   height: 16px;
   margin-bottom: 16px;
-  z-index: 3
+  z-index: 3;
 }
 
 .auth-modal__title {
   font-size: 20px;
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .auth-modal__text {
   color: #fff;
   z-index: 3;
   font-size: 16px;
-  line-height: 1.5
+  line-height: 1.5;
 }
 
 .auth-modal__modal-content {
   border-radius: 24px;
-  border: 0
+  border: none;
 }
 
 .auth-modal__modal-body {
@@ -403,11 +462,11 @@ svg {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 32px 16px
+  padding: 32px 16px;
 }
 
 .auth-modal__row {
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .auth-modal__home-icon,
@@ -416,115 +475,117 @@ svg {
   width: 32px;
   height: 32px;
   display: block;
-  margin-bottom: 16px
+  margin-bottom: 16px;
 }
 
-.auth-modal__label,
 .auth-modal__link {
   font-size: 16px;
-  color: #060a20;
+  color: #060A20;
   font-weight: 500;
-  letter-spacing: .7px
+  letter-spacing: 0.7px;
 }
 
 .auth-modal__label {
   font-size: 14px;
   line-height: 1.643;
-  color: #6f7887;
-  margin-bottom: 8px
+  color: #6F7887;
+  font-weight: 500;
+  margin-bottom: 8px;
+  letter-spacing: 0.7px;
 }
 
 .auth-modal__input {
   font: 500 16px/1.5 "Strawford", sans-serif !important;
-  background: #eff3f9;
+  background: #EFF3F9;
+  border: none;
   padding: 14px 16px;
   border-radius: 16px;
-  color: #060a20;
-  letter-spacing: .7px;
-  border: 2px solid #eff3f9
+  color: #060A20;
+  letter-spacing: 0.7px;
+  border: 2px solid #EFF3F9;
 }
 
 .auth-modal__input:focus {
   background: #fff;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border: 2px solid #060a20
+  border: 2px solid #060A20;
 }
 
 .auth-modal__input::-webkit-input-placeholder {
-  color: #b4bac2
+  color: #B4BAC2;
 }
 
 .auth-modal__input::-moz-placeholder {
-  color: #b4bac2
+  color: #B4BAC2;
 }
 
 .auth-modal__input:-ms-input-placeholder {
-  color: #b4bac2
+  color: #B4BAC2;
 }
 
 .auth-modal__input::-ms-input-placeholder {
-  color: #b4bac2
+  color: #B4BAC2;
 }
 
 .auth-modal__input::placeholder {
-  color: #b4bac2
+  color: #B4BAC2;
 }
 
 .auth-modal .toggle-password .auth-modal__input:invalid+.toggle-password__btn {
   right: 35px;
-  top: 50%
+  top: 50%;
 }
 
 .auth-modal .toggle-password .auth-modal__input.auth-modal__input--message:invalid+.toggle-password__btn {
   right: 35px;
-  top: calc(50% - 17px)
+  top: calc(50% - 17px);
 }
 
 .auth-modal__inner-row {
-  margin-bottom: 8px
+  margin-bottom: 8px;
 }
 
 .auth-modal__inner-row .auth-modal__label {
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 .auth-modal__footer {
   font-size: 16px;
   line-height: 1.5;
-  color: #6f7887
+  color: #6F7887;
 }
 
-.auth-modal__form,
-.main-btn {
-  width: 100%
+.auth-modal__form {
+  width: 100%;
 }
 
 .main-btn {
   font: 16px/1.5 "Strawford", sans-serif !important;
-  background: #060a20 !important;
+  background: rgb(6, 10, 32) !important;
+  width: 100%;
   display: block;
   color: #fff !important;
   padding: 15px 16px;
-  letter-spacing: .7px;
-  border-radius: 16px
+  letter-spacing: 0.7px;
+  border-radius: 16px;
 }
 
 .main-btn:disabled {
-  background: rgba(6, 10, 32, .15) !important
+  background: rgba(6, 10, 32, 0.15) !important;
 }
 
 .main-btn--white {
   background: #fff !important;
-  color: #060a20 !important;
-  border: 2px solid rgba(6, 10, 32, .5);
-  padding: 14px 16px
+  color: #060A20 !important;
+  border: 2px solid rgba(6, 10, 32, 0.5);
+  padding: 14px 16px;
 }
 
 .toggle-password {
   width: 100%;
   position: relative;
-  z-index: 10
+  z-index: 10;
 }
 
 .toggle-password__btn {
@@ -538,21 +599,21 @@ svg {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  cursor: pointer
+  cursor: pointer;
 }
 
 .toggle-password__btn.show {
   background: url(../img/show-pass-icon.svg);
   width: 22px;
-  height: 16px
+  height: 16px;
 }
 
 .webp .auth-modal__modal-header {
-  background: url(../img/popup-bg--mob.webp) 20% 10% no-repeat
+  background: url(../img/popup-bg--mob.webp) 20% 10% no-repeat;
 }
 
 .no-webp .auth-modal__modal-header {
-  background: url(../img/popup-bg--mob.jpg) 20% 10% no-repeat
+  background: url(../img/popup-bg--mob.jpg) 20% 10% no-repeat;
 }
 
 .password-rools__header {
@@ -562,92 +623,94 @@ svg {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 16px
+  margin-bottom: 16px;
 }
 
 .password-rools__title {
-  margin-bottom: 0 !important
+  margin-bottom: 0 !important;
 }
 
 .password-rools__lock-icon {
   margin-bottom: 0 !important;
-  margin-right: 16px
+  margin-right: 16px;
 }
 
 .password-rools__item {
   font-size: 14px;
   line-height: 24px;
   padding-left: 22px;
-  position: relative
+  position: relative;
 }
 
 .password-rools__item.error {
-  color: red
+  color: red;
 }
 
 .password-rools__item.error:before {
-  background: red
+  background: red;
 }
 
 .password-rools__item:before {
-  background: #0e7058;
+  background: #0E7058;
   content: "";
   width: 3px;
   height: 3px;
   border-radius: 50%;
   position: absolute;
   left: 8px;
-  top: 8px
+  top: 8px;
 }
 
 .password-rools__item:not(:last-of-type) {
-  margin-bottom: 8px
+  margin-bottom: 8px;
 }
 
 .form-control.is-valid,
 .was-validated .form-control:valid {
   background: #fff !important;
-  border-color: #060a20
+  border-color: #060A20;
 }
 
 .page-wrapper.row {
   margin-left: 0 !important;
-  margin-right: 0 !important
+  margin-right: 0 !important;
 }
 
 .main {
   width: 100%;
-  padding-top: 24px
+  padding-top: 24px;
 }
 
-#profile {
+#profile,
+#address {
   width: 100%;
-  max-width: 1120px
+  max-width: 1120px;
 }
 
 .main .nav-tabs {
   border-bottom: 0;
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .main .nav-tabs .nav-item:not(:last-of-type) {
-  margin-right: 32px
+  margin-right: 32px;
 }
 
 .main .nav-tabs .nav-link {
   font: 500 16px/1.5 "Strawford", sans-serif;
-  background: 0 0;
-  color: #060a20;
-  padding: 0 0 16px;
-  border: 0
+  background: none;
+  padding-bottom: 16px;
+  color: #060A20;
+  padding: 0 0 16px 0;
+  border: none;
 }
 
 .main .nav-tabs .nav-link.active {
-  position: relative
+  position: relative;
 }
 
 .main .nav-tabs .nav-link.active:after {
-  background: #060a20;
+  background: #060A20;
   content: "";
   width: 100%;
   height: 4px;
@@ -658,11 +721,48 @@ svg {
   left: 50%;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
-  transform: translateX(-50%)
+  transform: translateX(-50%);
 }
 
+.form-wrapper {
+  background: #F8FBFF;
+  margin-right: -16px !important;
+  margin-left: -16px !important;
+  padding: 32px 16px !important;
+  border-radius: 24px;
+  margin-bottom: 32px;
+}
+
+.form-wrapper .form-select {
+  font: 500 16px/1.5 "Strawford", sans-serif !important;
+  background: #eff3f9 url("../img/dropdown-arrow.svg") calc(100% - 20px) 50% no-repeat;
+  background-size: 8px 7px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  color: #060a20;
+  letter-spacing: 0.7px;
+  border: 2px solid #eff3f9;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.form-wrapper .form-select option:checked {
+  color: #060A20;
+}
+
+.form-wrapper .form-select:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: #fff url("../img/dropdown-arrow-top.svg") calc(100% - 20px) 50% no-repeat !important;
+  background-size: 8px 7px;
+  outline: 2px solid !important;
+}
+
+/* Main Styles */
+
 .navbar {
-  background: #060a20;
+  background: #060A20;
   margin-top: 8px;
   width: 100%;
   max-width: calc(100% - 24px);
@@ -670,11 +770,11 @@ svg {
   margin-right: auto;
   border-radius: 24px;
   padding: 18px 0;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .navbar-collapse {
-  width: 100% !important
+  width: 100% !important;
 }
 
 .navbar-brand {
@@ -684,24 +784,24 @@ svg {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 0
+  padding: 0;
 }
 
 .navbar-nav {
   margin-top: 32px;
-  margin-bottom: 0 !important
+  margin-bottom: 0 !important;
 }
 
 .navbar__logo {
   width: 118px;
-  height: 14px
+  height: 14px;
 }
 
 .navbar .nav-item {
   font-family: "Strawford", sans-serif;
   font-weight: 600;
   padding-left: 40px;
-  position: relative
+  position: relative;
 }
 
 .navbar .nav-item:before {
@@ -712,61 +812,61 @@ svg {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  background-size: contain
+  background-size: contain;
 }
 
 .navbar .nav-item--home:before {
   width: 19px;
   height: 20px;
-  background: url(../img/home-icon.svg) 50% 50% no-repeat
+  background: url(../img/home-icon.svg) 50% 50% no-repeat;
 }
 
 .navbar .nav-item--profile:before {
   width: 16.34px;
   height: 20px;
   left: 2px;
-  background: url(../img/profile-icon.svg) 50% 50% no-repeat
+  background: url(../img/profile-icon.svg) 50% 50% no-repeat;
 }
 
 .navbar .nav-item--consultation:before {
   width: 24px;
   height: 24px;
-  background: url(../img/speech-balloon-icon.svg) 50% 50% no-repeat
+  background: url(../img/speech-balloon-icon.svg) 50% 50% no-repeat;
 }
 
 .navbar .nav-item--documents:before {
   width: 16px;
   height: 20px;
   left: 4px;
-  background: url(../img/doc-icon.svg) 50% 50% no-repeat
+  background: url(../img/doc-icon.svg) 50% 50% no-repeat;
 }
 
 .navbar .nav-item--plan:before {
   width: 19px;
   height: 19px;
   left: 2px;
-  background: url(../img/cart-icon.svg) 50% 50% no-repeat
+  background: url(../img/cart-icon.svg) 50% 50% no-repeat;
 }
 
 .navbar .nav-item--log-out:before {
   width: 20px;
   height: 20px;
   left: 4px;
-  background: url(../img/log-out-icon.svg) 50% 50% no-repeat
+  background: url(../img/log-out-icon.svg) 50% 50% no-repeat;
 }
 
 .navbar .nav-item--passw-recovery {
-  margin-bottom: 64px
+  margin-bottom: 64px;
 }
 
 .navbar .nav-item a {
   color: #fff;
-  font-size: 16px
+  font-size: 16px;
 }
 
 .navbar .nav-link {
   padding: 10px 0 !important;
-  position: relative
+  position: relative;
 }
 
 .navbar .nav-link:after {
@@ -784,29 +884,29 @@ svg {
   border-bottom-left-radius: 8px;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity .4s linear;
-  -o-transition: opacity .4s linear;
-  transition: opacity .4s linear
+  -webkit-transition: opacity 0.4s linear;
+  -o-transition: opacity 0.4s linear;
+  transition: opacity 0.4s linear;
 }
 
 .navbar .nav-link:focus:after {
   opacity: 1;
-  visibility: visible
+  visibility: visible;
 }
 
 .navbar .container-fluid {
-  padding: 0 16px
+  padding: 0 16px;
 }
 
 .navbar .navbar-toggler {
-  border: 0;
-  outline: 0;
-  padding: 0
+  border: none;
+  outline: none;
+  padding: 0;
 }
 
 .navbar .navbar-toggler:focus {
   -webkit-box-shadow: none !important;
-  box-shadow: none !important
+  box-shadow: none !important;
 }
 
 .navbar .navbar-toggler-icon {
@@ -816,49 +916,54 @@ svg {
   background: #fff !important;
   position: relative;
   bottom: 2px;
-  -webkit-transition: background 0s linear .3s;
-  -o-transition: background 0s linear .3s;
-  transition: background 0s linear .3s
+  -webkit-transition: background 0s linear 0.3s;
+  -o-transition: background 0s linear 0.3s;
+  transition: background 0s linear 0.3s;
 }
 
-.navbar .navbar-toggler-icon:after,
-.navbar .navbar-toggler-icon:before {
+.navbar .navbar-toggler-icon:before,
+.navbar .navbar-toggler-icon:after {
   background: #fff;
   content: "";
   height: 2px;
   border-radius: 2px;
   position: absolute;
   right: 0;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg)
 }
 
 .navbar .navbar-toggler-icon:before {
   width: 9px;
   top: -8px;
-  -webkit-transition: top .3s linear .3s, width 0s linear .3s, -webkit-transform .3s linear;
-  -o-transition: transform .3s linear, top .3s linear .3s, width 0s linear .3s;
-  transition: transform .3s linear, top .3s linear .3s, width 0s linear .3s;
-  transition: transform .3s linear, top .3s linear .3s, width 0s linear .3s, -webkit-transform .3s linear
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: top 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
+  transition: top 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
+  -o-transition: transform 0.3s linear, top 0.3s linear 0.3s, width 0s linear 0.3s;
+  transition: transform 0.3s linear, top 0.3s linear 0.3s, width 0s linear 0.3s;
+  transition: transform 0.3s linear, top 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
 }
 
 .navbar .navbar-toggler-icon:after {
   width: 15px;
   bottom: -8px;
-  -webkit-transition: bottom .3s linear .3s, width 0s linear .3s, -webkit-transform .3s linear;
-  -o-transition: transform .3s linear, bottom .3s linear .3s, width 0s linear .3s;
-  transition: transform .3s linear, bottom .3s linear .3s, width 0s linear .3s;
-  transition: transform .3s linear, bottom .3s linear .3s, width 0s linear .3s, -webkit-transform .3s linear
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: bottom 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
+  transition: bottom 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
+  -o-transition: transform 0.3s linear, bottom 0.3s linear 0.3s, width 0s linear 0.3s;
+  transition: transform 0.3s linear, bottom 0.3s linear 0.3s, width 0s linear 0.3s;
+  transition: transform 0.3s linear, bottom 0.3s linear 0.3s, width 0s linear 0.3s, -webkit-transform 0.3s linear;
 }
 
 .navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon {
-  background: #060a20 !important
+  background: #060A20 !important;
 }
 
-.navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:after,
-.navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:before {
-  width: 21px
+.navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:before,
+.navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:after {
+  width: 21px;
 }
 
 .navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:before {
@@ -866,10 +971,11 @@ svg {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-  -webkit-transition: top .3s linear, width 0s linear .3s, -webkit-transform .3s linear .3s;
-  -o-transition: transform .3s linear .3s, top .3s linear, width 0s linear .3s;
-  transition: transform .3s linear .3s, top .3s linear, width 0s linear .3s;
-  transition: transform .3s linear .3s, top .3s linear, width 0s linear .3s, -webkit-transform .3s linear .3s
+  -webkit-transition: top 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
+  transition: top 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
+  -o-transition: transform 0.3s linear 0.3s, top 0.3s linear, width 0s linear 0.3s;
+  transition: transform 0.3s linear 0.3s, top 0.3s linear, width 0s linear 0.3s;
+  transition: transform 0.3s linear 0.3s, top 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
 }
 
 .navbar .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:after {
@@ -877,83 +983,71 @@ svg {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  -webkit-transition: bottom .3s linear, width 0s linear .3s, -webkit-transform .3s linear .3s;
-  -o-transition: transform .3s linear .3s, bottom .3s linear, width 0s linear .3s;
-  transition: transform .3s linear .3s, bottom .3s linear, width 0s linear .3s;
-  transition: transform .3s linear .3s, bottom .3s linear, width 0s linear .3s, -webkit-transform .3s linear .3s
+  -webkit-transition: bottom 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
+  transition: bottom 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
+  -o-transition: transform 0.3s linear 0.3s, bottom 0.3s linear, width 0s linear 0.3s;
+  transition: transform 0.3s linear 0.3s, bottom 0.3s linear, width 0s linear 0.3s;
+  transition: transform 0.3s linear 0.3s, bottom 0.3s linear, width 0s linear 0.3s, -webkit-transform 0.3s linear 0.3s;
 }
 
 .breadcrumb {
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 .breadcrumb-nav {
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .breadcrumb-item {
   font-weight: 400;
-  color: #606060
+  color: #606060;
 }
 
 .breadcrumb-item a {
-  color: #606060
+  color: #606060;
 }
 
 .breadcrumb-item.active {
-  color: #060a20;
-  font-weight: 500
+  color: #060A20;
+  font-weight: 500;
 }
 
 .profile-form__header {
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .profile-form__logout-btn.main-btn {
   max-width: 343px !important;
-  margin: 0 !important
-}
-
-.profile-form__submit.main-btn {
-  margin: 0 auto !important
+  margin: 0 !important;
 }
 
 .profile-form__title {
   width: 100%;
-  margin-bottom: 32px !important
+  margin-bottom: 32px !important;
 }
 
 .profile-form__title--delete,
 .profile-form__title--logout {
-  margin-bottom: 16px !important
+  margin-bottom: 16px !important;
 }
 
 .profile-form__subtitle {
   font-size: 14px;
-  line-height: 1.6
+  line-height: 1.6;
 }
 
 .profile-form__subtitle br {
-  display: none
-}
-
-.profile-form__wrapper {
-  background: #f8fbff;
-  margin-right: -20px !important;
-  margin-left: -16px !important;
-  padding: 32px 16px !important;
-  border-radius: 24px;
-  margin-bottom: 32px
+  display: none;
 }
 
 .profile-form__radio-wrapper {
   padding: 0 10px 0 26px;
   -ms-flex-wrap: nowrap !important;
-  flex-wrap: nowrap !important
+  flex-wrap: nowrap !important;
 }
 
 .profile-form__row--gender {
-  margin-bottom: 64px !important
+  margin-bottom: 64px !important;
 }
 
 .profile-form__delete-btn {
@@ -963,49 +1057,54 @@ svg {
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: #db3059;
-  border: 2px solid rgba(219, 48, 89, .05);
+  color: #DB3059;
+  border: 2px solid rgba(219, 48, 89, 0.05);
   border-radius: 16px;
-  padding: 13px 20px
+  padding: 13px 20px;
 }
 
-.profile-form__delete-btn:focus,
-.profile-form__delete-btn:hover {
-  background: #db3059;
-  color: #fff
+.profile-form__delete-btn:hover,
+.profile-form__delete-btn:focus {
+  background: #DB3059;
+  color: #fff;
 }
 
-.profile-form__row--delete-account,
-.profile-form__row--gender {
-  width: 100%
+.profile-form__row--gender,
+.profile-form__row--delete-account {
+  width: 100%;
 }
 
 .profile-form__bar {
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .profile-form__logout-btn {
   background: #fff !important;
-  color: #060a20 !important;
-  border: 2px solid rgba(6, 10, 32, .05);
+  color: #060A20 !important;
+  border: 2px solid rgba(6, 10, 32, 0.05);
   font-weight: 600 !important;
-  margin: 0 auto !important
+  margin: 0 auto !important;
 }
 
-.profile-form__logout-btn:focus,
-.profile-form__logout-btn:hover {
-  background: #060a20 !important;
-  color: #fff !important
+.profile-form__logout-btn:hover,
+.profile-form__logout-btn:focus {
+  background: #060A20 !important;
+  color: #fff !important;
 }
 
 .profile-form .main-btn {
-  max-width: 343px !important
+  max-width: 343px !important;
+}
+
+.form-btn.profile-form__submit,
+.form-btn.address-form__submit {
+  margin: 0 auto !important;
 }
 
 .form-check-input {
   width: 1px;
   height: 1px;
-  opacity: 0
+  opacity: 0;
 }
 
 .form-check {
@@ -1020,31 +1119,39 @@ svg {
   -ms-flex-pack: center;
   justify-content: center;
   padding: 0;
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 .form-check:not(:last-of-type) {
-  margin-right: 16px
+  margin-right: 16px;
 }
 
 .form-check-label {
-  background: #eff3f9;
+  background: #EFF3F9;
   width: 100%;
   text-align: center;
-  color: #060a20;
+  color: #060A20;
   font-size: 16px;
   padding: 13px 20px;
   line-height: 1.5;
   font-weight: 600 !important;
-  border: 2px solid #eff3f9;
-  outline: 2px solid #eff3f9 !important;
+  border: 2px solid #EFF3F9;
+  outline: 2px solid #EFF3F9 !important;
   border-radius: 14px;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .form-check-input:checked[type=radio]+.form-check-label {
   background: #fff !important;
-  outline: 2px solid !important
+  outline: 2px solid !important;
+}
+
+.address-form {
+  position: relative;
+}
+
+.address-form__wrapper .auth-modal__row:last-of-type {
+  margin-bottom: 0 !important;
 }
 
 .news {
@@ -1055,109 +1162,113 @@ svg {
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .login__modal-dialog {
-  font-family: "Strawford", sans-serif !important
+  font-family: "Strawford", sans-serif !important;
 }
 
 .login__btn {
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .logout-modal__out-icon {
   width: 32px;
   height: 32px;
-  margin-bottom: 24px
+  margin-bottom: 24px;
 }
 
 .logout-modal__title {
   font-size: 20px;
   line-height: 24px;
-  margin-bottom: 8px
+  margin-bottom: 8px;
 }
 
 .logout-modal__subtitle {
   text-align: center;
   font-size: 14px;
   line-height: 1.6;
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
-.logout-modal__btn--decline,
-.logout-modal__btn--upprove {
+.logout-modal__btn--upprove,
+.logout-modal__btn--decline {
   background: #fff !important;
-  border: 2px solid rgba(6, 10, 32, .05) !important;
-  color: #060a20 !important
+  border: 2px solid rgba(6, 10, 32, 0.05) !important;
+  color: #060A20 !important;
 }
 
-.del-account-modal__btn--decline:active,
-.del-account-modal__btn--decline:focus,
-.del-account-modal__btn--decline:hover,
-.del-account-modal__btn--upprove:active,
-.del-account-modal__btn--upprove:focus,
-.del-account-modal__btn--upprove:hover,
-.logout-modal__btn--decline:active,
-.logout-modal__btn--decline:focus,
-.logout-modal__btn--decline:hover,
-.logout-modal__btn--upprove:active,
+.logout-modal__btn--upprove:hover,
 .logout-modal__btn--upprove:focus,
-.logout-modal__btn--upprove:hover {
-  background: #060a20 !important;
-  color: #fff !important
+.logout-modal__btn--upprove:active,
+.logout-modal__btn--decline:hover,
+.logout-modal__btn--decline:focus,
+.logout-modal__btn--decline:active {
+  background: #060A20 !important;
+  color: #fff !important;
 }
 
 .logout-modal__btn--upprove {
-  margin-bottom: 16px
+  margin-bottom: 16px;
 }
 
 .logout-modal__modal-body {
-  padding: 32px
+  padding: 32px;
 }
 
 .del-account-modal__out-icon {
   width: 32px;
   height: 32px;
-  margin-bottom: 24px
+  margin-bottom: 24px;
 }
 
 .del-account-modal__title {
   font-size: 20px;
   line-height: 24px;
-  margin-bottom: 8px
+  margin-bottom: 8px;
 }
 
 .del-account-modal__subtitle {
   text-align: center;
   font-size: 14px;
   line-height: 1.6;
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
-.del-account-modal__btn--decline,
-.del-account-modal__btn--upprove {
+.del-account-modal__btn--upprove,
+.del-account-modal__btn--decline {
   background: #fff !important;
-  border: 2px solid rgba(6, 10, 32, .05) !important;
-  color: #060a20 !important
+  border: 2px solid rgba(6, 10, 32, 0.05) !important;
+  color: #060A20 !important;
+}
+
+.del-account-modal__btn--upprove:hover,
+.del-account-modal__btn--upprove:focus,
+.del-account-modal__btn--upprove:active,
+.del-account-modal__btn--decline:hover,
+.del-account-modal__btn--decline:focus,
+.del-account-modal__btn--decline:active {
+  background: #060A20 !important;
+  color: #fff !important;
 }
 
 .del-account-modal__btn--upprove {
-  margin-bottom: 16px
+  margin-bottom: 16px;
 }
 
-.del-account-modal__btn--upprove:active,
+.del-account-modal__btn--upprove:hover,
 .del-account-modal__btn--upprove:focus,
-.del-account-modal__btn--upprove:hover {
-  background: #db3059 !important
+.del-account-modal__btn--upprove:active {
+  background: #DB3059 !important;
 }
 
 .del-account-modal__modal-body {
-  padding: 32px
+  padding: 32px;
 }
 
 .recovery-modal__modal-dialog.auth-modal__modal-dialog {
-  max-width: 375px !important
+  max-width: 375px !important;
 }
 
 .recovery-modal__title {
@@ -1166,7 +1277,7 @@ svg {
   line-height: 32px;
   position: relative;
   margin-bottom: 16px;
-  color: #060a20
+  color: #060A20;
 }
 
 .recovery-modal__title:before {
@@ -1180,177 +1291,180 @@ svg {
   width: 32px;
   height: 32px;
   background: url(../img/lock-icon.svg) 50% 50% no-repeat;
-  background-size: contain
+  background-size: contain;
 }
 
 .recovery-modal__text {
-  line-height: 1.58
+  line-height: 1.58;
 }
 
 .recovery-modal__modal-header {
-  background: 0 0 !important;
+  background: none !important;
   padding: 32px 16px 0;
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .recovery-modal__modal-header:before {
-  display: none
+  display: none;
 }
 
 .recovery-modal__modal-body {
-  padding: 0 16px 32px
+  padding: 0 16px 32px;
 }
 
 .recovery-modal__modal-content {
   -webkit-box-orient: vertical !important;
   -webkit-box-direction: normal !important;
   -ms-flex-direction: column !important;
-  flex-direction: column !important
+  flex-direction: column !important;
 }
 
 .recovery-modal__form {
-  margin-bottom: 16px
+  margin-bottom: 16px;
 }
 
 .recovery-modal__form.resend {
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .recovery-modal__form.resend .recovery-modal__input--email {
-  margin-bottom: 24px
+  margin-bottom: 24px;
 }
 
 .recovery-modal__form.resend .recovery-modal__row {
-  margin-bottom: 0 !important
+  margin-bottom: 0 !important;
 }
 
 .recovery-modal__form.resend .resend-email {
-  display: block !important
+  display: block !important;
 }
 
 .recovery-modal__form.resend>.recovery-modal__btn {
-  display: none !important
+  display: none !important;
 }
 
 .recovery-modal__lock-icon {
   width: 32px;
-  height: 32px
+  height: 32px;
 }
 
 .resend-email {
-  background: #f8fbff;
+  background: #F8FBFF;
   display: none;
   width: 100%;
   text-align: center;
   font-size: 14px;
-  color: #060a20;
-  letter-spacing: .5px;
+  color: #060A20;
+  letter-spacing: 0.5px;
   border-radius: 16px;
-  padding: 10px
+  padding: 10px;
 }
 
 .resend-email a {
   font-size: 16px;
-  color: #bbbec7;
-  display: inline-block
+  color: #BBBEC7;
+  display: inline-block;
+  margin-right: 8px;
 }
 
 .resend-email a.isDisabled {
   cursor: not-allowed;
-  pointer-events: none
+  pointer-events: none;
 }
 
-.resend-email .first,
-.resend-email a {
-  margin-right: 8px
+.resend-email .first {
+  margin-right: 8px;
 }
 
 .resend-email span {
-  font-size: 16px
+  font-size: 16px;
 }
 
 .passw-recovery .auth-modal__row:first-of-type {
-  margin-bottom: 16px !important
+  margin-bottom: 16px !important;
 }
 
 .passw-recovery .password-rools {
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .passw-recovery .password-rools__item:last-of-type {
-  width: 95%
+  width: 95%;
 }
 
 .sign-up__title {
-  margin-bottom: 16px
+  margin-bottom: 16px;
 }
 
 .sign-up__modal-content {
   height: 608px;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .sign-up__modal-body {
-  overflow-y: scroll
+  overflow-y: scroll;
 }
 
 .sign-up__btn {
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
-.sign-up__form.first-step-success .sign-up__first-step,
 .sign-up__second-step {
-  display: none
+  display: none;
+}
+
+.sign-up__form.first-step-success .sign-up__first-step {
+  display: none;
 }
 
 .sign-up__form.first-step-success .sign-up__second-step {
-  display: block
+  display: block;
 }
 
 .sign-up__form.first-step-success .auth-modal__row {
-  margin-bottom: 16px
+  margin-bottom: 16px;
 }
 
 .sign-up__form.first-step-success .auth-modal__row.sign-up__agree {
-  margin-bottom: 32px !important
+  margin-bottom: 32px !important;
 }
 
 .sign-up__form.first-step-success .password-rools {
-  margin-bottom: 32px
+  margin-bottom: 32px;
 }
 
 .sign-up__agree {
-  color: #6f7887;
+  color: #6F7887;
   font-size: 16px;
   line-height: 1.5;
   position: relative;
-  letter-spacing: .5px;
-  padding-left: 40px
+  letter-spacing: 0.5px;
+  padding-left: 40px;
 }
 
 .sign-up__agree label {
-  cursor: pointer
+  cursor: pointer;
 }
 
 .sign-up__agree input {
   width: 1px;
   height: 1px;
   position: absolute;
-  opacity: 0
+  opacity: 0;
 }
 
 .sign-up__agree input:checked~.sign-up__checkbox {
-  background: #4fcfb0 url(../img/sign-up-check-icon.svg) center center no-repeat;
-  background-size: contain
+  background: #4FCFB0 url(../img/sign-up-check-icon.svg) center center no-repeat;
+  background-size: contain;
 }
 
 .sign-up__agree a {
-  color: #060a20;
-  font-weight: 500
+  color: #060A20;
+  font-weight: 500;
 }
 
 .sign-up__agree a:hover {
-  color: #0a58ca
+  color: #0a58ca;
 }
 
 .sign-up__checkbox {
@@ -1360,35 +1474,31 @@ svg {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 2px solid rgba(6, 10, 32, .05)
+  border: 2px solid rgba(6, 10, 32, 0.05);
 }
 
-.sign-up-steps,
-.sign-up-steps__item:before {
+.sign-up-steps {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center
-}
-
-.sign-up-steps {
-  width: 100%;
+  justify-content: center;
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 32px;
   counter-reset: section;
-  position: relative
+  position: relative;
 }
 
 .sign-up-steps__item {
   position: relative;
-  padding-left: 32px
+  padding-left: 32px;
 }
 
 .sign-up-steps__item:before {
-  background: #eff3f9;
+  background: #EFF3F9;
   counter-increment: section;
   content: counter(section);
   width: 24px;
@@ -1399,27 +1509,33 @@ svg {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  color: #060a20;
+  color: #060A20;
   font-size: 14px;
   border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center
+  align-items: center;
 }
 
 .sign-up-steps__item.active-step:before {
-  background: #060a20;
-  color: #fff
+  background: #060A20;
+  color: #fff;
 }
 
 .sign-up-steps__item.success-step:before {
-  background: #4fcfb0;
-  content: url(../img/sign-up-check-icon.svg)
+  background: #4FCFB0;
+  content: url(../img/sign-up-check-icon.svg);
 }
 
 .sign-up-steps__item:not(:last-of-type) {
   margin-right: 24px;
-  padding-right: 24px
+  padding-right: 24px;
 }
 
 .sign-up-steps__item:not(:last-of-type):after {
@@ -1429,114 +1545,136 @@ svg {
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%)
+  transform: translateY(-50%);
 }
 
 @supports (-webkit-appearance:none) {
   .toggle-password__btn {
-    background: url(../img/hide-pass-icon.svg) 50% 50% no-repeat
+    background: url(../img/hide-pass-icon.svg) 50% 50% no-repeat;
   }
 
   .toggle-password__btn.show {
-    background-image: url(../img/show-pass-icon.svg)
+    background-image: url(../img/show-pass-icon.svg);
   }
 
   .no-webp .auth-modal__modal-header {
-    background: url(../img/popup-bg--mob.webp) 20% 10% no-repeat
+    background: url(../img/popup-bg--mob.webp) 20% 10% no-repeat;
+  }
+
+  .form-wrapper .form-select {
+    background: #eff3f9 url("../img/dropdown-arrow.svg") calc(100% - 20px) 50% no-repeat;
+  }
+
+  .form-wrapper .form-select:focus {
+    background: #fff url("../img/dropdown-arrow-top.svg") calc(100% - 20px) 50% no-repeat !important;
   }
 
   .navbar .nav-item--home:before {
-    background: url(../img/home-icon.svg) 50% 50% no-repeat
+    background: url(../img/home-icon.svg) 50% 50% no-repeat;
   }
 
   .navbar .nav-item--profile:before {
-    background: url(../img/profile-icon.svg) 50% 50% no-repeat
+    background: url(../img/profile-icon.svg) 50% 50% no-repeat;
   }
 
   .navbar .nav-item--consultation:before {
-    background: url(../img/speech-balloon-icon.svg) 50% 50% no-repeat
+    background: url(../img/speech-balloon-icon.svg) 50% 50% no-repeat;
   }
 
   .navbar .nav-item--documents:before {
-    background: url(../img/doc-icon.svg) 50% 50% no-repeat
+    background: url(../img/doc-icon.svg) 50% 50% no-repeat;
   }
 
   .navbar .nav-item--plan:before {
-    background: url(../img/cart-icon.svg) 50% 50% no-repeat
+    background: url(../img/cart-icon.svg) 50% 50% no-repeat;
   }
 
   .navbar .nav-item--log-out:before {
-    background: url(../img/log-out-icon.svg) 50% 50% no-repeat
+    background: url(../img/log-out-icon.svg) 50% 50% no-repeat;
   }
 
   .recovery-modal__title:before {
-    background: url(../img/lock-icon.svg) 50% 50% no-repeat
+    background: url(../img/lock-icon.svg) 50% 50% no-repeat;
   }
 
   .sign-up__agree input:checked~.sign-up__checkbox {
-    background: #4fcfb0 url(../img/sign-up-check-icon.svg) center center no-repeat
+    background: #4FCFB0 url(../img/sign-up-check-icon.svg) center center no-repeat;
   }
 }
 
-@media screen and (min-width:357px) {
+@media screen and (min-width: 357px) {
   .auth-modal .toggle-password .auth-modal__input.auth-modal__input--message:invalid+.toggle-password__btn {
-    top: calc(50% - 9px)
+    top: calc(50% - 9px);
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:360px) {
+@media screen and (min-width: 360px) {
   .auth-modal__modal-dialog {
     max-width: 343px !important;
     margin-left: auto !important;
-    margin-right: auto !important
+    margin-right: auto !important;
   }
 
   .recovery-modal__modal-header {
-    padding: 32px 32px 0
+    padding: 32px 32px 0;
   }
 
   .recovery-modal__modal-body {
-    padding: 0 32px 32px
+    padding: 0 32px 32px;
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width: 480px) {
   .container {
-    width: 480px
+    width: 480px;
   }
 
   .title {
-    font-size: 30px
+    font-size: 30px;
+  }
+
+  .form-wrapper {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 32px !important;
   }
 
   .navbar {
-    max-width: calc(100% - 32px)
+    max-width: calc(100% - 32px);
   }
 
   .profile-form__subtitle br {
-    display: block
+    display: block;
   }
 
-  .profile-form__wrapper {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 32px !important
-  }
-
-  .del-account-modal .modal-dialog,
   .logout-modal .modal-dialog {
     width: 100%;
-    max-width: 343px !important
+    max-width: 343px !important;
   }
+
+  .del-account-modal .modal-dialog {
+    width: 100%;
+    max-width: 343px !important;
+  }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:640px) {
+@media screen and (min-width: 640px) {
   .container {
-    width: 640px
+    width: 640px;
   }
 
   .title {
-    font-size: 34px
+    font-size: 34px;
+  }
+
+  .form-wrapper {
+    margin-bottom: 0;
   }
 
   .profile-form {
@@ -1547,28 +1685,19 @@ svg {
     -webkit-box-direction: reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
-    position: relative
+    position: relative;
   }
 
   .profile-form-logout .profile-form__header {
-    margin-bottom: 0 !important
+    margin-bottom: 0 !important;
   }
 
   .profile-form__logout-btn.main-btn {
-    max-width: 240px !important
-  }
-
-  .profile-form__submit.main-btn {
-    margin-bottom: 24px !important;
-    position: absolute;
-    right: 0;
-    top: -80px;
-    z-index: 100;
-    max-width: 192px !important
+    max-width: 240px !important;
   }
 
   .profile-form__delete-btn.btn {
-    margin: 0 !important
+    margin: 0 !important;
   }
 
   .profile-form__delete-account,
@@ -1583,251 +1712,296 @@ svg {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    gap: 25px
+    gap: 25px;
   }
 
   .profile-form__subtitle br {
-    display: none
-  }
-
-  .profile-form__wrapper {
-    margin-bottom: 0
+    display: none;
   }
 
   .profile-form__delete-btn {
-    max-width: 230px !important
+    max-width: 230px !important;
   }
+
+  .form-btn.profile-form__submit,
+  .form-btn.address-form__submit {
+    margin-bottom: 24px !important;
+    position: absolute;
+    right: 0;
+    top: -80px;
+    z-index: 100;
+    max-width: 192px !important;
+  }
+
+  .address-form__wrapper .auth-modal__row:nth-of-type(5) {
+    margin-bottom: 0 !important;
+  }
+
+  .address-form__wrapper.form-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  .address-form__wrapper.form-wrapper .auth-modal__row {
+    width: 48%;
+  }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:640px) and (min-width:992px) {
-  .profile-form__submit.main-btn {
-    top: 0
+@media screen and (min-width: 640px) and (min-width: 992px) {
+
+  .form-btn.profile-form__submit,
+  .form-btn.address-form__submit {
+    top: 0;
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   .container {
     width: 768px;
     padding-left: 25px;
-    padding-right: 25px
+    padding-right: 25px;
   }
 
   .title {
-    font-size: 38px
+    font-size: 38px;
   }
 
   .auth-modal__modal-dialog {
-    max-width: 720px !important
+    max-width: 720px !important;
   }
 
   .auth-modal__modal-header {
     width: 300px;
     border-top-right-radius: 0;
     border-bottom-left-radius: 24px;
-    padding: 32px
+    padding: 32px;
   }
 
   .auth-modal__text {
-    font-size: 18px
+    font-size: 18px;
   }
 
   .auth-modal__text span {
-    display: block
+    display: block;
   }
 
   .auth-modal__modal-content {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
-    flex-direction: row
+    flex-direction: row;
   }
 
   .auth-modal__modal-body {
-    padding: 32px
+    padding: 32px;
   }
 
   .webp .auth-modal__modal-header {
     background-image: url(../img/popup-bg.webp);
     background-size: auto 610px;
-    background-position: -3px top
+    background-position: -3px top;
   }
 
   .no-webp .auth-modal__modal-header {
     background-image: url(../img/popup-bg.jpg);
     background-size: cover;
-    background-position: -3px top
+    background-position: -3px top;
   }
 
-  .profile-form .auth-modal__row {
-    width: 47.9999%
-  }
-
-  .profile-form .auth-modal__row:nth-of-type(odd) {
-    margin-right: 15px
-  }
-
-  .profile-form__wrapper {
+  .form-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+  }
+
+  .profile-form .auth-modal__row {
+    width: 47.9999%;
+  }
+
+  .profile-form .auth-modal__row:nth-of-type(odd) {
+    margin-right: 15px;
   }
 
   .news {
-    display: block
+    display: block;
   }
 
-  .del-account-modal .modal-dialog,
-  .logout-modal .modal-dialog,
-  .recovery-modal__modal-dialog.auth-modal__modal-dialog {
-    max-width: 480px !important
+  .logout-modal .modal-dialog {
+    max-width: 480px !important;
   }
 
   .logout-modal__btn--upprove {
-    margin-bottom: 0
+    margin-bottom: 0;
   }
 
   .logout-modal__modal-body {
-    padding: 48px
+    padding: 48px;
   }
 
   .logout-modal__row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 32px
+    gap: 32px;
+  }
+
+  .del-account-modal .modal-dialog {
+    max-width: 480px !important;
   }
 
   .del-account-modal__btn--upprove {
-    margin-bottom: 0
+    margin-bottom: 0;
   }
 
   .del-account-modal__modal-body {
-    padding: 48px
+    padding: 48px;
   }
 
   .del-account-modal__row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 32px
+    gap: 32px;
+  }
+
+  .recovery-modal__modal-dialog.auth-modal__modal-dialog {
+    max-width: 480px !important;
   }
 
   .recovery-modal__title {
-    margin-bottom: 24px !important
+    margin-bottom: 24px !important;
   }
 
   .recovery-modal__text {
-    line-height: 1.7
+    line-height: 1.7;
   }
 
   .recovery-modal__modal-header {
     width: 100%;
     padding: 48px 48px 0 !important;
-    margin-bottom: 48px !important
+    margin-bottom: 48px !important;
   }
 
   .recovery-modal__modal-body {
-    padding: 0 48px 48px !important
+    padding: 0 48px 48px !important;
   }
 
   .recovery-modal .auth-modal__row {
-    margin-bottom: 48px
+    margin-bottom: 48px;
   }
 
   .resend-email .first {
-    margin-right: 16px
+    margin-right: 16px;
   }
 
   .passw-recovery__modal-content {
     height: 608px;
-    overflow: hidden
+    overflow: hidden;
   }
 
   .passw-recovery__modal-body {
-    overflow-y: scroll
+    overflow-y: scroll;
   }
 
   @supports (-webkit-appearance:none) {
     .no-webp .auth-modal__modal-header {
-      background-image: url(../img/popup-bg.webp)
+      background-image: url(../img/popup-bg.webp);
     }
   }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .auth-modal.modal.recovery-modal {
-    background-color: rgba(6, 10, 32, .5) !important
+    background-color: rgba(6, 10, 32, 0.5) !important;
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:768px) and (min-width:1440px) {
+@media screen and (min-width: 768px) and (min-width: 1440px) {
   .profile-form .auth-modal__row:nth-of-type(odd) {
-    margin-right: 0
+    margin-right: 0;
   }
 
   .profile-form .auth-modal__row {
-    max-width: 330px
+    max-width: 330px;
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:800px) {
+@media screen and (min-width: 800px) {
   .profile-form__subtitle br {
-    display: block
+    display: block;
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:992px) {
+@media screen and (min-width: 992px) {
   .auth-modal__modal-dialog {
-    max-width: 780px !important
+    max-width: 780px !important;
   }
 
   .auth-modal__modal-header {
-    padding: 48px
+    padding: 48px;
   }
 
   .auth-modal__title {
-    margin-bottom: 48px
+    margin-bottom: 48px;
   }
 
   .auth-modal__text {
-    font-size: 20px
+    font-size: 20px;
   }
 
   .auth-modal__modal-body {
-    padding: 48px
+    padding: 48px;
   }
 
   .auth-modal__row:last-of-type {
-    margin-bottom: 48px
+    margin-bottom: 48px;
   }
 
   .auth-modal__home-icon,
   .auth-modal__lock-icon,
   .auth-modal__user-icon {
-    margin-bottom: 24px
+    margin-bottom: 24px;
   }
 
-  body,
-  html {
+  html,
+  body {
     height: 100% !important;
-    overflow: hidden !important
+    overflow: hidden !important;
   }
 
   .tab-pane {
     height: 100vh !important;
-    overflow-y: auto !important
+    overflow-y: auto !important;
   }
 
   .main {
-    width: calc(100% - 224px) !important
+    width: calc(100% - 224px) !important;
   }
 
   .main .nav-tabs {
-    margin-bottom: -46px;
     position: relative;
-    z-index: 99
+    z-index: 99;
   }
 
   .navbar {
@@ -1842,12 +2016,12 @@ svg {
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 1020
+    z-index: 1020;
   }
 
   .navbar-brand {
     margin-right: auto;
-    margin-bottom: 92px
+    margin-bottom: 92px;
   }
 
   .navbar-nav {
@@ -1856,29 +2030,29 @@ svg {
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
     -ms-flex-direction: column !important;
-    flex-direction: column !important
+    flex-direction: column !important;
   }
 
   .navbar .nav-item:not(:last-of-type) {
-    margin-bottom: 24px
+    margin-bottom: 24px;
   }
 
   .navbar .nav-item:last-of-type {
-    margin-top: auto
+    margin-top: auto;
   }
 
   .navbar .nav-item--login,
   .navbar .nav-item--sign-up {
-    padding-left: 0
+    padding-left: 0;
   }
 
   .navbar .nav-item--passw-recovery {
     margin-bottom: 0;
-    padding-left: 0
+    padding-left: 0;
   }
 
   .navbar .nav-link:after {
-    right: -30px
+    right: -30px;
   }
 
   .navbar .container-fluid {
@@ -1888,86 +2062,117 @@ svg {
     flex-direction: column;
     height: calc(100vh - 83px);
     padding-left: 42px;
-    padding-right: 30px
+    padding-right: 30px;
   }
 
   .profile-form {
-    padding-top: 80px
+    padding-top: 80px;
   }
 
   .profile-form__subtitle br {
-    display: none
+    display: none;
+  }
+
+  #profile,
+  #address {
+    margin-top: -79px;
+  }
+
+  .address-form {
+    padding-top: 80px;
   }
 
   .login__btn {
-    margin-bottom: 48px
+    margin-bottom: 48px;
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
   .container {
-    width: 1024px
+    width: 1024px;
   }
 
   .title {
-    font-size: 40px
+    font-size: 40px;
   }
 
-  .no-webp .auth-modal__modal-header,
   .webp .auth-modal__modal-header {
-    background-size: cover
+    background-size: cover;
+  }
+
+  .no-webp .auth-modal__modal-header {
+    background-size: cover;
   }
 
   .profile-form__subtitle br {
-    display: block
+    display: block;
   }
 
   .passw-recovery__modal-content {
     height: 624px;
-    overflow: hidden
+    overflow: hidden;
   }
 
   .sign-up__modal-content {
-    height: 624px
+    height: 624px;
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width: 1200px) {
   .main {
     padding-left: 32px;
-    padding-right: 32px
+    padding-right: 32px;
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:1220px) {
+@media screen and (min-width: 1220px) {
   .container {
-    width: 1220px
+    width: 1220px;
   }
 
   .title {
-    font-size: 46px
+    font-size: 46px;
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:1400px) {
+@media screen and (min-width: 1400px) {
   .main {
     padding-left: 64px;
-    padding-right: 64px
+    padding-right: 64px;
   }
+
+  @supports (-webkit-appearance:none) {}
 }
 
-@media screen and (min-width:1440px) {
-  .profile-form .auth-modal__row:nth-of-type(n+4) {
-    margin-bottom: 72px !important
-  }
-
-  .profile-form__wrapper {
+@media screen and (min-width: 1440px) {
+  .form-wrapper {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between
+    justify-content: space-between;
+  }
+
+  .profile-form .auth-modal__row:nth-of-type(n+4) {
+    margin-bottom: 72px !important;
   }
 
   .form-check {
-    max-width: 158px
+    max-width: 158px;
+  }
+
+  @supports (-webkit-appearance:none) {}
+}
+
+@media (max-width: 991px) {
+  html,
+  body {
+    overflow-x: hidden;
   }
 }
