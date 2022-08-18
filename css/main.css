@@ -306,6 +306,28 @@ select:-moz-focusring {
   font-display: swap;
 }
 
+/* inter-regular - latin */
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(""), url("../fonts/inter-v12-latin-regular.woff2") format("woff2"), url("../fonts/inter-v12-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* inter-500 - latin */
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local(""), url("../fonts/inter-v12-latin-500.woff2") format("woff2"), url("../fonts/inter-v12-latin-500.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 body {
   font: 14px "Strawford", sans-serif;
   background: #fff !important;
@@ -837,7 +859,282 @@ body {
 }
 
 .same-as-selected {
-  background: #EFF3F9 url(../img/option-checkmark.png) calc(100% - 18px) 50% no-repeat !important;
+  background: #EFF3F9 url(../img/option-checkmark.svg) calc(100% - 18px) 50% no-repeat !important;
+}
+
+#datepicker.input-group {
+  position: relative;
+}
+
+#datepicker .input-group-append {
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#datepicker .profile-form__input--age {
+  border-radius: 16px !important;
+}
+
+#datepicker .input-group-datepicker {
+  z-index: 10;
+}
+
+#datepicker .datepicker-icon {
+  width: 18px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.picker-container {
+  position: relative;
+}
+
+.datepicker.dropdown-menu {
+  font-size: 14px !important;
+}
+
+.datepicker.datepicker-dropdown {
+  width: 280px;
+  border-radius: 16px;
+  border: none;
+  -webkit-filter: drop-shadow(0px 8px 64px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0px 8px 64px rgba(0, 0, 0, 0.1));
+  position: absolute;
+  top: 64px !important;
+  left: 50% !important;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-family: "Inter", sans-serif !important;
+  padding: 16px;
+}
+
+.datepicker.datepicker-dropdown .datepicker-days td {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  margin: 0 !important;
+}
+
+.datepicker.datepicker-dropdown .datepicker-days tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.datepicker.datepicker-dropdown .datepicker-days td {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.datepicker.datepicker-dropdown .datepicker-days .table-condensed {
+  width: 100%;
+}
+
+.datepicker.datepicker-dropdown .datepicker-days .table-condensed thead tr:first-of-type {
+  display: none !important;
+}
+
+.datepicker.datepicker-dropdown .datepicker-days .table-condensed thead tr:not(:last-of-type) {
+  margin-bottom: 8px !important;
+}
+
+.datepicker.datepicker-dropdown .datepicker-days .table-condensed tbody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.datepicker.datepicker-dropdown .datepicker-days .table-condensed tbody tr {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.datepicker.datepicker-dropdown .datepicker-days .table-condensed tbody td {
+  width: 100%;
+}
+
+.datepicker.datepicker-dropdown .datepicker-days .table-condensed .dow {
+  width: 32px;
+  height: 32px;
+  font-weight: 500 !important;
+  color: #060A20;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.datepicker.datepicker-dropdown .datepicker-months .table-condensed thead,
+.datepicker.datepicker-dropdown .datepicker-years .table-condensed thead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 248px !important;
+  margin-bottom: 16px;
+}
+
+.datepicker.datepicker-dropdown .datepicker-months .table-condensed thead tr,
+.datepicker.datepicker-dropdown .datepicker-years .table-condensed thead tr {
+  width: 100% !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.datepicker.datepicker-dropdown .datepicker-months .table-condensed tbody,
+.datepicker.datepicker-dropdown .datepicker-years .table-condensed tbody {
+  width: 248px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.datepicker.datepicker-dropdown .datepicker-months .table-condensed tbody tr,
+.datepicker.datepicker-dropdown .datepicker-months .table-condensed tbody td,
+.datepicker.datepicker-dropdown .datepicker-years .table-condensed tbody tr,
+.datepicker.datepicker-dropdown .datepicker-years .table-condensed tbody td {
+  width: 100%;
+}
+
+.datepicker.datepicker-dropdown .datepicker-switch {
+  line-height: 40px;
+}
+
+.datepicker.datepicker-dropdown .datepicker-months table tr td span,
+.datepicker.datepicker-dropdown .datepicker-years table tr td span {
+  background: #F8FBFF;
+  width: 120px !important;
+  margin: 0 0 8px 0 !important;
+  border-radius: 16px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: 500;
+  color: #717A89;
+}
+
+.datepicker.datepicker-dropdown .datepicker-months table tr td span.focused,
+.datepicker.datepicker-dropdown .datepicker-years table tr td span.focused {
+  background: #060A20 !important;
+  color: #fff !important;
+}
+
+.datepicker.datepicker-dropdown .datepicker-months table tr td span:hover,
+.datepicker.datepicker-dropdown .datepicker-years table tr td span:hover {
+  background: #EFF3F9;
+}
+
+.datepicker.datepicker-dropdown .datepicker-months table tr td span:nth-of-type(odd),
+.datepicker.datepicker-dropdown .datepicker-years table tr td span:nth-of-type(odd) {
+  margin: 0 8px 8px 0 !important;
+}
+
+.datepicker.datepicker-dropdown .datepicker table tr td.new,
+.datepicker.datepicker-dropdown .datepicker table tr td.old {
+  color: #6F7887 !important;
+  font-weight: 400 !important;
+}
+
+.datepicker-dropdown.datepicker-orient-left:after,
+.datepicker-dropdown.datepicker-orient-bottom:before {
+  display: none;
+}
+
+.datepicker table tr td.active.active,
+.datepicker table tr td.active.disabled,
+.datepicker table tr td.active.disabled.active,
+.datepicker table tr td.active.disabled.disabled,
+.datepicker table tr td.active.disabled:active,
+.datepicker table tr td.active.disabled:hover,
+.datepicker table tr td.active.disabled:hover.active,
+.datepicker table tr td.active.disabled:hover.disabled,
+.datepicker table tr td.active.disabled:hover:active,
+.datepicker table tr td.active.disabled:hover:hover,
+.datepicker table tr td.active.disabled:hover[disabled],
+.datepicker table tr td.active.disabled[disabled],
+.datepicker table tr td.active:active,
+.datepicker table tr td.active:hover,
+.datepicker table tr td.active:hover.active,
+.datepicker table tr td.active:hover.disabled,
+.datepicker table tr td.active:hover:active,
+.datepicker table tr td.active:hover:hover,
+.datepicker table tr td.active:hover[disabled],
+.datepicker table tr td.active[disabled] {
+  background: #060A20 !important;
+}
+
+.datepicker table tr td.day.focused,
+.datepicker table tr td.day:hover {
+  background: #EFF3F9 !important;
+}
+
+.datepicker .datepicker-switch:hover,
+.datepicker .next:hover,
+.datepicker .prev:hover,
+.datepicker tfoot tr th:hover {
+  background: #fff !important;
+}
+
+.datepicker .datepicker-switch {
+  font-size: 16px !important;
+  color: #6F7887;
+}
+
+.datepicker td,
+.datepicker th {
+  width: 40px;
+  height: 40px;
+}
+
+.datepicker-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(6, 10, 32, 0.05);
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.datepicker-btn__icon {
+  width: 7px;
+  height: 8px;
 }
 
 /* Main Styles */
@@ -1656,7 +1953,7 @@ body {
   }
 
   .same-as-selected {
-    background: #EFF3F9 url(../img/option-checkmark.png) calc(100% - 18px) 50% no-repeat !important;
+    background: #EFF3F9 url(../img/option-checkmark.svg) calc(100% - 18px) 50% no-repeat !important;
   }
 
   .navbar .nav-item--home:before {
