@@ -1,723 +1,1558 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dispensed</title>
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/main.css">
-  <script data-polyfil="webp">
-    ! function (e, n, A) {
-      function o(e, n) {
-        return typeof e === n
-      }
-
-      function t() {
-        var e, n, A, t, a, i, l;
-        for (var f in r)
-          if (r.hasOwnProperty(f)) {
-            if (e = [], n = r[f], n.name && (e.push(n.name.toLowerCase()), n.options && n.options.aliases && n.options
-                .aliases.length))
-              for (A = 0; A < n.options.aliases.length; A++) e.push(n.options.aliases[A].toLowerCase());
-            for (t = o(n.fn, "function") ? n.fn() : n.fn, a = 0; a < e.length; a++) i = e[a], l = i.split("."), 1 === l
-              .length ? Modernizr[l[0]] = t : (!Modernizr[l[0]] || Modernizr[l[0]] instanceof Boolean || (Modernizr[l[
-                0]] = new Boolean(Modernizr[l[0]])), Modernizr[l[0]][l[1]] = t), s.push((t ? "" : "no-") + l.join("-"))
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dispensed</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css" />
+    <script data-polyfil="webp">
+      !(function (e, n, A) {
+        function o(e, n) {
+          return typeof e === n;
+        }
+        function t() {
+          var e, n, A, t, a, i, l;
+          for (var f in r)
+            if (r.hasOwnProperty(f)) {
+              if (
+                ((e = []),
+                (n = r[f]),
+                n.name &&
+                  (e.push(n.name.toLowerCase()),
+                  n.options && n.options.aliases && n.options.aliases.length))
+              )
+                for (A = 0; A < n.options.aliases.length; A++)
+                  e.push(n.options.aliases[A].toLowerCase());
+              for (
+                t = o(n.fn, "function") ? n.fn() : n.fn, a = 0;
+                a < e.length;
+                a++
+              )
+                (i = e[a]),
+                  (l = i.split(".")),
+                  1 === l.length
+                    ? (Modernizr[l[0]] = t)
+                    : (!Modernizr[l[0]] ||
+                        Modernizr[l[0]] instanceof Boolean ||
+                        (Modernizr[l[0]] = new Boolean(Modernizr[l[0]])),
+                      (Modernizr[l[0]][l[1]] = t)),
+                  s.push((t ? "" : "no-") + l.join("-"));
+            }
+        }
+        function a(e) {
+          var n = u.className,
+            A = Modernizr._config.classPrefix || "";
+          if ((c && (n = n.baseVal), Modernizr._config.enableJSClass)) {
+            var o = new RegExp("(^|\s)" + A + "no-js(\s|$)");
+            n = n.replace(o, "$1" + A + "js$2");
           }
-      }
-
-      function a(e) {
-        var n = u.className,
-          A = Modernizr._config.classPrefix || "";
-        if (c && (n = n.baseVal), Modernizr._config.enableJSClass) {
-          var o = new RegExp("(^|\s)" + A + "no-js(\s|$)");
-          n = n.replace(o, "$1" + A + "js$2")
+          Modernizr._config.enableClasses &&
+            ((n += " " + A + e.join(" " + A)),
+            c ? (u.className.baseVal = n) : (u.className = n));
         }
-        Modernizr._config.enableClasses && (n += " " + A + e.join(" " + A), c ? u.className.baseVal = n : u.className =
-          n)
-      }
-
-      function i(e, n) {
-        if ("object" == typeof e)
-          for (var A in e) f(e, A) && i(A, e[A]);
-        else {
-          e = e.toLowerCase();
-          var o = e.split("."),
-            t = Modernizr[o[0]];
-          if (2 == o.length && (t = t[o[1]]), "undefined" != typeof t) return Modernizr;
-          n = "function" == typeof n ? n() : n, 1 == o.length ? Modernizr[o[0]] = n : (!Modernizr[o[0]] || Modernizr[o[
-            0]] instanceof Boolean || (Modernizr[o[0]] = new Boolean(Modernizr[o[0]])), Modernizr[o[0]][o[1]] = n), a(
-            [(n && 0 != n ? "" : "no-") + o.join("-")]), Modernizr._trigger(e, n)
-        }
-        return Modernizr
-      }
-      var s = [],
-        r = [],
-        l = {
-          _version: "3.6.0",
-          _config: {
-            classPrefix: "",
-            enableClasses: !0,
-            enableJSClass: !0,
-            usePrefixes: !0
-          },
-          _q: [],
-          on: function (e, n) {
-            var A = this;
-            setTimeout(function () {
-              n(A[e])
-            }, 0)
-          },
-          addTest: function (e, n, A) {
-            r.push({
-              name: e,
-              fn: n,
-              options: A
-            })
-          },
-          addAsyncTest: function (e) {
-            r.push({
-              name: null,
-              fn: e
-            })
+        function i(e, n) {
+          if ("object" == typeof e) for (var A in e) f(e, A) && i(A, e[A]);
+          else {
+            e = e.toLowerCase();
+            var o = e.split("."),
+              t = Modernizr[o[0]];
+            if ((2 == o.length && (t = t[o[1]]), "undefined" != typeof t))
+              return Modernizr;
+            (n = "function" == typeof n ? n() : n),
+              1 == o.length
+                ? (Modernizr[o[0]] = n)
+                : (!Modernizr[o[0]] ||
+                    Modernizr[o[0]] instanceof Boolean ||
+                    (Modernizr[o[0]] = new Boolean(Modernizr[o[0]])),
+                  (Modernizr[o[0]][o[1]] = n)),
+              a([(n && 0 != n ? "" : "no-") + o.join("-")]),
+              Modernizr._trigger(e, n);
           }
-        },
-        Modernizr = function () {};
-      Modernizr.prototype = l, Modernizr = new Modernizr;
-      var f, u = n.documentElement,
-        c = "svg" === u.nodeName.toLowerCase();
-      ! function () {
-        var e = {}.hasOwnProperty;
-        f = o(e, "undefined") || o(e.call, "undefined") ? function (e, n) {
-          return n in e && o(e.constructor.prototype[n], "undefined")
-        } : function (n, A) {
-          return e.call(n, A)
+          return Modernizr;
         }
-      }(), l._l = {}, l.on = function (e, n) {
-        this._l[e] || (this._l[e] = []), this._l[e].push(n), Modernizr.hasOwnProperty(e) && setTimeout(function () {
-          Modernizr._trigger(e, Modernizr[e])
-        }, 0)
-      }, l._trigger = function (e, n) {
-        if (this._l[e]) {
-          var A = this._l[e];
-          setTimeout(function () {
-            var e, o;
-            for (e = 0; e < A.length; e++)(o = A[e])(n)
-          }, 0), delete this._l[e]
-        }
-      }, Modernizr._q.push(function () {
-        l.addTest = i
-      }), Modernizr.addAsyncTest(function () {
-        function e(e, n, A) {
-          function o(n) {
-            var o = n && "load" === n.type ? 1 == t.width : !1,
-              a = "webp" === e;
-            i(e, a && o ? new Boolean(o) : o), A && A(n)
-          }
-          var t = new Image;
-          t.onerror = o, t.onload = o, t.src = n
-        }
-        var n = [{
-            uri: "data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=",
-            name: "webp"
-          }, {
-            uri: "data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA==",
-            name: "webp.alpha"
-          }, {
-            uri: "data:image/webp;base64,UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA",
-            name: "webp.animation"
-          }, {
-            uri: "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=",
-            name: "webp.lossless"
-          }],
-          A = n.shift();
-        e(A.name, A.uri, function (A) {
-          if (A && "load" === A.type)
-            for (var o = 0; o < n.length; o++) e(n[o].name, n[o].uri)
-        })
-      }), t(), a(s), delete l.addTest, delete l.addAsyncTest;
-      for (var p = 0; p < Modernizr._q.length; p++) Modernizr._q[p]();
-      e.Modernizr = Modernizr
-    }(window, document)
-  </script>
-</head>
-
-<body>
-  <div class="page-wrapper row">
-    <nav class="navbar navbar-expand-lg col-lg-3">
-      <div class="container-fluid"><a class="navbar-brand" href="#"><svg class="navbar__logo">
-            <use xlink:href="#logo"></use>
-          </svg></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item nav-item--home"><a class="nav-link" aria-current="page" href="#">Home</a></li>
-            <li class="nav-item nav-item--profile"><a class="nav-link" aria-current="page" href="#">Profile</a></li>
-            <li class="nav-item nav-item--consultation"><a class="nav-link" aria-current="page"
-                href="#">Consultation</a></li>
-            <li class="nav-item nav-item--documents"><a class="nav-link" aria-current="page" href="#">Documents</a></li>
-            <li class="nav-item nav-item--plan"><a class="nav-link" aria-current="page" href="#">Treatment Plan</a></li>
-            <li class="nav-item nav-item--login"><a class="nav-link" data-bs-toggle="modal" href="#logInModal"
-                role="button">Log in</a></li>
-            <li class="nav-item nav-item--sign-up"><a class="nav-link" data-bs-toggle="modal" href="#signUpModal"
-                role="button">Sign up</a></li>
-            <li class="nav-item nav-item--passw-recovery"><a class="nav-link" data-bs-toggle="modal"
-                href="#passwordRecoveryModal" role="button">Password Recovery</a></li>
-            <li class="nav-item nav-item--log-out"><a class="nav-link" data-bs-toggle="modal" href="#logOutModal"
-                role="button">Log Out</a></li>
-          </ul>
+        var s = [],
+          r = [],
+          l = {
+            _version: "3.6.0",
+            _config: {
+              classPrefix: "",
+              enableClasses: !0,
+              enableJSClass: !0,
+              usePrefixes: !0,
+            },
+            _q: [],
+            on: function (e, n) {
+              var A = this;
+              setTimeout(function () {
+                n(A[e]);
+              }, 0);
+            },
+            addTest: function (e, n, A) {
+              r.push({ name: e, fn: n, options: A });
+            },
+            addAsyncTest: function (e) {
+              r.push({ name: null, fn: e });
+            },
+          },
+          Modernizr = function () {};
+        (Modernizr.prototype = l), (Modernizr = new Modernizr());
+        var f,
+          u = n.documentElement,
+          c = "svg" === u.nodeName.toLowerCase();
+        !(function () {
+          var e = {}.hasOwnProperty;
+          f =
+            o(e, "undefined") || o(e.call, "undefined")
+              ? function (e, n) {
+                  return n in e && o(e.constructor.prototype[n], "undefined");
+                }
+              : function (n, A) {
+                  return e.call(n, A);
+                };
+        })(),
+          (l._l = {}),
+          (l.on = function (e, n) {
+            this._l[e] || (this._l[e] = []),
+              this._l[e].push(n),
+              Modernizr.hasOwnProperty(e) &&
+                setTimeout(function () {
+                  Modernizr._trigger(e, Modernizr[e]);
+                }, 0);
+          }),
+          (l._trigger = function (e, n) {
+            if (this._l[e]) {
+              var A = this._l[e];
+              setTimeout(function () {
+                var e, o;
+                for (e = 0; e < A.length; e++) (o = A[e])(n);
+              }, 0),
+                delete this._l[e];
+            }
+          }),
+          Modernizr._q.push(function () {
+            l.addTest = i;
+          }),
+          Modernizr.addAsyncTest(function () {
+            function e(e, n, A) {
+              function o(n) {
+                var o = n && "load" === n.type ? 1 == t.width : !1,
+                  a = "webp" === e;
+                i(e, a && o ? new Boolean(o) : o), A && A(n);
+              }
+              var t = new Image();
+              (t.onerror = o), (t.onload = o), (t.src = n);
+            }
+            var n = [
+                {
+                  uri: "data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=",
+                  name: "webp",
+                },
+                {
+                  uri: "data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA==",
+                  name: "webp.alpha",
+                },
+                {
+                  uri: "data:image/webp;base64,UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA",
+                  name: "webp.animation",
+                },
+                {
+                  uri: "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=",
+                  name: "webp.lossless",
+                },
+              ],
+              A = n.shift();
+            e(A.name, A.uri, function (A) {
+              if (A && "load" === A.type)
+                for (var o = 0; o < n.length; o++) e(n[o].name, n[o].uri);
+            });
+          }),
+          t(),
+          a(s),
+          delete l.addTest,
+          delete l.addAsyncTest;
+        for (var p = 0; p < Modernizr._q.length; p++) Modernizr._q[p]();
+        e.Modernizr = Modernizr;
+      })(window, document);
+    </script>
+  </head>
+  <body>
+    <div class="page-wrapper row">
+      <nav class="navbar navbar-expand-lg col-lg-3">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><svg class="navbar__logo"><use xlink:href="#logo"></use></svg></a
+          ><button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul
+              class="navbar-nav ms-auto mb-2 mb-lg-0"
+              id="v-pills-tab"
+              role="tablist"
+            >
+              <li class="nav-item nav-item--home">
+                <a
+                  class="nav-link breadcrumb-nav-link active"
+                  id="v-pills-home-tab"
+                  aria-current="page"
+                  data-bs-toggle="pill"
+                  role="tab"
+                  aria-controls="v-pills-home"
+                  aria-selected="true"
+                  href="#v-pills-home"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item nav-item--profile">
+                <a
+                  class="nav-link breadcrumb-nav-link"
+                  id="v-pills-profile-tab"
+                  aria-current="page"
+                  data-bs-toggle="pill"
+                  role="tab"
+                  aria-controls="v-pills-profile"
+                  aria-selected="false"
+                  href="#v-pills-profile"
+                  >Profile</a
+                >
+              </li>
+              <li class="nav-item nav-item--consultation">
+                <a
+                  class="nav-link breadcrumb-nav-link"
+                  id="v-pills-consultation-tab"
+                  aria-current="page"
+                  data-bs-toggle="pill"
+                  role="tab"
+                  aria-controls="v-pills-consultation"
+                  aria-selected="false"
+                  href="#v-pills-consultation"
+                  >Consultation</a
+                >
+              </li>
+              <li class="nav-item nav-item--documents">
+                <a
+                  class="nav-link breadcrumb-nav-link"
+                  id="v-pills-documents-tab"
+                  aria-current="page"
+                  data-bs-toggle="pill"
+                  role="tab"
+                  aria-controls="v-pills-documents"
+                  aria-selected="false"
+                  href="#v-pills-documents"
+                  >Documents</a
+                >
+              </li>
+              <li class="nav-item nav-item--plan">
+                <a
+                  class="nav-link breadcrumb-nav-link"
+                  id="v-pills-treatment-tab"
+                  aria-current="page"
+                  data-bs-toggle="pill"
+                  role="tab"
+                  aria-controls="v-pills-treatment"
+                  aria-selected="false"
+                  href="#v-pills-treatment"
+                  >Treatment Plan</a
+                >
+              </li>
+              <li class="nav-item nav-item--login">
+                <a
+                  class="nav-link"
+                  data-bs-toggle="modal"
+                  href="#logInModal"
+                  role="button"
+                  >Log in</a
+                >
+              </li>
+              <li class="nav-item nav-item--sign-up">
+                <a
+                  class="nav-link"
+                  data-bs-toggle="modal"
+                  href="#signUpModal"
+                  role="button"
+                  >Sign up</a
+                >
+              </li>
+              <li class="nav-item nav-item--passw-recovery">
+                <a
+                  class="nav-link"
+                  data-bs-toggle="modal"
+                  href="#passwordRecoveryModal"
+                  role="button"
+                  >Password Recovery</a
+                >
+              </li>
+              <li class="nav-item nav-item--log-out">
+                <a
+                  class="nav-link"
+                  data-bs-toggle="modal"
+                  href="#logOutModal"
+                  role="button"
+                  >Log Out</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-    <main class="main col-lg-9">
-      <nav class="breadcrumb-nav" aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Data</li>
-        </ol>
       </nav>
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation"><button class="nav-link active" id="profile-tab" data-bs-toggle="tab"
-            data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
-            aria-selected="true">Profile</button></li>
-        <li class="nav-item" role="presentation"><button class="nav-link" id="address-tab" data-bs-toggle="tab"
-            data-bs-target="#address" type="button" role="tab" aria-controls="address"
-            aria-selected="false">Address</button></li>
-        <li class="nav-item" role="presentation"><button class="nav-link" id="password-tab" data-bs-toggle="tab"
-            data-bs-target="#password" type="button" role="tab" aria-controls="password"
-            aria-selected="false">Password</button></li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <form class="form profile-form auth-modal__form needs-validation" novalidate>
-            <div class="profile-form__wrapper form-wrapper">
-              <h3 class="auth-modal__title profile-form__title text-bold">User Information</h3>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">First Name<span
-                    class="main-accent">*</span></label><input
-                  class="form-control auth-modal__input profile-form__input--first-name" type="text" name="first_name"
-                  placeholder="Enter first name" required>
-                <div class="invalid-feedback">Please enter your First name</div>
+      <main class="main col-lg-9">
+        <div class="tab-content" id="v-pills-tabContent">
+          <nav class="breadcrumb-nav" aria-label="breadcrumb">
+            <ol class="breadcrumb"></ol>
+          </nav>
+          <section
+            class="home block tab-pane fade show active"
+            id="v-pills-home"
+            role="tabpanel"
+            aria-labelledby="v-pills-home-tab"
+          >
+            <h3>Home Page</h3>
+          </section>
+          <div
+            class="profile block show tab-pane fade"
+            id="v-pills-profile"
+            role="tabpanel"
+            aria-labelledby="v-pills-profile-tab"
+          >
+            <ul class="nav nav-tabs" id="profileTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link breadcrumb-nav-link active"
+                  id="profile-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#profile"
+                  type="button"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="true"
+                  >Profile</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link breadcrumb-nav-link"
+                  id="address-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#address"
+                  type="button"
+                  role="tab"
+                  aria-controls="address"
+                  aria-selected="false"
+                  >Address</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link breadcrumb-nav-link"
+                  id="password-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#password"
+                  type="button"
+                  role="tab"
+                  aria-controls="password"
+                  aria-selected="false"
+                  >Password</a
+                >
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div
+                class="tab-pane fade show active"
+                id="profile"
+                role="tabpanel"
+                aria-labelledby="profile-tab"
+              >
+                <form
+                  class="form profile-form auth-modal__form needs-validation"
+                  novalidate
+                >
+                  <div class="profile-form__wrapper form-wrapper">
+                    <h3 class="auth-modal__title profile-form__title text-bold">
+                      User Information
+                    </h3>
+                    <div class="auth-modal__row">
+                      <label class="form-label auth-modal__label text-medium"
+                        >First Name<span class="main-accent">*</span></label
+                      ><input
+                        class="form-control auth-modal__input profile-form__input--first-name"
+                        type="text"
+                        name="first_name"
+                        data-mask="latin"
+                        placeholder="Enter first name"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please enter your First name
+                      </div>
+                    </div>
+                    <div class="auth-modal__row">
+                      <label class="form-label auth-modal__label text-medium"
+                        >Last Name<span class="main-accent">*</span></label
+                      ><input
+                        class="form-control auth-modal__input profile-form__input--last-name"
+                        type="text"
+                        name="last_name"
+                        data-mask="latin"
+                        placeholder="Enter last name"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please enter your Last name
+                      </div>
+                    </div>
+                    <div class="auth-modal__row">
+                      <label
+                        class="form-label auth-modal__label text-medium"
+                        for="profileEmail"
+                        >Your Email<span class="main-accent">*</span></label
+                      ><input
+                        class="form-control auth-modal__input profile-form__input--email"
+                        id="profileEmail"
+                        type="email"
+                        data-mask="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please provide a valid Email
+                      </div>
+                    </div>
+                    <div class="auth-modal__row auth-modal__row--datepicker">
+                      <label
+                        class="form-label auth-modal__label text-medium"
+                        for="date"
+                        >Date of Birth<span class="main-accent">*</span></label
+                      >
+                      <div
+                        class="input-group picker-container date"
+                        id="datepicker"
+                      >
+                        <input
+                          class="form-control auth-modal__input profile-form__input--age"
+                          id="date"
+                          type="text"
+                          name="age"
+                          placeholder="dd/mm/yyyy"
+                          data-mask="age"
+                          required
+                        /><span
+                          class="input-group-append input-group-datepicker"
+                          ><svg class="datepicker-icon">
+                            <use xlink:href="#calendar-icon"></use></svg
+                        ></span>
+                        <div class="invalid-feedback">
+                          Please provide a valid Age
+                        </div>
+                      </div>
+                    </div>
+                    <div class="auth-modal__row">
+                      <label
+                        class="form-label auth-modal__label text-medium"
+                        for="profilePhone"
+                        >Phone<span class="main-accent">*</span></label
+                      ><input
+                        class="form-control auth-modal__input profile-form__input--email"
+                        id="profilePhone"
+                        type="text"
+                        name="phone"
+                        data-mask="phone"
+                        placeholder="+6 000 000 000"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please provide a phone number
+                      </div>
+                    </div>
+                    <div class="auth-modal__row profile-form__row--gender">
+                      <label
+                        class="form-label auth-modal__label text-medium"
+                        for="profilePhone"
+                        >Gender<span class="main-accent">*</span></label
+                      >
+                      <div class="row profile-form__radio-wrapper">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            id="validationFormCheck2"
+                            type="radio"
+                            checked
+                            name="radio-stacked"
+                            required=""
+                          /><label
+                            class="form-check-label"
+                            for="validationFormCheck2"
+                            >Male</label
+                          >
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            id="validationFormCheck3"
+                            type="radio"
+                            name="radio-stacked"
+                            required=""
+                          /><label
+                            class="form-check-label"
+                            for="validationFormCheck3"
+                            >Female</label
+                          >
+                          <div class="invalid-feedback">
+                            Please provide a valid gender
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="profile-form__delete-account profile-form-delete-account"
+                    >
+                      <div
+                        class="profile-form-delete-account__header profile-form__header"
+                      >
+                        <h3
+                          class="auth-modal__title profile-form__title--delete text-bold"
+                        >
+                          Delete account
+                        </h3>
+                        <p class="profile-form__subtitle">
+                          Deleting an account is an irreversible process.
+                          All&nbsp;information will be <br />completely deleted!
+                        </p>
+                      </div>
+                      <a
+                        class="btn profile-form__delete-btn"
+                        href="#deleteAccountModal"
+                        data-bs-toggle="modal"
+                        role="button"
+                        >Delete Account</a
+                      >
+                    </div>
+                    <div class="auth-modal__bar profile-form__bar"></div>
+                    <div class="profile-form__logout profile-form-logout">
+                      <div
+                        class="profile-form-logout__header profile-form__header"
+                      >
+                        <h3
+                          class="auth-modal__title profile-form__title--logout text-bold"
+                        >
+                          Log Out Account
+                        </h3>
+                        <p class="profile-form__subtitle">
+                          To re-login, you will need to enter your username and
+                          password.
+                        </p>
+                      </div>
+                      <a
+                        class="btn main-btn profile-form__logout-btn"
+                        href="#logOutModal"
+                        data-bs-toggle="modal"
+                        role="button"
+                        >Log Out</a
+                      >
+                    </div>
+                  </div>
+                  <button
+                    class="btn main-btn form-btn profile-form__submit"
+                    disabled
+                  >
+                    Save changes
+                  </button>
+                </form>
               </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Last Name<span
-                    class="main-accent">*</span></label><input
-                  class="form-control auth-modal__input profile-form__input--last-name" type="text" name="last_name"
-                  placeholder="Enter last name" required>
-                <div class="invalid-feedback">Please enter your Last name</div>
+              <div
+                class="tab-pane fade"
+                id="address"
+                role="tabpanel"
+                aria-labelledby="address-tab"
+              >
+                <form
+                  class="form address-form auth-modal__form needs-validation"
+                  novalidate
+                >
+                  <div class="address-form__wrapper form-wrapper">
+                    <h3 class="auth-modal__title profile-form__title text-bold">
+                      Mailing Address
+                    </h3>
+                    <div class="auth-modal__row">
+                      <label class="form-label auth-modal__label text-medium"
+                        >Country<span class="main-accent">*</span></label
+                      >
+                      <div class="custom-select">
+                        <select
+                          class="form-select address-form__form-select address-form__form-select--country"
+                          arial-label="Default select example"
+                        >
+                          <option value="0">Australia</option>
+                          <option value="1">Australia</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="auth-modal__row">
+                      <label class="form-label auth-modal__label text-medium"
+                        >State<span class="main-accent">*</span></label
+                      >
+                      <div class="custom-select">
+                        <select
+                          class="form-select address-form__form-select address-form__form-select--state"
+                          arial-label="Default select example"
+                        >
+                          <option value="0">Victoria</option>
+                          <option value="1">Victoria</option>
+                          <option value="2">One</option>
+                          <option value="3">Two</option>
+                          <option value="4">Three</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="auth-modal__row">
+                      <label class="form-label auth-modal__label text-medium"
+                        >City<span class="main-accent">*</span></label
+                      >
+                      <div class="custom-select">
+                        <select
+                          class="form-select address-form__form-select address-form__form-select--city"
+                          arial-label="Default select example"
+                        >
+                          <option value="0">Melbourne</option>
+                          <option value="1">Melbourne</option>
+                          <option value="2">One</option>
+                          <option value="3">Two</option>
+                          <option value="4">Three</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="auth-modal__row">
+                      <label class="form-label auth-modal__label text-medium"
+                        >Suburb</label
+                      >
+                      <div class="custom-select">
+                        <select
+                          class="form-select address-form__form-select address-form__form-select--country"
+                          arial-label="Default select example"
+                        >
+                          <option value="0">Toorak</option>
+                          <option value="1">Toorak</option>
+                          <option value="2">One</option>
+                          <option value="3">Two</option>
+                          <option value="4">Three</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="auth-modal__row">
+                      <label class="form-label auth-modal__label text-medium"
+                        >Postcodes<span class="main-accent">*</span></label
+                      ><input
+                        class="form-control auth-modal__input address-form__input--postcodes"
+                        type="text"
+                        name="postcodes"
+                        data-mask="postal_code"
+                        placeholder="Enter your Postcodes"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please enter your Postcodes
+                      </div>
+                    </div>
+                    <div class="auth-modal__row">
+                      <label class="form-label auth-modal__label text-medium"
+                        >Address<span class="main-accent">*</span></label
+                      ><input
+                        class="form-control auth-modal__input address-form__input--address"
+                        type="text"
+                        name="address"
+                        data-mask="address"
+                        placeholder="Enter your address"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please enter your Address
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="btn main-btn form-btn address-form__submit"
+                    disabled
+                  >
+                    Save changes
+                  </button>
+                </form>
               </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium"
-                  for="profileEmail">Your Email<span class="main-accent">*</span></label><input
-                  class="form-control auth-modal__input profile-form__input--email" id="profileEmail" type="email"
-                  name="email" placeholder="Enter your email" required>
+              <div
+                class="tab-pane fade"
+                id="password"
+                role="tabpanel"
+                aria-labelledby="password-tab"
+              >
+                <form
+                  class="form password-form auth-modal__form needs-validation"
+                  novalidate
+                >
+                  <div class="password-form__wrapper form-wrapper">
+                    <h3
+                      class="auth-modal__title password-form__title text-bold"
+                    >
+                      Change Password
+                    </h3>
+                    <div class="auth-modal__row password-form__row--first">
+                      <div
+                        class="auth-modal__inner-row d-flex justify-content-between"
+                      >
+                        <label class="form-label auth-modal__label text-medium"
+                          >Old Password<span class="main-accent">*</span></label
+                        ><a
+                          class="auth-modal__link auth-modal__link--forgot-pass"
+                          href=""
+                          data-bs-toggle="modal"
+                          data-bs-target="#recoveryModal"
+                          >Forgot Password?</a
+                        >
+                      </div>
+                      <div class="auth-modal__toggle-password toggle-password">
+                        <input
+                          class="form-control auth-modal__input password-form__input--old-passw auth-modal__input--message"
+                          type="password"
+                          placeholder="Enter your password"
+                          required
+                        />
+                        <div class="toggle-password__btn"></div>
+                        <div class="invalid-feedback">
+                          Please enter the Old Password
+                        </div>
+                      </div>
+                    </div>
+                    <div class="auth-modal__row auth-modal__row--new-passw">
+                      <div
+                        class="auth-modal__inner-row d-flex justify-content-between"
+                      >
+                        <label class="form-label auth-modal__label text-medium">
+                          New Password<span class="main-accent">*</span></label
+                        >
+                      </div>
+                      <div class="auth-modal__toggle-password toggle-password">
+                        <input
+                          class="form-control auth-modal__input password-form__input--new-passw auth-modal__input--message"
+                          type="password"
+                          name="new_password"
+                          placeholder="Enter new password"
+                          required
+                        />
+                        <div class="toggle-password__btn"></div>
+                        <div class="invalid-feedback">
+                          The field cannot be empty
+                        </div>
+                      </div>
+                    </div>
+                    <div class="alert alert-success password-rools">
+                      <div class="password-rools__header">
+                        <svg
+                          class="auth-modal__lock-icon password-rools__lock-icon"
+                        >
+                          <use xlink:href="#lock-icon-green"></use>
+                        </svg>
+                        <h3
+                          class="auth-modal__title password-rools__title text-bold"
+                        >
+                          New Password
+                        </h3>
+                      </div>
+                      <ul class="password-rools__list">
+                        <li
+                          class="password-rools__item password-rools__item--similar"
+                        >
+                          Your password can't be too similar to your other
+                          personal information
+                        </li>
+                        <li
+                          class="password-rools__item password-rools__item--length"
+                        >
+                          Your password must contain at least 8 characters.
+                        </li>
+                        <li
+                          class="password-rools__item password-rools__item--used"
+                        >
+                          Your password can't be a commonly used password.
+                        </li>
+                        <li
+                          class="password-rools__item password-rools__item--numeric"
+                        >
+                          Your password can't be entirely numeric
+                        </li>
+                      </ul>
+                    </div>
+                    <div
+                      class="auth-modal__row auth-modal__row--confirm-passw password-form__row--last"
+                    >
+                      <div
+                        class="auth-modal__inner-row d-flex justify-content-between"
+                      >
+                        <label class="form-label auth-modal__label text-medium">
+                          Confirm Password<span class="main-accent"
+                            >*</span
+                          ></label
+                        >
+                      </div>
+                      <div
+                        class="auth-modal__confirm-passw auth-modal__toggle-password toggle-password"
+                      >
+                        <input
+                          class="form-control auth-modal__input password-form__input--conf-passw auth-modal__input--message"
+                          type="password"
+                          name="confirm_new_password"
+                          placeholder="Enter confirm password"
+                          required
+                        />
+                        <div class="toggle-password__btn"></div>
+                        <div class="invalid-feedback">
+                          Your password and confirmation password do not match.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="btn main-btn form-btn password-form__submit"
+                    disabled
+                  >
+                    Change Password
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <section
+            class="home block tab-pane fade"
+            id="v-pills-consultation"
+            role="tabpanel"
+            aria-labelledby="v-pills-consultation-tab"
+          >
+            <h3>Consultation Page</h3>
+          </section>
+          <section
+            class="home block tab-pane fade"
+            id="v-pills-documents"
+            role="tabpanel"
+            aria-labelledby="v-pills-documents-tab"
+          >
+            <h3>Documents Page</h3>
+          </section>
+          <section
+            class="home block tab-pane fade"
+            id="v-pills-treatment"
+            role="tabpanel"
+            aria-labelledby="v-pills-treatment-tab"
+          >
+            <h3>Treatment Plan Page</h3>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="modal auth-modal login fade" id="logInModal">
+      <div
+        class="modal-dialog modal-dialog-centered auth-modal__modal-dialog login__modal-dialog"
+      >
+        <div
+          class="modal-content auth-modal__modal-content login__modal-content"
+        >
+          <div
+            class="modal-header auth-modal__modal-header login__modal-header"
+          >
+            <svg class="auth-modal__logo"><use xlink:href="#logo"></use></svg>
+            <p class="auth-modal__text login__text text-bold">
+              <span>Hello! Welcome back </span><span>to the Dispensed </span
+              ><span>control panel!</span>
+            </p>
+          </div>
+          <div class="modal-body auth-modal__modal-body login__modal-body">
+            <svg class="auth-modal__home-icon">
+              <use xlink:href="#home-icon"></use>
+            </svg>
+            <h3 class="auth-modal__title login__title text-bold">
+              Log In Account
+            </h3>
+            <form
+              class="auth-modal__form login__form form needs-validation"
+              novalidate
+            >
+              <div class="auth-modal__row">
+                <label
+                  class="form-label auth-modal__label text-medium"
+                  for="logInEmail"
+                  >Your Email<span class="main-accent">*</span></label
+                ><input
+                  class="form-control auth-modal__input login__input--email"
+                  id="logInEmail"
+                  type="email"
+                  data-mask="email"
+                  placeholder="Enter your email"
+                  required
+                />
                 <div class="invalid-feedback">Please provide a valid Email</div>
               </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium" for="date">Date of
-                  Birth<span class="main-accent">*</span></label>
-                <div class="input-group picker-container date" id="datepicker"><input
-                    class="form-control auth-modal__input profile-form__input--age" id="date" type="text" name="age"
-                    placeholder="dd/mm/yyyy" required><span class="input-group-append input-group-datepicker"><svg
-                      class="datepicker-icon">
-                      <use xlink:href="#calendar-icon"></use>
-                    </svg></span>
-                  <div class="invalid-feedback">Please provide a valid Age</div>
+              <div class="auth-modal__row">
+                <div
+                  class="auth-modal__inner-row d-flex justify-content-between"
+                >
+                  <label class="form-label auth-modal__label text-medium">
+                    Your Password<span class="main-accent">*</span></label
+                  ><a
+                    class="auth-modal__link auth-modal__link--forgot-pass"
+                    href=""
+                    data-bs-toggle="modal"
+                    data-bs-target="#recoveryModal"
+                    >Forgot Password?</a
+                  >
+                </div>
+                <div class="auth-modal__toggle-password toggle-password">
+                  <input
+                    class="form-control auth-modal__input login__input--password"
+                    type="password"
+                    placeholder="Enter your password"
+                    required
+                  />
+                  <div class="toggle-password__btn"></div>
                 </div>
               </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium"
-                  for="profilePhone">Phone<span class="main-accent">*</span></label><input
-                  class="form-control auth-modal__input profile-form__input--email" id="profilePhone" type="number"
-                  name="phone" placeholder="+6 000 000 000" required>
-                <div class="invalid-feedback">Please provide a phone number</div>
+              <button class="btn main-btn login__btn" disabled>Log in</button>
+            </form>
+            <p class="auth-modal__footer">
+              Not a member?
+              <a
+                class="auth-modal__link login__link--sign-up"
+                href=""
+                data-bs-toggle="modal"
+                data-bs-target="#signUpModal"
+                >Sign Up Now</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal auth-modal recovery-modal fade" id="recoveryModal">
+      <div
+        class="modal-dialog modal-dialog-centered auth-modal__modal-dialog recovery-modal__modal-dialog"
+      >
+        <div
+          class="modal-content auth-modal__modal-content recovery-modal__modal-content"
+        >
+          <div
+            class="modal-header auth-modal__modal-header recovery-modal__modal-header"
+          >
+            <h3 class="recovery-modal__title text-bold">Forgot Password</h3>
+            <p class="recovery-modal__text">
+              After entering your email, you will receive an email with a link
+              to reset your password.
+            </p>
+          </div>
+          <div
+            class="modal-body auth-modal__modal-body recovery-modal__modal-body"
+          >
+            <form
+              class="auth-modal__form recovery-modal__form form needs-validation"
+              novalidate
+            >
+              <div class="auth-modal__row recovery-modal__row">
+                <label
+                  class="form-label auth-modal__label text-medium"
+                  for="recoveryEmail"
+                  >Your Email<span class="main-accent">*</span></label
+                ><input
+                  class="form-control auth-modal__input recovery-modal__input--email"
+                  id="recoveryEmail"
+                  type="email"
+                  data-mask="email"
+                  placeholder="Enter your email"
+                  required
+                />
+                <div class="invalid-feedback">Please provide a valid Email</div>
+                <p class="resend-email recovery-modal__resend-email">
+                  <span class="first">Letter sent!</span
+                  ><a class="resend-email__link text-medium isDisabled" href="#"
+                    >Send again?</a
+                  ><span class="resend-email__timer"
+                    ><span class="resend-email__sec">30&nbsp;</span>sec.</span
+                  >
+                </p>
               </div>
-              <div class="auth-modal__row profile-form__row--gender"><label
-                  class="form-label auth-modal__label text-medium" for="profilePhone">Gender<span
-                    class="main-accent">*</span></label>
-                <div class="row profile-form__radio-wrapper">
-                  <div class="form-check"><input class="form-check-input" id="validationFormCheck2" type="radio" checked
-                      name="radio-stacked" required=""><label class="form-check-label"
-                      for="validationFormCheck2">Male</label></div>
-                  <div class="form-check"><input class="form-check-input" id="validationFormCheck3" type="radio"
-                      name="radio-stacked" required=""><label class="form-check-label"
-                      for="validationFormCheck3">Female</label>
-                    <div class="invalid-feedback">Please provide a valid gender</div>
+              <button
+                class="btn main-btn recovery-modal__btn recovery-modal__btn--passw-forgot"
+                disabled
+              >
+                Forgot Password
+              </button>
+            </form>
+            <a
+              class="btn main-btn main-btn--white recovery-modal__btn recovery-modal__btn--cancel"
+              data-bs-dismiss="modal"
+              >Cancel</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal auth-modal sign-up fade" id="signUpModal">
+      <div
+        class="modal-dialog modal-dialog-centered auth-modal__modal-dialog sign-up__modal-dialog"
+      >
+        <div
+          class="modal-content auth-modal__modal-content sign-up__modal-content"
+        >
+          <div
+            class="modal-header auth-modal__modal-header sign-up__modal-header"
+          >
+            <svg class="auth-modal__logo"><use xlink:href="#logo"></use></svg>
+            <p class="auth-modal__text sign-up__text text-bold">
+              <span>Hello! Welcome back </span><span>to the Dispensed </span
+              ><span>control panel!</span>
+            </p>
+          </div>
+          <div class="modal-body auth-modal__modal-body sign-up__modal-body">
+            <svg class="auth-modal__user-icon">
+              <use xlink:href="#round-user-icon"></use>
+            </svg>
+            <h3 class="auth-modal__title sign-up__title text-bold">
+              Create New Account
+            </h3>
+            <ul class="sign-up-steps sign-up__steps">
+              <li
+                class="sign-up-steps__item sign-up-steps__item--first active-step text-medium"
+              >
+                Information
+              </li>
+              <li
+                class="sign-up-steps__item sign-up-steps__item--second text-medium"
+              >
+                Password
+              </li>
+            </ul>
+            <form
+              class="auth-modal__form sign-up__form form needs-validation"
+              novalidate
+            >
+              <div class="sign-up__first-step">
+                <div class="auth-modal__row">
+                  <label
+                    class="form-label auth-modal__label text-medium"
+                    for="signUpEmail"
+                    >Your Email<span class="main-accent">*</span></label
+                  ><input
+                    class="form-control auth-modal__input sign-up__input--email"
+                    id="signUpEmail"
+                    type="email"
+                    name="email"
+                    data-mask="email"
+                    placeholder="Enter your email"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please provide a valid Email
+                  </div>
+                </div>
+                <div class="auth-modal__row">
+                  <label class="form-label auth-modal__label text-medium"
+                    >First Name<span class="main-accent">*</span></label
+                  ><input
+                    class="form-control auth-modal__input sign-up__input--first-name"
+                    type="text"
+                    name="first_name"
+                    data-mask="latin"
+                    placeholder="Enter first name"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please enter your First name
+                  </div>
+                </div>
+                <div class="auth-modal__row">
+                  <label class="form-label auth-modal__label text-medium"
+                    >Last Name<span class="main-accent">*</span></label
+                  ><input
+                    class="form-control auth-modal__input sign-up__input--last-name"
+                    type="text"
+                    name="last_name"
+                    data-mask="latin"
+                    placeholder="Enter last name"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please enter your Last name
                   </div>
                 </div>
               </div>
-              <div class="profile-form__delete-account profile-form-delete-account">
-                <div class="profile-form-delete-account__header profile-form__header">
-                  <h3 class="auth-modal__title profile-form__title--delete text-bold">Delete account</h3>
-                  <p class="profile-form__subtitle">Deleting an account is an irreversible process. All&nbsp;information
-                    will be <br>completely deleted!</p>
-                </div><a class="btn profile-form__delete-btn" href="#deleteAccountModal" data-bs-toggle="modal"
-                  role="button">Delete Account</a>
-              </div>
-              <div class="auth-modal__bar profile-form__bar"></div>
-              <div class="profile-form__logout profile-form-logout">
-                <div class="profile-form-logout__header profile-form__header">
-                  <h3 class="auth-modal__title profile-form__title--logout text-bold">Log Out Account</h3>
-                  <p class="profile-form__subtitle">To re-login, you will need to enter your username and password.</p>
-                </div><a class="btn main-btn profile-form__logout-btn" href="#logOutModal" data-bs-toggle="modal"
-                  role="button">Log Out</a>
-              </div>
-            </div><button class="btn main-btn form-btn profile-form__submit" disabled>Save changes</button>
-          </form>
-        </div>
-        <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
-          <form class="form address-form auth-modal__form needs-validation" novalidate>
-            <div class="address-form__wrapper form-wrapper">
-              <h3 class="auth-modal__title profile-form__title text-bold">Mailing Address</h3>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Country<span
-                    class="main-accent">*</span></label>
-                <div class="custom-select"><select
-                    class="form-select address-form__form-select address-form__form-select--country"
-                    arial-label="Default select example">
-                    <option value="0">Australia</option>
-                    <option value="1">Australia</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select></div>
-              </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">State<span
-                    class="main-accent">*</span></label>
-                <div class="custom-select"><select
-                    class="form-select address-form__form-select address-form__form-select--state"
-                    arial-label="Default select example">
-                    <option value="0">Victoria</option>
-                    <option value="1">Victoria</option>
-                    <option value="2">One</option>
-                    <option value="3">Two</option>
-                    <option value="4">Three</option>
-                  </select></div>
-              </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">City<span
-                    class="main-accent">*</span></label>
-                <div class="custom-select"><select
-                    class="form-select address-form__form-select address-form__form-select--city"
-                    arial-label="Default select example">
-                    <option value="0">Melbourne</option>
-                    <option value="1">Melbourne</option>
-                    <option value="2">One</option>
-                    <option value="3">Two</option>
-                    <option value="4">Three</option>
-                  </select></div>
-              </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Suburb</label>
-                <div class="custom-select"><select
-                    class="form-select address-form__form-select address-form__form-select--country"
-                    arial-label="Default select example">
-                    <option value="0">Toorak</option>
-                    <option value="1">Toorak</option>
-                    <option value="2">One</option>
-                    <option value="3">Two</option>
-                    <option value="4">Three</option>
-                  </select></div>
-              </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Postcodes<span
-                    class="main-accent">*</span></label><input
-                  class="form-control auth-modal__input address-form__input--postcodes" type="text" name="postcodes"
-                  placeholder="Enter your Postcodes" required>
-                <div class="invalid-feedback">Please enter your Postcodes</div>
-              </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Address<span
-                    class="main-accent">*</span></label><input
-                  class="form-control auth-modal__input address-form__input--address" type="text" name="address"
-                  placeholder="Enter your address" required>
-                <div class="invalid-feedback">Please enter your Address</div>
-              </div>
-            </div><button class="btn main-btn form-btn address-form__submit" disabled>Save changes</button>
-          </form>
-        </div>
-        <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-          <form class="form password-form auth-modal__form needs-validation" novalidate>
-            <div class="password-form__wrapper form-wrapper">
-              <h3 class="auth-modal__title password-form__title text-bold">Change Password</h3>
-              <div class="auth-modal__row password-form__row--first">
-                <div class="auth-modal__inner-row d-flex justify-content-between"><label
-                    class="form-label auth-modal__label text-medium">Old Password<span
-                      class="main-accent">*</span></label><a class="auth-modal__link auth-modal__link--forgot-pass"
-                    href="" data-bs-toggle="modal" data-bs-target="#recoveryModal">Forgot Password?</a></div>
-                <div class="auth-modal__toggle-password toggle-password"><input
-                    class="form-control auth-modal__input login__input--password" type="password"
-                    placeholder="Enter your password" required>
-                  <div class="toggle-password__btn"></div>
+              <div class="sign-up__second-step">
+                <div class="auth-modal__row">
+                  <div
+                    class="auth-modal__inner-row d-flex justify-content-between"
+                  >
+                    <label class="form-label auth-modal__label text-medium">
+                      New Password<span class="main-accent">*</span></label
+                    >
+                  </div>
+                  <div class="auth-modal__toggle-password toggle-password">
+                    <input
+                      class="form-control auth-modal__input"
+                      type="password"
+                      name="password"
+                      placeholder="Enter new password"
+                    />
+                    <div class="toggle-password__btn"></div>
+                  </div>
+                </div>
+                <div class="alert alert-success password-rools">
+                  <div class="password-rools__header">
+                    <svg
+                      class="auth-modal__lock-icon password-rools__lock-icon"
+                    >
+                      <use xlink:href="#lock-icon-green"></use>
+                    </svg>
+                    <h3
+                      class="auth-modal__title password-rools__title text-bold"
+                    >
+                      New Password
+                    </h3>
+                  </div>
+                  <ul class="password-rools__list">
+                    <li
+                      class="password-rools__item password-rools__item--similar"
+                    >
+                      Your password can't be too similar to your other personal
+                      information
+                    </li>
+                    <li
+                      class="password-rools__item password-rools__item--length"
+                    >
+                      Your password must contain at least 8 characters.
+                    </li>
+                    <li class="password-rools__item password-rools__item--used">
+                      Your password can't be a commonly used password.
+                    </li>
+                    <li
+                      class="password-rools__item password-rools__item--numeric"
+                    >
+                      Your password can't be entirely numeric
+                    </li>
+                  </ul>
+                </div>
+                <div class="auth-modal__row">
+                  <div
+                    class="auth-modal__inner-row d-flex justify-content-between"
+                  >
+                    <label class="form-label auth-modal__label text-medium">
+                      Confirm Password<span class="main-accent">*</span></label
+                    >
+                  </div>
+                  <div class="auth-modal__toggle-password toggle-password">
+                    <input
+                      class="form-control auth-modal__input auth-modal__input--message"
+                      type="password"
+                      name="confirm_password"
+                      placeholder="Enter confirm password"
+                    />
+                    <div class="toggle-password__btn"></div>
+                    <div class="invalid-feedback">
+                      Your password and confirmation password do not match.
+                    </div>
+                  </div>
+                </div>
+                <div class="auth-modal__row sign-up__agree">
+                  <label for="signUpCheckbox"
+                    ><span class="sign-up__agree-text"
+                      >I agree to the <a href="#">Terms of Use</a></span
+                    ><input
+                      class="form-check-input"
+                      id="signUpCheckbox"
+                      type="checkbox"
+                      required />
+                    <div class="invalid-feedback">
+                      You must agree before submitting.
+                    </div>
+                    <span class="sign-up__checkbox"></span
+                  ></label>
                 </div>
               </div>
+              <button class="btn main-btn sign-up__btn" disabled>
+                Next Step
+              </button>
+            </form>
+            <p class="auth-modal__footer">
+              Already registered?
+              <a
+                class="auth-modal__link sign-up__link--sign-up"
+                href=""
+                data-bs-toggle="modal"
+                data-bs-target="#logInModal"
+                >Log In Now.</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal auth-modal logout-modal fade" id="logOutModal">
+      <div
+        class="modal-dialog modal-dialog-centered auth-modal__modal-dialog logout-modal__modal-dialog"
+      >
+        <div
+          class="modal-content auth-modal__modal-content logout-modal__modal-content"
+        >
+          <div
+            class="modal-body auth-modal__modal-body logout-modal__modal-body"
+          >
+            <svg class="logout-modal__out-icon">
+              <use xlink:href="#logout-icon"></use>
+            </svg>
+            <h3 class="logout-modal__title text-bold">Log Out Account</h3>
+            <p class="logout-modal__subtitle">
+              Are you sure you want to Log Out?
+            </p>
+            <form
+              class="auth-modal__form logout-modal__form form needs-validation"
+              novalidate
+            >
+              <div class="logout-modal__row">
+                <a
+                  class="btn main-btn logout-modal__btn--upprove"
+                  data-answer="yes"
+                  >Yes</a
+                ><a
+                  class="btn main-btn logout-modal__btn--decline"
+                  data-answer="no"
+                  data-bs-dismiss="modal"
+                  >No</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal auth-modal del-account-modal fade"
+      id="deleteAccountModal"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered auth-modal__modal-dialog del-account-modal__modal-dialog"
+      >
+        <div
+          class="modal-content auth-modal__modal-content del-account-modal__modal-content"
+        >
+          <div
+            class="modal-body auth-modal__modal-body del-account-modal__modal-body"
+          >
+            <svg class="del-account-modal__out-icon">
+              <use xlink:href="#round-user-icon"></use>
+            </svg>
+            <h3 class="del-account-modal__title text-bold">Delete Account</h3>
+            <p class="del-account-modal__subtitle">
+              Are you sure you want to delete account? In this case all personal
+              data will remove
+            </p>
+            <form
+              class="auth-modal__form del-account-modal__form form needs-validation"
+              novalidate
+            >
+              <div class="del-account-modal__row">
+                <a
+                  class="btn main-btn del-account-modal__btn--upprove"
+                  data-answer="Yes, delete"
+                  >Yes, delete</a
+                ><a
+                  class="btn main-btn del-account-modal__btn--decline"
+                  data-answer="No, cancel"
+                  data-bs-dismiss="modal"
+                  >No, cancel</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal auth-modal passw-recovery fade"
+      id="passwordRecoveryModal"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered auth-modal__modal-dialog passw-recovery__modal-dialog"
+      >
+        <div
+          class="modal-content auth-modal__modal-content passw-recovery__modal-content"
+        >
+          <div
+            class="modal-header auth-modal__modal-header passw-recovery__modal-header"
+          >
+            <svg class="auth-modal__logo"><use xlink:href="#logo"></use></svg>
+            <p class="auth-modal__text passw-recovery__text text-bold">
+              <span>Hello! Welcome back </span><span>to the Dispensed </span
+              ><span>control panel!</span>
+            </p>
+          </div>
+          <div
+            class="modal-body auth-modal__modal-body passw-recovery__modal-body"
+          >
+            <svg class="auth-modal__lock-icon">
+              <use xlink:href="#lock-icon"></use>
+            </svg>
+            <h3 class="auth-modal__title passw-recovery__title text-bold">
+              New pasword
+            </h3>
+            <form
+              class="auth-modal__form passw-recovery__form form needs-validation"
+              novalidate
+            >
               <div class="auth-modal__row">
-                <div class="auth-modal__inner-row d-flex justify-content-between"><label
-                    class="form-label auth-modal__label text-medium"> New Password<span
-                      class="main-accent">*</span></label></div>
-                <div class="auth-modal__toggle-password toggle-password"><input
-                    class="form-control auth-modal__input password-form__input--new-pass" type="password"
-                    name="new_password" placeholder="Enter new password" required>
+                <div
+                  class="auth-modal__inner-row d-flex justify-content-between"
+                >
+                  <label class="form-label auth-modal__label text-medium">
+                    New Password<span class="main-accent">*</span></label
+                  >
+                </div>
+                <div class="auth-modal__toggle-password toggle-password">
+                  <input
+                    class="form-control auth-modal__input passw-recovery__input--new-pass"
+                    type="password"
+                    name="new_password"
+                    placeholder="Enter new password"
+                    required
+                  />
                   <div class="toggle-password__btn"></div>
                 </div>
               </div>
               <div class="alert alert-success password-rools">
-                <div class="password-rools__header"><svg class="auth-modal__lock-icon password-rools__lock-icon">
+                <div class="password-rools__header">
+                  <svg class="auth-modal__lock-icon password-rools__lock-icon">
                     <use xlink:href="#lock-icon-green"></use>
                   </svg>
-                  <h3 class="auth-modal__title password-rools__title text-bold">New Password</h3>
+                  <h3 class="auth-modal__title password-rools__title text-bold">
+                    New Password
+                  </h3>
                 </div>
                 <ul class="password-rools__list">
                   <ul class="password-rools__list">
-                    <li class="password-rools__item password-rools__item--similar">Your password can't be too similar to
-                      your other personal information </li>
-                    <li class="password-rools__item password-rools__item--length">Your password must contain at least 8
-                      characters. </li>
-                    <li class="password-rools__item password-rools__item--used">Your password can't be a commonly used
-                      password. </li>
-                    <li class="password-rools__item password-rools__item--numeric">Your password can't be entirely
-                      numeric </li>
+                    <li
+                      class="password-rools__item password-rools__item--similar"
+                    >
+                      Your password can't be too similar to your other personal
+                      information
+                    </li>
+                    <li
+                      class="password-rools__item password-rools__item--length"
+                    >
+                      Your password must contain at least 8 characters.
+                    </li>
+                    <li class="password-rools__item password-rools__item--used">
+                      Your password can't be a commonly used password.
+                    </li>
+                    <li
+                      class="password-rools__item password-rools__item--numeric"
+                    >
+                      Your password can't be entirely numeric
+                    </li>
                   </ul>
                 </ul>
               </div>
-              <div class="auth-modal__row password-form__row--last">
-                <div class="auth-modal__inner-row d-flex justify-content-between"><label
-                    class="form-label auth-modal__label text-medium"> Confirm Password<span
-                      class="main-accent">*</span></label></div>
-                <div class="auth-modal__toggle-password toggle-password"><input
-                    class="form-control auth-modal__input password-form__input--conf-pass auth-modal__input--message"
-                    type="password" name="confirm_new_password" placeholder="Enter confirm password" required>
-                  <div class="toggle-password__btn"></div>
-                  <div class="invalid-feedback">Your password and confirmation password do not match.</div>
-                </div>
-              </div>
-            </div><button class="btn main-btn form-btn password-form__submit" disabled>Change Password</button>
-          </form>
-        </div>
-      </div>
-    </main>
-  </div>
-  <div class="modal auth-modal login fade" id="logInModal">
-    <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog login__modal-dialog">
-      <div class="modal-content auth-modal__modal-content login__modal-content">
-        <div class="modal-header auth-modal__modal-header login__modal-header"><svg class="auth-modal__logo">
-            <use xlink:href="#logo"></use>
-          </svg>
-          <p class="auth-modal__text login__text text-bold"><span>Hello! Welcome back </span><span>to the Dispensed
-            </span><span>control panel!</span></p>
-        </div>
-        <div class="modal-body auth-modal__modal-body login__modal-body"><svg class="auth-modal__home-icon">
-            <use xlink:href="#home-icon"></use>
-          </svg>
-          <h3 class="auth-modal__title login__title text-bold">Log In Account</h3>
-          <form class="auth-modal__form login__form form needs-validation" novalidate>
-            <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium" for="logInEmail">Your
-                Email<span class="main-accent">*</span></label><input
-                class="form-control auth-modal__input login__input--email" id="logInEmail" type="email"
-                placeholder="Enter your email" required>
-              <div class="invalid-feedback">Please provide a valid Email</div>
-            </div>
-            <div class="auth-modal__row">
-              <div class="auth-modal__inner-row d-flex justify-content-between"><label
-                  class="form-label auth-modal__label text-medium" for="logInPassword"> Your Password<span
-                    class="main-accent">*</span></label><a class="auth-modal__link auth-modal__link--forgot-pass"
-                  href="" data-bs-toggle="modal" data-bs-target="#recoveryModal">Forgot Password?</a></div>
-              <div class="auth-modal__toggle-password toggle-password"><input
-                  class="form-control auth-modal__input login__input--password" type="password"
-                  placeholder="Enter your password" required>
-                <div class="toggle-password__btn"></div>
-              </div>
-            </div><button class="btn main-btn login__btn" disabled>Log in</button>
-          </form>
-          <p class="auth-modal__footer">Not a member? <a class="auth-modal__link login__link--sign-up" href=""
-              data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up Now</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal auth-modal recovery-modal fade" id="recoveryModal">
-    <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog recovery-modal__modal-dialog">
-      <div class="modal-content auth-modal__modal-content recovery-modal__modal-content">
-        <div class="modal-header auth-modal__modal-header recovery-modal__modal-header">
-          <h3 class="recovery-modal__title text-bold">Forgot Password</h3>
-          <p class="recovery-modal__text">After entering your email, you will receive an email with a link to reset your
-            password.</p>
-        </div>
-        <div class="modal-body auth-modal__modal-body recovery-modal__modal-body">
-          <form class="auth-modal__form recovery-modal__form form needs-validation" novalidate>
-            <div class="auth-modal__row recovery-modal__row"><label class="form-label auth-modal__label text-medium"
-                for="recoveryEmail">Your Email<span class="main-accent">*</span></label><input
-                class="form-control auth-modal__input recovery-modal__input--email" id="recoveryEmail" type="email"
-                placeholder="Enter your email" required>
-              <div class="invalid-feedback">Please provide a valid Email</div>
-              <p class="resend-email recovery-modal__resend-email"> <span class="first">Letter sent!</span><a
-                  class="resend-email__link text-medium isDisabled" href="#">Send again?</a><span
-                  class="resend-email__timer"><span class="resend-email__sec">30&nbsp;</span>sec.</span></p>
-            </div><button class="btn main-btn recovery-modal__btn recovery-modal__btn--passw-forgot" disabled>Forgot
-              Password</button>
-          </form><a class="btn main-btn main-btn--white recovery-modal__btn recovery-modal__btn--cancel"
-            data-bs-dismiss="modal">Cancel</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal auth-modal sign-up fade" id="signUpModal">
-    <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog sign-up__modal-dialog">
-      <div class="modal-content auth-modal__modal-content sign-up__modal-content">
-        <div class="modal-header auth-modal__modal-header sign-up__modal-header"><svg class="auth-modal__logo">
-            <use xlink:href="#logo"></use>
-          </svg>
-          <p class="auth-modal__text sign-up__text text-bold"><span>Hello! Welcome back </span><span>to the Dispensed
-            </span><span>control panel!</span></p>
-        </div>
-        <div class="modal-body auth-modal__modal-body sign-up__modal-body"><svg class="auth-modal__user-icon">
-            <use xlink:href="#round-user-icon"></use>
-          </svg>
-          <h3 class="auth-modal__title sign-up__title text-bold">Create New Account</h3>
-          <ul class="sign-up-steps sign-up__steps">
-            <li class="sign-up-steps__item sign-up-steps__item--first active-step text-medium">Information</li>
-            <li class="sign-up-steps__item sign-up-steps__item--second text-medium">Password</li>
-          </ul>
-          <form class="auth-modal__form sign-up__form form form needs-validation" novalidate>
-            <div class="sign-up__first-step">
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium"
-                  for="signUpEmail">Your Email<span class="main-accent">*</span></label><input
-                  class="form-control auth-modal__input sign-up__input--email" id="signUpEmail" type="email"
-                  name="email" placeholder="Enter your email" required>
-                <div class="invalid-feedback">Please provide a valid Email</div>
-              </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">First Name<span
-                    class="main-accent">*</span></label><input
-                  class="form-control auth-modal__input sign-up__input--first-name" type="text" name="first_name"
-                  placeholder="Enter first name" required>
-                <div class="invalid-feedback">Please enter your First name</div>
-              </div>
-              <div class="auth-modal__row"><label class="form-label auth-modal__label text-medium">Last Name<span
-                    class="main-accent">*</span></label><input
-                  class="form-control auth-modal__input sign-up__input--last-name" type="text" name="last_name"
-                  placeholder="Enter last name" required>
-                <div class="invalid-feedback">Please enter your Last name</div>
-              </div>
-            </div>
-            <div class="sign-up__second-step">
               <div class="auth-modal__row">
-                <div class="auth-modal__inner-row d-flex justify-content-between"><label
-                    class="form-label auth-modal__label text-medium"> New Password<span
-                      class="main-accent">*</span></label></div>
-                <div class="auth-modal__toggle-password toggle-password"><input class="form-control auth-modal__input"
-                    id="newPassword" type="password" name="password" placeholder="Enter new password">
+                <div
+                  class="auth-modal__inner-row d-flex justify-content-between"
+                >
+                  <label class="form-label auth-modal__label text-medium">
+                    Confirm Password<span class="main-accent">*</span></label
+                  >
+                </div>
+                <div class="auth-modal__toggle-password toggle-password">
+                  <input
+                    class="form-control auth-modal__input passw-recovery__input--conf-pass auth-modal__input--message"
+                    type="password"
+                    name="confirm_new_password"
+                    placeholder="Enter confirm password"
+                    required
+                  />
                   <div class="toggle-password__btn"></div>
+                  <div class="invalid-feedback">
+                    Your password and confirmation password do not match.
+                  </div>
                 </div>
               </div>
-              <div class="alert alert-success password-rools">
-                <div class="password-rools__header"><svg class="auth-modal__lock-icon password-rools__lock-icon">
-                    <use xlink:href="#lock-icon-green"></use>
-                  </svg>
-                  <h3 class="auth-modal__title password-rools__title text-bold">New Password</h3>
-                </div>
-                <ul class="password-rools__list">
-                  <li class="password-rools__item password-rools__item--similar">Your password can't be too similar to
-                    your other personal information </li>
-                  <li class="password-rools__item password-rools__item--length">Your password must contain at least 8
-                    characters. </li>
-                  <li class="password-rools__item password-rools__item--used">Your password can't be a commonly used
-                    password. </li>
-                  <li class="password-rools__item password-rools__item--numeric">Your password can't be entirely numeric
-                  </li>
-                </ul>
-              </div>
-              <div class="auth-modal__row">
-                <div class="auth-modal__inner-row d-flex justify-content-between"><label
-                    class="form-label auth-modal__label text-medium"> Confirm Password<span
-                      class="main-accent">*</span></label></div>
-                <div class="auth-modal__toggle-password toggle-password"><input
-                    class="form-control auth-modal__input auth-modal__input--message" id="confirmPassword"
-                    type="password" name="confirm_password" placeholder="Enter confirm password">
-                  <div class="toggle-password__btn"></div>
-                  <div class="invalid-feedback">Your password and confirmation password do not match.</div>
-                </div>
-              </div>
-              <div class="auth-modal__row sign-up__agree"><label for="signUpCheckbox"><span
-                    class="sign-up__agree-text">I agree to the <a href="#">Terms of Use</a></span><input
-                    class="form-check-input" id="signUpCheckbox" type="checkbox" required>
-                  <div class="invalid-feedback">You must agree before submitting.</div><span
-                    class="sign-up__checkbox"></span>
-                </label></div>
-            </div><button class="btn main-btn sign-up__btn" disabled>Next Step</button>
-          </form>
-          <p class="auth-modal__footer">Already registered? <a class="auth-modal__link sign-up__link--sign-up" href=""
-              data-bs-toggle="modal" data-bs-target="#logInModal">Log In Now.</a></p>
+              <button class="btn main-btn passw-recovery__btn" disabled>
+                Restore Access
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="modal auth-modal logout-modal fade" id="logOutModal">
-    <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog logout-modal__modal-dialog">
-      <div class="modal-content auth-modal__modal-content logout-modal__modal-content">
-        <div class="modal-body auth-modal__modal-body logout-modal__modal-body"><svg class="logout-modal__out-icon">
-            <use xlink:href="#logout-icon"></use>
-          </svg>
-          <h3 class="logout-modal__title text-bold">Log Out Account</h3>
-          <p class="logout-modal__subtitle">Are you sure you want to Log Out?</p>
-          <form class="auth-modal__form logout-modal__form form needs-validation" novalidate>
-            <div class="logout-modal__row"><a class="btn main-btn logout-modal__btn--upprove"
-                data-answer="yes">Yes</a><a class="btn main-btn logout-modal__btn--decline" data-answer="no">No</a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal auth-modal del-account-modal fade" id="deleteAccountModal">
-    <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog del-account-modal__modal-dialog">
-      <div class="modal-content auth-modal__modal-content del-account-modal__modal-content">
-        <div class="modal-body auth-modal__modal-body del-account-modal__modal-body"><svg
-            class="del-account-modal__out-icon">
-            <use xlink:href="#round-user-icon"></use>
-          </svg>
-          <h3 class="del-account-modal__title text-bold">Delete Account </h3>
-          <p class="del-account-modal__subtitle">Are you sure you want to delete account? In this case all personal data
-            will remove</p>
-          <form class="auth-modal__form del-account-modal__form form needs-validation" novalidate>
-            <div class="del-account-modal__row"><a class="btn main-btn del-account-modal__btn--upprove"
-                data-answer="Yes, delete">Yes, delete</a><a class="btn main-btn del-account-modal__btn--decline"
-                data-answer="No, cancel">No, cancel</a></div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal auth-modal passw-recovery fade" id="passwordRecoveryModal">
-    <div class="modal-dialog modal-dialog-centered auth-modal__modal-dialog passw-recovery__modal-dialog">
-      <div class="modal-content auth-modal__modal-content passw-recovery__modal-content">
-        <div class="modal-header auth-modal__modal-header passw-recovery__modal-header"><svg class="auth-modal__logo">
-            <use xlink:href="#logo"></use>
-          </svg>
-          <p class="auth-modal__text passw-recovery__text text-bold"><span>Hello! Welcome back </span><span>to the
-              Dispensed </span><span>control panel!</span></p>
-        </div>
-        <div class="modal-body auth-modal__modal-body passw-recovery__modal-body"><svg class="auth-modal__lock-icon">
-            <use xlink:href="#lock-icon"></use>
-          </svg>
-          <h3 class="auth-modal__title passw-recovery__title text-bold">New pasword</h3>
-          <form class="auth-modal__form passw-recovery__form form needs-validation" novalidate>
-            <div class="auth-modal__row">
-              <div class="auth-modal__inner-row d-flex justify-content-between"><label
-                  class="form-label auth-modal__label text-medium"> New Password<span
-                    class="main-accent">*</span></label></div>
-              <div class="auth-modal__toggle-password toggle-password"><input
-                  class="form-control auth-modal__input passw-recovery__input--new-pass" type="password"
-                  name="new_password" placeholder="Enter new password" required>
-                <div class="toggle-password__btn"></div>
-              </div>
-            </div>
-            <div class="alert alert-success password-rools">
-              <div class="password-rools__header"><svg class="auth-modal__lock-icon password-rools__lock-icon">
-                  <use xlink:href="#lock-icon-green"></use>
-                </svg>
-                <h3 class="auth-modal__title password-rools__title text-bold">New Password</h3>
-              </div>
-              <ul class="password-rools__list">
-                <ul class="password-rools__list">
-                  <li class="password-rools__item password-rools__item--similar">Your password can't be too similar to
-                    your other personal information </li>
-                  <li class="password-rools__item password-rools__item--length">Your password must contain at least 8
-                    characters. </li>
-                  <li class="password-rools__item password-rools__item--used">Your password can't be a commonly used
-                    password. </li>
-                  <li class="password-rools__item password-rools__item--numeric">Your password can't be entirely numeric
-                  </li>
-                </ul>
-              </ul>
-            </div>
-            <div class="auth-modal__row">
-              <div class="auth-modal__inner-row d-flex justify-content-between"><label
-                  class="form-label auth-modal__label text-medium"> Confirm Password<span
-                    class="main-accent">*</span></label></div>
-              <div class="auth-modal__toggle-password toggle-password"><input
-                  class="form-control auth-modal__input passw-recovery__input--conf-pass auth-modal__input--message"
-                  type="password" name="confirm_new_password" placeholder="Enter confirm password" required>
-                <div class="toggle-password__btn"></div>
-                <div class="invalid-feedback">Your password and confirmation password do not match.</div>
-              </div>
-            </div><button class="btn main-btn passw-recovery__btn" disabled>Restore Access</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div><svg class="hidden" width="0" height="0">
-    <symbol id="home-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32">
-      <circle cx="16" cy="16" r="16" fill="#060A20"></circle>
-      <path
-        d="M13.612 23.311V20.7629C13.612 20.1124 14.1432 19.5851 14.7984 19.5851H17.1935C17.5082 19.5851 17.8099 19.7092 18.0324 19.9301C18.2549 20.1509 18.3799 20.4505 18.3799 20.7629V23.311C18.3779 23.5814 18.4847 23.8414 18.6766 24.0333C18.8686 24.2252 19.1297 24.3332 19.4021 24.3332H21.0362C21.7994 24.3351 22.532 24.0355 23.0723 23.5005C23.6127 22.9655 23.9163 22.239 23.9163 21.4814V14.2222C23.9163 13.6102 23.6431 13.0297 23.1702 12.6371L17.6114 8.22973C16.6444 7.45697 15.2589 7.48192 14.3208 8.28899L8.88885 12.6371C8.39362 13.0181 8.09763 13.6004 8.08301 14.2222V21.474C8.08301 23.053 9.37249 24.3332 10.9632 24.3332H12.5599C13.1257 24.3332 13.5855 23.88 13.5896 23.3184L13.612 23.311Z"
-        fill="white"></path>
-    </symbol>
-    <symbol id="logo" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 118 12">
-      <path
-        d="M10.1295 1.26526C10.8383 1.66526 11.4107 2.27617 11.8401 3.09798C12.2695 3.9198 12.4875 4.93071 12.4875 6.13798C12.4875 7.34526 12.2695 8.35617 11.8401 9.17798C11.4107 9.9998 10.8383 10.6107 10.1295 11.0107C9.42072 11.4107 8.65061 11.6143 7.81235 11.6143H0.397461V0.661621H7.81235C8.65061 0.661621 9.42072 0.865258 10.1295 1.26526ZM6.38798 8.42162C6.87867 8.42162 7.28758 8.38526 7.61471 8.30526C7.93502 8.23253 8.21444 8.02889 8.43934 7.69435C8.66424 7.36708 8.7801 6.84344 8.7801 6.13798C8.7801 5.42526 8.66424 4.90889 8.43934 4.58162C8.21444 4.25435 7.93502 4.05071 7.61471 3.97071C7.2944 3.89798 6.88549 3.85435 6.38798 3.85435H3.96179V8.41435H6.38798V8.42162Z"
-        fill="white"></path>
-      <path d="M13.9121 0.661621H17.4764V11.6143H13.9121V0.661621Z" fill="white"></path>
-      <path
-        d="M22.6078 8.01419C22.6078 8.79237 23.5415 9.1851 25.4157 9.1851C26.1176 9.1851 26.656 9.14873 27.0172 9.08328C27.3853 9.01783 27.6306 8.93055 27.7533 8.81419C27.8759 8.7051 27.9373 8.55964 27.9373 8.3851C27.9373 8.17419 27.8691 8.01419 27.7396 7.91964C27.6033 7.8251 27.3444 7.7451 26.9559 7.67964C26.5674 7.61419 25.9132 7.54874 24.9863 7.47601C23.5892 7.36692 22.4579 7.17055 21.5992 6.90146C20.7405 6.6251 20.0999 6.23964 19.6773 5.73055C19.2548 5.22146 19.0435 4.56692 19.0435 3.75237C19.0435 2.65419 19.5615 1.81783 20.5974 1.23601C21.6333 0.65419 23.0508 0.363281 24.8432 0.363281C26.8605 0.363281 28.4075 0.683281 29.4843 1.31601C30.5611 1.94874 31.1404 2.87237 31.2154 4.09419H27.5079C27.5079 3.73783 27.2967 3.48328 26.8673 3.33055C26.4379 3.17783 25.7633 3.1051 24.8432 3.1051C24.0322 3.1051 23.487 3.16328 23.1871 3.27964C22.8941 3.39601 22.7441 3.56328 22.7441 3.77419C22.7441 3.94874 22.8123 4.07964 22.9418 4.17419C23.0781 4.26874 23.3371 4.35601 23.7323 4.42874C24.1276 4.50146 24.7342 4.57419 25.552 4.65419C27.0377 4.7851 28.1826 4.9451 28.9868 5.13419C29.7978 5.32328 30.4384 5.65055 30.9155 6.13055C31.3926 6.61055 31.6379 7.30873 31.6379 8.24692C31.6379 9.57782 31.1268 10.5233 30.0977 11.0833C29.0686 11.6433 27.5556 11.9269 25.552 11.9269C23.412 11.9269 21.7832 11.6215 20.6723 11.0178C19.5546 10.4069 18.9617 9.41055 18.9004 8.02146H22.6078V8.01419Z"
-        fill="white"></path>
-      <path
-        d="M44.2121 1.76708C44.9414 2.50162 45.3026 3.5198 45.3026 4.81435C45.3026 6.11617 44.9414 7.12708 44.2121 7.86162C43.4829 8.59617 42.4811 8.96708 41.1998 8.96708H36.6405V11.6143H33.0762V0.661621H41.1998C42.4811 0.661621 43.4829 1.03253 44.2121 1.76708ZM40.3411 5.77435C40.6274 5.77435 40.8523 5.7598 41.0158 5.73071C41.1794 5.70162 41.3225 5.61435 41.4315 5.47617C41.5406 5.33799 41.5951 5.1198 41.5951 4.81435C41.5951 4.50889 41.5406 4.29071 41.4315 4.15253C41.3225 4.01435 41.1862 3.93435 41.0158 3.89798C40.8523 3.86889 40.6205 3.85435 40.3411 3.85435H36.6337V5.77435H40.3411Z"
-        fill="white"></path>
-      <path
-        d="M57.2764 0.661133V3.54841H50.2909V4.69022H56.9902V7.5775H50.2909V8.71931H57.2764V11.6066H46.7266V0.661133H57.2764Z"
-        fill="white"></path>
-      <path
-        d="M68.9915 7.90477V0.661133H72.5558V11.6139H67.2809L62.4081 4.37022V11.6139H58.8438V0.661133H64.1187L68.9915 7.90477Z"
-        fill="white"></path>
-      <path
-        d="M77.6879 8.01419C77.6879 8.79237 78.6216 9.1851 80.4958 9.1851C81.1977 9.1851 81.7361 9.14873 82.0973 9.08328C82.4653 9.01783 82.7107 8.93055 82.8334 8.81419C82.956 8.7051 83.0174 8.55964 83.0174 8.3851C83.0174 8.17419 82.9492 8.01419 82.8197 7.91964C82.6834 7.8251 82.4245 7.7451 82.036 7.67964C81.6475 7.61419 80.9933 7.54874 80.0664 7.47601C78.6693 7.36692 77.538 7.17055 76.6793 6.90146C75.8206 6.6251 75.1799 6.23964 74.7574 5.73055C74.3349 5.22146 74.1236 4.56692 74.1236 3.75237C74.1236 2.65419 74.6415 1.81783 75.6774 1.23601C76.7133 0.65419 78.1309 0.363281 79.9233 0.363281C81.9406 0.363281 83.4876 0.683281 84.5644 1.31601C85.6412 1.94874 86.2205 2.87237 86.2955 4.09419H82.588C82.588 3.73783 82.3767 3.48328 81.9474 3.33055C81.518 3.17783 80.8433 3.1051 79.9233 3.1051C79.1123 3.1051 78.5671 3.16328 78.2672 3.27964C77.9742 3.39601 77.8242 3.56328 77.8242 3.77419C77.8242 3.94874 77.8924 4.07964 78.0219 4.17419C78.1582 4.26874 78.4171 4.35601 78.8124 4.42874C79.2077 4.50146 79.8142 4.57419 80.6321 4.65419C82.1178 4.7851 83.2627 4.9451 84.0669 5.13419C84.8779 5.32328 85.5185 5.65055 85.9956 6.13055C86.4727 6.61055 86.718 7.30873 86.718 8.24692C86.718 9.57782 86.2069 10.5233 85.1778 11.0833C84.1487 11.6433 82.6357 11.9269 80.6321 11.9269C78.4921 11.9269 76.8633 11.6215 75.7524 11.0178C74.6347 10.4069 74.0418 9.41055 73.9805 8.02146H77.6879V8.01419Z"
-        fill="white"></path>
-      <path
-        d="M98.6993 0.661621V3.54889H91.7137V4.69071H98.413V7.57798H91.7137V8.7198H98.6993V11.6071H88.1494V0.661621H98.6993Z"
-        fill="white"></path>
-      <path
-        d="M109.999 1.26526C110.707 1.66526 111.28 2.27617 111.709 3.09798C112.139 3.9198 112.357 4.93071 112.357 6.13798C112.357 7.34526 112.139 8.35617 111.709 9.17798C111.28 9.9998 110.707 10.6107 109.999 11.0107C109.29 11.4107 108.52 11.6143 107.681 11.6143H100.267V0.661621H107.681C108.52 0.661621 109.29 0.865258 109.999 1.26526ZM106.257 8.42162C106.748 8.42162 107.157 8.38526 107.484 8.30526C107.804 8.23253 108.084 8.02889 108.308 7.69435C108.533 7.36708 108.649 6.84344 108.649 6.13798C108.649 5.42526 108.533 4.90889 108.308 4.58162C108.084 4.25435 107.804 4.05071 107.484 3.97071C107.164 3.89798 106.755 3.85435 106.257 3.85435H103.831V8.41435H106.257V8.42162Z"
-        fill="white"></path>
-      <path d="M113.638 11.6144V8.87988H117.059V11.6144H113.638Z" fill="white"></path>
-    </symbol>
-    <symbol id="lock-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32">
-      <circle cx="16" cy="16" r="16" fill="#060A20"></circle>
-      <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M12.8549 13.2593H19.5258C21.4904 13.2593 23.0832 14.8173 23.0832 16.7389V20.8538C23.0832 22.7754 21.4904 24.3334 19.5258 24.3334H12.473C10.5093 24.3334 8.9165 22.7754 8.9165 20.8538V16.7389C8.9165 15.1585 10.0004 13.8391 11.4755 13.415L11.3832 13.4258V12.156C11.4001 9.6803 13.4586 7.66675 15.9821 7.66675C17.9551 7.66675 19.6986 8.88515 20.3421 10.69C20.4099 10.8722 20.3929 11.071 20.3083 11.2449C20.2236 11.4189 20.072 11.5514 19.8849 11.6102C19.5038 11.7419 19.0804 11.5439 18.9365 11.1629C18.5046 9.93624 17.32 9.11624 15.999 9.11624C14.2707 9.11624 12.8744 10.4754 12.865 12.1395V13.2576L12.8549 13.2593ZM15.996 20.4405C16.4109 20.4405 16.7411 20.1175 16.7411 19.7116V17.8728C16.7411 17.4753 16.4109 17.1522 15.996 17.1522C15.5895 17.1522 15.2593 17.4753 15.2593 17.8728V19.7116C15.2593 20.1175 15.5895 20.4405 15.996 20.4405Z"
-        fill="white"></path>
-    </symbol>
-    <symbol id="lock-icon-green" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32">
-      <circle cx="16" cy="16" r="16" fill="#0E7058"></circle>
-      <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M20.6021 12.1634V13.4412C22.0374 13.8892 23.0832 15.1885 23.0832 16.7404V20.8545C23.0832 22.7757 21.4904 24.3334 19.5267 24.3334H12.4738C10.5093 24.3334 8.9165 22.7757 8.9165 20.8545V16.7404C8.9165 15.1885 9.96313 13.8892 11.3976 13.4412V12.1634C11.406 9.67907 13.4637 7.66675 15.9871 7.66675C18.5444 7.66675 20.6021 9.67907 20.6021 12.1634ZM16.0043 9.11593C17.7233 9.11593 19.1205 10.4823 19.1205 12.1634V13.2615H12.8797V12.1468C12.8882 10.474 14.2854 9.11593 16.0043 9.11593ZM16.7411 19.7125C16.7411 20.1183 16.4109 20.4413 15.996 20.4413C15.5895 20.4413 15.2593 20.1183 15.2593 19.7125V17.8741C15.2593 17.4766 15.5895 17.1536 15.996 17.1536C16.4109 17.1536 16.7411 17.4766 16.7411 17.8741V19.7125Z"
-        fill="white"></path>
-    </symbol>
-    <symbol id="round-user-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32">
-      <circle cx="16" cy="16" r="16" fill="#060A20"></circle>
-      <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M20.4116 12.0758C20.4116 14.5234 18.4492 16.4859 15.9999 16.4859C13.5515 16.4859 11.5883 14.5234 11.5883 12.0758C11.5883 9.62831 13.5515 7.66663 15.9999 7.66663C18.4492 7.66663 20.4116 9.62831 20.4116 12.0758ZM15.9999 24.3333C12.3852 24.3333 9.33325 23.7458 9.33325 21.4791C9.33325 19.2116 12.4044 18.6449 15.9999 18.6449C19.6154 18.6449 22.6666 19.2324 22.6666 21.4991C22.6666 23.7666 19.5954 24.3333 15.9999 24.3333Z"
-        fill="white"></path>
-    </symbol>
-    <symbol id="logout-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 33 32">
-      <circle cx="16.5" cy="16" r="16" fill="#060A20"></circle>
-      <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M14.7462 15.3582C14.3816 15.3582 14.0933 15.6415 14.0933 15.9998C14.0933 16.3498 14.3816 16.6415 14.7462 16.6415H19.8334V20.6248C19.8334 22.6665 18.1462 24.3332 16.0604 24.3332H11.9313C9.85401 24.3332 8.16675 22.6748 8.16675 20.6332V11.3748C8.16675 9.32484 9.86248 7.6665 11.9398 7.6665H16.0774C18.1462 7.6665 19.8334 9.32484 19.8334 11.3665V15.3582H14.7462ZM22.8586 13.1167L25.2919 15.5417C25.4169 15.6667 25.4836 15.825 25.4836 16C25.4836 16.1667 25.4169 16.3333 25.2919 16.45L22.8586 18.875C22.7336 19 22.5669 19.0667 22.4086 19.0667C22.2419 19.0667 22.0752 19 21.9502 18.875C21.7002 18.625 21.7002 18.2167 21.9502 17.9667L23.2836 16.6417H19.8336V15.3583H23.2836L21.9502 14.0333C21.7002 13.7833 21.7002 13.375 21.9502 13.125C22.2002 12.8667 22.6086 12.8667 22.8586 13.1167Z"
-        fill="white"></path>
-    </symbol>
-    <symbol id="calendar-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 18 20">
-      <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M13.4109 0.76862L13.4119 1.51824C16.1665 1.73414 17.9862 3.6112 17.9891 6.48975L18 14.9155C18.0039 18.054 16.0322 19.985 12.8718 19.99L5.15189 20C2.0112 20.004 0.0148232 18.027 0.0108739 14.8796L1.32771e-05 6.55272C-0.00393603 3.65517 1.75153 1.78311 4.50618 1.53024L4.50519 0.780614C4.5042 0.340834 4.83002 0.00999952 5.26445 0.00999952C5.69887 0.00900002 6.02469 0.338835 6.02568 0.778615L6.02666 1.47826L11.8914 1.47027L11.8904 0.770619C11.8894 0.330839 12.2152 0.00100402 12.6497 4.52073e-06C13.0742 -0.000994979 13.4099 0.32884 13.4109 0.76862ZM1.52149 6.86157L16.4696 6.84158V6.49175C16.4272 4.34283 15.349 3.21539 13.4139 3.04748L13.4148 3.81709C13.4148 4.24688 13.0801 4.58771 12.6556 4.58771C12.2212 4.58871 11.8944 4.24888 11.8944 3.81909L11.8934 3.0095L6.02864 3.01749L6.02962 3.82609C6.02962 4.25687 5.70479 4.5967 5.27037 4.5967C4.83595 4.5977 4.50914 4.25887 4.50914 3.82809L4.50815 3.05847C2.58286 3.25138 1.51754 4.38281 1.5205 6.55072L1.52149 6.86157ZM12.2402 11.4043V11.4152C12.2501 11.875 12.6253 12.2238 13.0804 12.2138C13.5247 12.2029 13.8792 11.822 13.8693 11.3623C13.8486 10.9225 13.4922 10.5637 13.0488 10.5647C12.5947 10.5747 12.2392 10.9445 12.2402 11.4043ZM13.055 15.892C12.6009 15.882 12.2346 15.5032 12.2336 15.0434C12.2237 14.5837 12.588 14.2029 13.0422 14.1919H13.0521C13.5161 14.1919 13.8923 14.5707 13.8923 15.0404C13.8933 15.5102 13.5181 15.891 13.055 15.892ZM8.17186 11.4204C8.19161 11.8801 8.56778 12.239 9.02195 12.219C9.46625 12.198 9.8207 11.8182 9.80095 11.3584C9.79009 10.9086 9.42478 10.5588 8.98048 10.5598C8.52631 10.5798 8.17087 10.9606 8.17186 11.4204ZM9.02586 15.8471C8.57168 15.8671 8.1965 15.5083 8.17577 15.0485C8.17577 14.5888 8.53022 14.209 8.98439 14.188C9.42869 14.187 9.79498 14.5368 9.80486 14.9856C9.82559 15.4463 9.47015 15.8261 9.02586 15.8471ZM4.10434 11.4553C4.12408 11.915 4.50025 12.2749 4.95442 12.2539C5.39872 12.2339 5.75317 11.8531 5.73244 11.3933C5.72257 10.9435 5.35725 10.5937 4.91197 10.5947C4.4578 10.6147 4.10335 10.9955 4.10434 11.4553ZM4.95837 15.8521C4.5042 15.8731 4.12902 15.5132 4.10828 15.0535C4.1073 14.5937 4.46274 14.2129 4.91691 14.1929C5.3612 14.1919 5.7275 14.5417 5.73738 14.9915C5.75811 15.4513 5.40366 15.8321 4.95837 15.8521Z"
-        fill="#88919F"></path>
-    </symbol>
-    <symbol id="datepicker-right-arrow" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 8 8">
-      <path
-        d="M7.08686 4.754C7.0492 4.79267 6.90696 4.958 6.77448 5.094C5.99773 5.94933 3.97142 7.34933 2.91086 7.77667C2.7498 7.84533 2.34259 7.99067 2.12502 8C1.91654 8 1.71781 7.952 1.52817 7.85467C1.29177 7.71867 1.10213 7.50467 0.998214 7.252C0.93132 7.07667 0.827407 6.552 0.827407 6.54267C0.723494 5.96867 0.666341 5.036 0.666341 4.00533C0.666341 3.02333 0.723494 2.12867 0.808572 1.546C0.818314 1.53667 0.922227 0.884666 1.03588 0.661333C1.24436 0.253333 1.65157 -2.48344e-07 2.08735 -2.29295e-07L2.12502 -2.27648e-07C2.40883 0.00999978 3.00568 0.263333 3.00568 0.272666C4.00909 0.700667 5.98863 2.032 6.78422 2.91667C6.78422 2.91667 7.00828 3.144 7.1057 3.286C7.25767 3.49 7.33301 3.74267 7.33301 3.99533C7.33301 4.27733 7.24793 4.54 7.08686 4.754"
-        fill="#6F7887"></path>
-    </symbol>
-    <symbol id="datepicker-left-arrow" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 8 8">
-      <path
-        d="M0.913136 3.246C0.950804 3.20733 1.09304 3.042 1.22552 2.906C2.00227 2.05067 4.02858 0.650666 5.08914 0.223333C5.2502 0.154666 5.65741 0.00933288 5.87498 -4.66067e-07C6.08346 -4.7518e-07 6.28219 0.0479998 6.47183 0.145333C6.70823 0.281333 6.89787 0.495333 7.00179 0.747999C7.06868 0.923333 7.17259 1.448 7.17259 1.45733C7.27651 2.03133 7.33366 2.964 7.33366 3.99467C7.33366 4.97667 7.27651 5.87133 7.19143 6.454C7.18169 6.46333 7.07777 7.11533 6.96412 7.33867C6.75564 7.74667 6.34843 8 5.91265 8L5.87498 8C5.59117 7.99 4.99432 7.73667 4.99432 7.72733C3.99091 7.29933 2.01137 5.968 1.21578 5.08333C1.21578 5.08333 0.99172 4.856 0.894302 4.714C0.742329 4.51 0.666992 4.25733 0.666992 4.00467C0.666992 3.72267 0.752071 3.46 0.913136 3.246"
-        fill="#6F7887"></path>
-    </symbol>
-  </svg>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
-  </script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-</body>
-
+    <svg class="hidden" width="0" height="0">
+      <symbol
+        id="home-icon"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 32 32"
+      >
+        <circle cx="16" cy="16" r="16" fill="#060A20"></circle>
+        <path
+          d="M13.612 23.311V20.7629C13.612 20.1124 14.1432 19.5851 14.7984 19.5851H17.1935C17.5082 19.5851 17.8099 19.7092 18.0324 19.9301C18.2549 20.1509 18.3799 20.4505 18.3799 20.7629V23.311C18.3779 23.5814 18.4847 23.8414 18.6766 24.0333C18.8686 24.2252 19.1297 24.3332 19.4021 24.3332H21.0362C21.7994 24.3351 22.532 24.0355 23.0723 23.5005C23.6127 22.9655 23.9163 22.239 23.9163 21.4814V14.2222C23.9163 13.6102 23.6431 13.0297 23.1702 12.6371L17.6114 8.22973C16.6444 7.45697 15.2589 7.48192 14.3208 8.28899L8.88885 12.6371C8.39362 13.0181 8.09763 13.6004 8.08301 14.2222V21.474C8.08301 23.053 9.37249 24.3332 10.9632 24.3332H12.5599C13.1257 24.3332 13.5855 23.88 13.5896 23.3184L13.612 23.311Z"
+          fill="white"
+        ></path>
+      </symbol>
+      <symbol
+        id="logo"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 118 12"
+      >
+        <path
+          d="M10.1295 1.26526C10.8383 1.66526 11.4107 2.27617 11.8401 3.09798C12.2695 3.9198 12.4875 4.93071 12.4875 6.13798C12.4875 7.34526 12.2695 8.35617 11.8401 9.17798C11.4107 9.9998 10.8383 10.6107 10.1295 11.0107C9.42072 11.4107 8.65061 11.6143 7.81235 11.6143H0.397461V0.661621H7.81235C8.65061 0.661621 9.42072 0.865258 10.1295 1.26526ZM6.38798 8.42162C6.87867 8.42162 7.28758 8.38526 7.61471 8.30526C7.93502 8.23253 8.21444 8.02889 8.43934 7.69435C8.66424 7.36708 8.7801 6.84344 8.7801 6.13798C8.7801 5.42526 8.66424 4.90889 8.43934 4.58162C8.21444 4.25435 7.93502 4.05071 7.61471 3.97071C7.2944 3.89798 6.88549 3.85435 6.38798 3.85435H3.96179V8.41435H6.38798V8.42162Z"
+          fill="white"
+        ></path>
+        <path
+          d="M13.9121 0.661621H17.4764V11.6143H13.9121V0.661621Z"
+          fill="white"
+        ></path>
+        <path
+          d="M22.6078 8.01419C22.6078 8.79237 23.5415 9.1851 25.4157 9.1851C26.1176 9.1851 26.656 9.14873 27.0172 9.08328C27.3853 9.01783 27.6306 8.93055 27.7533 8.81419C27.8759 8.7051 27.9373 8.55964 27.9373 8.3851C27.9373 8.17419 27.8691 8.01419 27.7396 7.91964C27.6033 7.8251 27.3444 7.7451 26.9559 7.67964C26.5674 7.61419 25.9132 7.54874 24.9863 7.47601C23.5892 7.36692 22.4579 7.17055 21.5992 6.90146C20.7405 6.6251 20.0999 6.23964 19.6773 5.73055C19.2548 5.22146 19.0435 4.56692 19.0435 3.75237C19.0435 2.65419 19.5615 1.81783 20.5974 1.23601C21.6333 0.65419 23.0508 0.363281 24.8432 0.363281C26.8605 0.363281 28.4075 0.683281 29.4843 1.31601C30.5611 1.94874 31.1404 2.87237 31.2154 4.09419H27.5079C27.5079 3.73783 27.2967 3.48328 26.8673 3.33055C26.4379 3.17783 25.7633 3.1051 24.8432 3.1051C24.0322 3.1051 23.487 3.16328 23.1871 3.27964C22.8941 3.39601 22.7441 3.56328 22.7441 3.77419C22.7441 3.94874 22.8123 4.07964 22.9418 4.17419C23.0781 4.26874 23.3371 4.35601 23.7323 4.42874C24.1276 4.50146 24.7342 4.57419 25.552 4.65419C27.0377 4.7851 28.1826 4.9451 28.9868 5.13419C29.7978 5.32328 30.4384 5.65055 30.9155 6.13055C31.3926 6.61055 31.6379 7.30873 31.6379 8.24692C31.6379 9.57782 31.1268 10.5233 30.0977 11.0833C29.0686 11.6433 27.5556 11.9269 25.552 11.9269C23.412 11.9269 21.7832 11.6215 20.6723 11.0178C19.5546 10.4069 18.9617 9.41055 18.9004 8.02146H22.6078V8.01419Z"
+          fill="white"
+        ></path>
+        <path
+          d="M44.2121 1.76708C44.9414 2.50162 45.3026 3.5198 45.3026 4.81435C45.3026 6.11617 44.9414 7.12708 44.2121 7.86162C43.4829 8.59617 42.4811 8.96708 41.1998 8.96708H36.6405V11.6143H33.0762V0.661621H41.1998C42.4811 0.661621 43.4829 1.03253 44.2121 1.76708ZM40.3411 5.77435C40.6274 5.77435 40.8523 5.7598 41.0158 5.73071C41.1794 5.70162 41.3225 5.61435 41.4315 5.47617C41.5406 5.33799 41.5951 5.1198 41.5951 4.81435C41.5951 4.50889 41.5406 4.29071 41.4315 4.15253C41.3225 4.01435 41.1862 3.93435 41.0158 3.89798C40.8523 3.86889 40.6205 3.85435 40.3411 3.85435H36.6337V5.77435H40.3411Z"
+          fill="white"
+        ></path>
+        <path
+          d="M57.2764 0.661133V3.54841H50.2909V4.69022H56.9902V7.5775H50.2909V8.71931H57.2764V11.6066H46.7266V0.661133H57.2764Z"
+          fill="white"
+        ></path>
+        <path
+          d="M68.9915 7.90477V0.661133H72.5558V11.6139H67.2809L62.4081 4.37022V11.6139H58.8438V0.661133H64.1187L68.9915 7.90477Z"
+          fill="white"
+        ></path>
+        <path
+          d="M77.6879 8.01419C77.6879 8.79237 78.6216 9.1851 80.4958 9.1851C81.1977 9.1851 81.7361 9.14873 82.0973 9.08328C82.4653 9.01783 82.7107 8.93055 82.8334 8.81419C82.956 8.7051 83.0174 8.55964 83.0174 8.3851C83.0174 8.17419 82.9492 8.01419 82.8197 7.91964C82.6834 7.8251 82.4245 7.7451 82.036 7.67964C81.6475 7.61419 80.9933 7.54874 80.0664 7.47601C78.6693 7.36692 77.538 7.17055 76.6793 6.90146C75.8206 6.6251 75.1799 6.23964 74.7574 5.73055C74.3349 5.22146 74.1236 4.56692 74.1236 3.75237C74.1236 2.65419 74.6415 1.81783 75.6774 1.23601C76.7133 0.65419 78.1309 0.363281 79.9233 0.363281C81.9406 0.363281 83.4876 0.683281 84.5644 1.31601C85.6412 1.94874 86.2205 2.87237 86.2955 4.09419H82.588C82.588 3.73783 82.3767 3.48328 81.9474 3.33055C81.518 3.17783 80.8433 3.1051 79.9233 3.1051C79.1123 3.1051 78.5671 3.16328 78.2672 3.27964C77.9742 3.39601 77.8242 3.56328 77.8242 3.77419C77.8242 3.94874 77.8924 4.07964 78.0219 4.17419C78.1582 4.26874 78.4171 4.35601 78.8124 4.42874C79.2077 4.50146 79.8142 4.57419 80.6321 4.65419C82.1178 4.7851 83.2627 4.9451 84.0669 5.13419C84.8779 5.32328 85.5185 5.65055 85.9956 6.13055C86.4727 6.61055 86.718 7.30873 86.718 8.24692C86.718 9.57782 86.2069 10.5233 85.1778 11.0833C84.1487 11.6433 82.6357 11.9269 80.6321 11.9269C78.4921 11.9269 76.8633 11.6215 75.7524 11.0178C74.6347 10.4069 74.0418 9.41055 73.9805 8.02146H77.6879V8.01419Z"
+          fill="white"
+        ></path>
+        <path
+          d="M98.6993 0.661621V3.54889H91.7137V4.69071H98.413V7.57798H91.7137V8.7198H98.6993V11.6071H88.1494V0.661621H98.6993Z"
+          fill="white"
+        ></path>
+        <path
+          d="M109.999 1.26526C110.707 1.66526 111.28 2.27617 111.709 3.09798C112.139 3.9198 112.357 4.93071 112.357 6.13798C112.357 7.34526 112.139 8.35617 111.709 9.17798C111.28 9.9998 110.707 10.6107 109.999 11.0107C109.29 11.4107 108.52 11.6143 107.681 11.6143H100.267V0.661621H107.681C108.52 0.661621 109.29 0.865258 109.999 1.26526ZM106.257 8.42162C106.748 8.42162 107.157 8.38526 107.484 8.30526C107.804 8.23253 108.084 8.02889 108.308 7.69435C108.533 7.36708 108.649 6.84344 108.649 6.13798C108.649 5.42526 108.533 4.90889 108.308 4.58162C108.084 4.25435 107.804 4.05071 107.484 3.97071C107.164 3.89798 106.755 3.85435 106.257 3.85435H103.831V8.41435H106.257V8.42162Z"
+          fill="white"
+        ></path>
+        <path
+          d="M113.638 11.6144V8.87988H117.059V11.6144H113.638Z"
+          fill="white"
+        ></path>
+      </symbol>
+      <symbol
+        id="lock-icon"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 32 32"
+      >
+        <circle cx="16" cy="16" r="16" fill="#060A20"></circle>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12.8549 13.2593H19.5258C21.4904 13.2593 23.0832 14.8173 23.0832 16.7389V20.8538C23.0832 22.7754 21.4904 24.3334 19.5258 24.3334H12.473C10.5093 24.3334 8.9165 22.7754 8.9165 20.8538V16.7389C8.9165 15.1585 10.0004 13.8391 11.4755 13.415L11.3832 13.4258V12.156C11.4001 9.6803 13.4586 7.66675 15.9821 7.66675C17.9551 7.66675 19.6986 8.88515 20.3421 10.69C20.4099 10.8722 20.3929 11.071 20.3083 11.2449C20.2236 11.4189 20.072 11.5514 19.8849 11.6102C19.5038 11.7419 19.0804 11.5439 18.9365 11.1629C18.5046 9.93624 17.32 9.11624 15.999 9.11624C14.2707 9.11624 12.8744 10.4754 12.865 12.1395V13.2576L12.8549 13.2593ZM15.996 20.4405C16.4109 20.4405 16.7411 20.1175 16.7411 19.7116V17.8728C16.7411 17.4753 16.4109 17.1522 15.996 17.1522C15.5895 17.1522 15.2593 17.4753 15.2593 17.8728V19.7116C15.2593 20.1175 15.5895 20.4405 15.996 20.4405Z"
+          fill="white"
+        ></path>
+      </symbol>
+      <symbol
+        id="lock-icon-green"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 32 32"
+      >
+        <circle cx="16" cy="16" r="16" fill="#0E7058"></circle>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M20.6021 12.1634V13.4412C22.0374 13.8892 23.0832 15.1885 23.0832 16.7404V20.8545C23.0832 22.7757 21.4904 24.3334 19.5267 24.3334H12.4738C10.5093 24.3334 8.9165 22.7757 8.9165 20.8545V16.7404C8.9165 15.1885 9.96313 13.8892 11.3976 13.4412V12.1634C11.406 9.67907 13.4637 7.66675 15.9871 7.66675C18.5444 7.66675 20.6021 9.67907 20.6021 12.1634ZM16.0043 9.11593C17.7233 9.11593 19.1205 10.4823 19.1205 12.1634V13.2615H12.8797V12.1468C12.8882 10.474 14.2854 9.11593 16.0043 9.11593ZM16.7411 19.7125C16.7411 20.1183 16.4109 20.4413 15.996 20.4413C15.5895 20.4413 15.2593 20.1183 15.2593 19.7125V17.8741C15.2593 17.4766 15.5895 17.1536 15.996 17.1536C16.4109 17.1536 16.7411 17.4766 16.7411 17.8741V19.7125Z"
+          fill="white"
+        ></path>
+      </symbol>
+      <symbol
+        id="round-user-icon"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 32 32"
+      >
+        <circle cx="16" cy="16" r="16" fill="#060A20"></circle>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M20.4116 12.0758C20.4116 14.5234 18.4492 16.4859 15.9999 16.4859C13.5515 16.4859 11.5883 14.5234 11.5883 12.0758C11.5883 9.62831 13.5515 7.66663 15.9999 7.66663C18.4492 7.66663 20.4116 9.62831 20.4116 12.0758ZM15.9999 24.3333C12.3852 24.3333 9.33325 23.7458 9.33325 21.4791C9.33325 19.2116 12.4044 18.6449 15.9999 18.6449C19.6154 18.6449 22.6666 19.2324 22.6666 21.4991C22.6666 23.7666 19.5954 24.3333 15.9999 24.3333Z"
+          fill="white"
+        ></path>
+      </symbol>
+      <symbol
+        id="logout-icon"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 33 32"
+      >
+        <circle cx="16.5" cy="16" r="16" fill="#060A20"></circle>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M14.7462 15.3582C14.3816 15.3582 14.0933 15.6415 14.0933 15.9998C14.0933 16.3498 14.3816 16.6415 14.7462 16.6415H19.8334V20.6248C19.8334 22.6665 18.1462 24.3332 16.0604 24.3332H11.9313C9.85401 24.3332 8.16675 22.6748 8.16675 20.6332V11.3748C8.16675 9.32484 9.86248 7.6665 11.9398 7.6665H16.0774C18.1462 7.6665 19.8334 9.32484 19.8334 11.3665V15.3582H14.7462ZM22.8586 13.1167L25.2919 15.5417C25.4169 15.6667 25.4836 15.825 25.4836 16C25.4836 16.1667 25.4169 16.3333 25.2919 16.45L22.8586 18.875C22.7336 19 22.5669 19.0667 22.4086 19.0667C22.2419 19.0667 22.0752 19 21.9502 18.875C21.7002 18.625 21.7002 18.2167 21.9502 17.9667L23.2836 16.6417H19.8336V15.3583H23.2836L21.9502 14.0333C21.7002 13.7833 21.7002 13.375 21.9502 13.125C22.2002 12.8667 22.6086 12.8667 22.8586 13.1167Z"
+          fill="white"
+        ></path>
+      </symbol>
+      <symbol
+        id="calendar-icon"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 18 20"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M13.4109 0.76862L13.4119 1.51824C16.1665 1.73414 17.9862 3.6112 17.9891 6.48975L18 14.9155C18.0039 18.054 16.0322 19.985 12.8718 19.99L5.15189 20C2.0112 20.004 0.0148232 18.027 0.0108739 14.8796L1.32771e-05 6.55272C-0.00393603 3.65517 1.75153 1.78311 4.50618 1.53024L4.50519 0.780614C4.5042 0.340834 4.83002 0.00999952 5.26445 0.00999952C5.69887 0.00900002 6.02469 0.338835 6.02568 0.778615L6.02666 1.47826L11.8914 1.47027L11.8904 0.770619C11.8894 0.330839 12.2152 0.00100402 12.6497 4.52073e-06C13.0742 -0.000994979 13.4099 0.32884 13.4109 0.76862ZM1.52149 6.86157L16.4696 6.84158V6.49175C16.4272 4.34283 15.349 3.21539 13.4139 3.04748L13.4148 3.81709C13.4148 4.24688 13.0801 4.58771 12.6556 4.58771C12.2212 4.58871 11.8944 4.24888 11.8944 3.81909L11.8934 3.0095L6.02864 3.01749L6.02962 3.82609C6.02962 4.25687 5.70479 4.5967 5.27037 4.5967C4.83595 4.5977 4.50914 4.25887 4.50914 3.82809L4.50815 3.05847C2.58286 3.25138 1.51754 4.38281 1.5205 6.55072L1.52149 6.86157ZM12.2402 11.4043V11.4152C12.2501 11.875 12.6253 12.2238 13.0804 12.2138C13.5247 12.2029 13.8792 11.822 13.8693 11.3623C13.8486 10.9225 13.4922 10.5637 13.0488 10.5647C12.5947 10.5747 12.2392 10.9445 12.2402 11.4043ZM13.055 15.892C12.6009 15.882 12.2346 15.5032 12.2336 15.0434C12.2237 14.5837 12.588 14.2029 13.0422 14.1919H13.0521C13.5161 14.1919 13.8923 14.5707 13.8923 15.0404C13.8933 15.5102 13.5181 15.891 13.055 15.892ZM8.17186 11.4204C8.19161 11.8801 8.56778 12.239 9.02195 12.219C9.46625 12.198 9.8207 11.8182 9.80095 11.3584C9.79009 10.9086 9.42478 10.5588 8.98048 10.5598C8.52631 10.5798 8.17087 10.9606 8.17186 11.4204ZM9.02586 15.8471C8.57168 15.8671 8.1965 15.5083 8.17577 15.0485C8.17577 14.5888 8.53022 14.209 8.98439 14.188C9.42869 14.187 9.79498 14.5368 9.80486 14.9856C9.82559 15.4463 9.47015 15.8261 9.02586 15.8471ZM4.10434 11.4553C4.12408 11.915 4.50025 12.2749 4.95442 12.2539C5.39872 12.2339 5.75317 11.8531 5.73244 11.3933C5.72257 10.9435 5.35725 10.5937 4.91197 10.5947C4.4578 10.6147 4.10335 10.9955 4.10434 11.4553ZM4.95837 15.8521C4.5042 15.8731 4.12902 15.5132 4.10828 15.0535C4.1073 14.5937 4.46274 14.2129 4.91691 14.1929C5.3612 14.1919 5.7275 14.5417 5.73738 14.9915C5.75811 15.4513 5.40366 15.8321 4.95837 15.8521Z"
+          fill="#88919F"
+        ></path>
+      </symbol>
+      <symbol
+        id="datepicker-right-arrow"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 8 8"
+      >
+        <path
+          d="M7.08686 4.754C7.0492 4.79267 6.90696 4.958 6.77448 5.094C5.99773 5.94933 3.97142 7.34933 2.91086 7.77667C2.7498 7.84533 2.34259 7.99067 2.12502 8C1.91654 8 1.71781 7.952 1.52817 7.85467C1.29177 7.71867 1.10213 7.50467 0.998214 7.252C0.93132 7.07667 0.827407 6.552 0.827407 6.54267C0.723494 5.96867 0.666341 5.036 0.666341 4.00533C0.666341 3.02333 0.723494 2.12867 0.808572 1.546C0.818314 1.53667 0.922227 0.884666 1.03588 0.661333C1.24436 0.253333 1.65157 -2.48344e-07 2.08735 -2.29295e-07L2.12502 -2.27648e-07C2.40883 0.00999978 3.00568 0.263333 3.00568 0.272666C4.00909 0.700667 5.98863 2.032 6.78422 2.91667C6.78422 2.91667 7.00828 3.144 7.1057 3.286C7.25767 3.49 7.33301 3.74267 7.33301 3.99533C7.33301 4.27733 7.24793 4.54 7.08686 4.754"
+          fill="#6F7887"
+        ></path>
+      </symbol>
+      <symbol
+        id="datepicker-left-arrow"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 8 8"
+      >
+        <path
+          d="M0.913136 3.246C0.950804 3.20733 1.09304 3.042 1.22552 2.906C2.00227 2.05067 4.02858 0.650666 5.08914 0.223333C5.2502 0.154666 5.65741 0.00933288 5.87498 -4.66067e-07C6.08346 -4.7518e-07 6.28219 0.0479998 6.47183 0.145333C6.70823 0.281333 6.89787 0.495333 7.00179 0.747999C7.06868 0.923333 7.17259 1.448 7.17259 1.45733C7.27651 2.03133 7.33366 2.964 7.33366 3.99467C7.33366 4.97667 7.27651 5.87133 7.19143 6.454C7.18169 6.46333 7.07777 7.11533 6.96412 7.33867C6.75564 7.74667 6.34843 8 5.91265 8L5.87498 8C5.59117 7.99 4.99432 7.73667 4.99432 7.72733C3.99091 7.29933 2.01137 5.968 1.21578 5.08333C1.21578 5.08333 0.99172 4.856 0.894302 4.714C0.742329 4.51 0.666992 4.25733 0.666992 4.00467C0.666992 3.72267 0.752071 3.46 0.913136 3.246"
+          fill="#6F7887"
+        ></path>
+      </symbol>
+    </svg>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
