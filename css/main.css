@@ -8653,7 +8653,7 @@ svg.hidden {
 }
 
 .breadcrumb-nav {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .breadcrumb-item {
@@ -8823,6 +8823,114 @@ svg.hidden {
 
 .password-form__row--last {
   margin-bottom: 0 !important;
+}
+
+.consultation__title {
+  text-align: left;
+  font-size: 32px;
+  line-height: 1.5;
+}
+
+.consultation__subtitle {
+  color: #606060;
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+.consultation__inner {
+  width: 100%;
+}
+
+.consultation-box {
+  background: #f8fbff;
+  width: calc(100% + 24px);
+  margin-left: -12px;
+  border-radius: 24px;
+  padding: 32px 16px;
+  margin-bottom: 40px;
+}
+
+.consultation-box__btn {
+  width: 100%;
+  max-width: 343px;
+}
+
+.consultation-box__title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  padding-left: 48px;
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.consultation-box__title:before {
+  background: #060a20;
+  content: "";
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.consultation-box__text {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 32px;
+  letter-spacing: 0.8px;
+}
+
+.consultation-box__note {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.consultation-box__note br {
+  display: none;
+}
+
+.consultation-box__note:before {
+  background: #060a20;
+  content: "";
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.consultation-box--gray .consultation-box__text {
+  margin-bottom: 0;
+}
+
+.consultation-box--gray .consultation-box__title:before {
+  background: #060a20 url(../img/chat-icon.svg) center center no-repeat;
+  background-size: 16.67px 16.67px;
+}
+
+.consultation-box--green {
+  background: #eff9f8;
+}
+
+.consultation-box--green .consultation-box__title:before {
+  background: #060a20 url(../img/calendar-icon-white.svg) center center
+    no-repeat;
+  background-size: 20px 20px;
 }
 
 .news {
@@ -9329,6 +9437,15 @@ svg.hidden {
     background: url(../img/log-out-icon.svg) 50% 50% no-repeat;
   }
 
+  .consultation-box--gray .consultation-box__title:before {
+    background: #060a20 url(../img/chat-icon.svg) center center no-repeat;
+  }
+
+  .consultation-box--green .consultation-box__title:before {
+    background: #060a20 url(../img/calendar-icon-white.svg) center center
+      no-repeat;
+  }
+
   .recovery-modal__title:before {
     background: url(../img/lock-icon.svg) 50% 50% no-repeat;
   }
@@ -9392,6 +9509,11 @@ svg.hidden {
 
   .profile-form__subtitle br {
     display: block;
+  }
+
+  .consultation-box {
+    width: 100%;
+    margin-left: 0;
   }
 
   .logout-modal .modal-dialog {
@@ -11942,6 +12064,10 @@ svg.hidden {
     flex-wrap: wrap;
   }
 
+  .breadcrumb-nav {
+    margin-bottom: 32px;
+  }
+
   .profile-form .auth-modal__row {
     width: 47.9999%;
   }
@@ -13393,6 +13519,22 @@ svg.hidden {
     padding-top: 80px;
   }
 
+  .consultation-box {
+    padding: 40px;
+  }
+
+  .consultation-box__title {
+    margin-bottom: 24px;
+  }
+
+  .consultation-box__text {
+    margin-bottom: 40px;
+  }
+
+  .consultation-box__note {
+    margin-bottom: 40px;
+  }
+
   .login__btn {
     margin-bottom: 48px;
   }
@@ -14675,6 +14817,33 @@ svg.hidden {
 
   .title {
     font-size: 46px;
+  }
+
+  .consultation__inner {
+    max-width: 544px;
+  }
+
+  .consultation-box__btn {
+    display: none;
+  }
+
+  .consultation-box__note {
+    margin-bottom: 0;
+  }
+
+  .consultation-box__note br {
+    display: block;
+  }
+
+  .consultation-box--green {
+    position: relative;
+  }
+
+  .consultation-box--green:after {
+    content: url(../img/consultation-sign.png);
+    position: absolute;
+    right: -16px;
+    bottom: 30px;
   }
 
   @supports (-webkit-appearance: none) {

@@ -185,9 +185,10 @@
     <div class="page-wrapper row">
       <nav class="navbar navbar-expand-lg col-lg-3">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"
-            ><svg class="navbar__logo"><use xlink:href="#logo"></use></svg></a
-          ><button
+          <a class="navbar-brand" href="#">
+            <svg class="navbar__logo"><use xlink:href="#logo"></use></svg
+          ></a>
+          <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -387,7 +388,8 @@
                     <div class="auth-modal__row">
                       <label class="form-label auth-modal__label text-medium"
                         >First Name<span class="main-accent">*</span></label
-                      ><input
+                      >
+                      <input
                         class="form-control auth-modal__input profile-form__input--first-name"
                         type="text"
                         name="first_name"
@@ -402,7 +404,8 @@
                     <div class="auth-modal__row">
                       <label class="form-label auth-modal__label text-medium"
                         >Last Name<span class="main-accent">*</span></label
-                      ><input
+                      >
+                      <input
                         class="form-control auth-modal__input profile-form__input--last-name"
                         type="text"
                         name="last_name"
@@ -419,7 +422,8 @@
                         class="form-label auth-modal__label text-medium"
                         for="profileEmail"
                         >Your Email<span class="main-accent">*</span></label
-                      ><input
+                      >
+                      <input
                         class="form-control auth-modal__input profile-form__input--email"
                         id="profileEmail"
                         type="email"
@@ -452,7 +456,8 @@
                           required
                         /><span
                           class="input-group-append input-group-datepicker"
-                          ><svg class="datepicker-icon">
+                        >
+                          <svg class="datepicker-icon">
                             <use xlink:href="#calendar-icon"></use></svg
                         ></span>
                         <div class="invalid-feedback">
@@ -465,7 +470,8 @@
                         class="form-label auth-modal__label text-medium"
                         for="profilePhone"
                         >Phone<span class="main-accent">*</span></label
-                      ><input
+                      >
+                      <input
                         class="form-control auth-modal__input profile-form__input--email"
                         id="profilePhone"
                         type="text"
@@ -493,7 +499,8 @@
                             checked
                             name="radio-stacked"
                             required=""
-                          /><label
+                          />
+                          <label
                             class="form-check-label"
                             for="validationFormCheck2"
                             >Male</label
@@ -506,7 +513,8 @@
                             type="radio"
                             name="radio-stacked"
                             required=""
-                          /><label
+                          />
+                          <label
                             class="form-check-label"
                             for="validationFormCheck3"
                             >Female</label
@@ -657,7 +665,8 @@
                     <div class="auth-modal__row">
                       <label class="form-label auth-modal__label text-medium"
                         >Postcodes<span class="main-accent">*</span></label
-                      ><input
+                      >
+                      <input
                         class="form-control auth-modal__input address-form__input--postcodes"
                         type="text"
                         name="postcodes"
@@ -672,7 +681,8 @@
                     <div class="auth-modal__row">
                       <label class="form-label auth-modal__label text-medium"
                         >Address<span class="main-accent">*</span></label
-                      ><input
+                      >
+                      <input
                         class="form-control auth-modal__input address-form__input--address"
                         type="text"
                         name="address"
@@ -835,15 +845,58 @@
             </div>
           </div>
           <section
-            class="home block tab-pane fade"
+            class="consultation block tab-pane fade"
             id="v-pills-consultation"
             role="tabpanel"
             aria-labelledby="v-pills-consultation-tab"
           >
-            <h3>Consultation Page</h3>
+            <div class="consultation__wrapper">
+              <h2 class="consultation__title title">
+                Hello <span class="url-name">Tony</span>!
+              </h2>
+              <p class="consultation__subtitle">
+                Welcome to your Dispensed consultation!
+              </p>
+              <div class="consultation__inner">
+                <div
+                  class="consultation-box consultation-box--green consultation__box"
+                >
+                  <h3
+                    class="consultation-box__title consultation-box__title--individual"
+                  >
+                    Individual consultation
+                  </h3>
+                  <p class="consultation-box__text">
+                    Do you need to speak to a doctor for a more in-depth
+                    conversation outside of our included quarterly consultation?
+                  </p>
+                  <p class="consultation-box__note">
+                    Please select a time to speak with one <br />of our doctors.
+                  </p>
+                  <button class="main-btn consultation-box__btn">
+                    Choose Time
+                  </button>
+                </div>
+                <div
+                  class="consultation-box consultation-box--gray consultation__box"
+                >
+                  <h3
+                    class="consultation-box__title consultation-box__title--individual"
+                  >
+                    Chat consultation
+                  </h3>
+                  <p class="consultation-box__text">
+                    If you would prefer to speak to a pharmacist or a healthcare
+                    representative, you may do this for free 24/7 using the chat
+                    icon in the bottom right hand corner.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="consultation__calendly"></div>
           </section>
           <section
-            class="home block tab-pane fade"
+            class="documents block tab-pane fade"
             id="v-pills-documents"
             role="tabpanel"
             aria-labelledby="v-pills-documents-tab"
@@ -851,7 +904,7 @@
             <h3>Documents Page</h3>
           </section>
           <section
-            class="home block tab-pane fade"
+            class="treatment block tab-pane fade"
             id="v-pills-treatment"
             role="tabpanel"
             aria-labelledby="v-pills-treatment-tab"
@@ -893,7 +946,8 @@
                   class="form-label auth-modal__label text-medium"
                   for="logInEmail"
                   >Your Email<span class="main-accent">*</span></label
-                ><input
+                >
+                <input
                   class="form-control auth-modal__input login__input--email"
                   id="logInEmail"
                   type="email"
@@ -971,7 +1025,8 @@
                   class="form-label auth-modal__label text-medium"
                   for="recoveryEmail"
                   >Your Email<span class="main-accent">*</span></label
-                ><input
+                >
+                <input
                   class="form-control auth-modal__input recovery-modal__input--email"
                   id="recoveryEmail"
                   type="email"
@@ -1050,7 +1105,8 @@
                     class="form-label auth-modal__label text-medium"
                     for="signUpEmail"
                     >Your Email<span class="main-accent">*</span></label
-                  ><input
+                  >
+                  <input
                     class="form-control auth-modal__input sign-up__input--email"
                     id="signUpEmail"
                     type="email"
@@ -1066,7 +1122,8 @@
                 <div class="auth-modal__row">
                   <label class="form-label auth-modal__label text-medium"
                     >First Name<span class="main-accent">*</span></label
-                  ><input
+                  >
+                  <input
                     class="form-control auth-modal__input sign-up__input--first-name"
                     type="text"
                     name="first_name"
@@ -1081,7 +1138,8 @@
                 <div class="auth-modal__row">
                   <label class="form-label auth-modal__label text-medium"
                     >Last Name<span class="main-accent">*</span></label
-                  ><input
+                  >
+                  <input
                     class="form-control auth-modal__input sign-up__input--last-name"
                     type="text"
                     name="last_name"
@@ -1173,16 +1231,18 @@
                   <label for="signUpCheckbox"
                     ><span class="sign-up__agree-text"
                       >I agree to the <a href="#">Terms of Use</a></span
-                    ><input
+                    >
+                    <input
                       class="form-check-input"
                       id="signUpCheckbox"
                       type="checkbox"
-                      required />
+                      required
+                    />
                     <div class="invalid-feedback">
                       You must agree before submitting.
                     </div>
-                    <span class="sign-up__checkbox"></span
-                  ></label>
+                    <span class="sign-up__checkbox"></span>
+                  </label>
                 </div>
               </div>
               <button class="btn main-btn sign-up__btn" disabled>
@@ -1550,9 +1610,9 @@
       </symbol>
     </svg>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://unpkg.com/imask"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
